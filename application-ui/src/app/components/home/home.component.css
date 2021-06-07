@@ -1,0 +1,29 @@
+::ng-deep .mat-radio-outer-circle {
+    border-radius: 15% !important;
+    height: 17px !important;
+    width: 17px !important;
+}
+
+::ng-deep .mat-radio-inner-circle {
+    border-radius: 15% !important;
+    height: 17px !important;
+    width: 17px !important;
+
+}
+
+::ng-deep .greenClass {
+    color: greenyellow !important;
+}
+
+::ng-deep .blackClass {
+    color: black !important;
+}
+
+::ng-deep .redClass {
+    background-color: #ffd8d8 !important;
+}
+
+::ng-deep .nav-tabs li.active a {
+    background-color: #006ad1 !important;
+    color: white !important;
+}

@@ -1,0 +1,1453 @@
+<style>
+  .disableDiv{
+  pointer-events:none;
+  background-color: gainsboro !important;
+  }
+  </style>
+<div style="float: left;width: 1000px;">
+  <div style="float: left;width: 510px;">
+    <div style="float: left;width: 510px;">
+      <div style="float: left;margin-top: 20px;">
+        <div> <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/logo_red.png" style="width: 80px;"> </div>
+      </div>
+      <div class="largeFontSize" style="float: left;margin-top: 25px;width: 110px;margin-left: 15px;">Canada Revenue
+        Agency</div>
+      <div class="largeFontSize" style="float: left;margin-top: 25px;width: 115px;margin-left: 15px;">Agence du revenu
+        du Canada</div>
+    </div>
+    <div style="float: left;width: 510px;">
+      <div style="float: left;width: 510px;color: #004385;">
+        <h2>Registered Charity Information Return</h2>
+      </div>
+    </div>
+  </div>
+  <div style="float: left;width: 490px;">
+    <div style="float: left;width: 300px;">
+      <div style="float: left;margin-top: 20px;margin-left: 10px;">
+        <a href="javascript:void();">
+          <div (click)="userInfo()" style="float: left;" *ngIf="showLogout">
+            <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/user.png" 
+            style="width: 65px;border-radius: 50%;margin-left: 200px;margin-top: 113px;">
+          </div>
+        </a>
+      </div>
+    </div>
+    <div style="float: left;width: 190px;">
+      <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/Charity_Tax_Pro_Logo_1.png" style="width: 180px;margin-top: 14px;margin-left: 0px;height: 140px;">
+      <div style="float: left;width: 240px;">
+        <div style="float: left;margin-top: 2px;color: #004385;"><b>Protected B</b> when completed</div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+<div style="width: 1000px;float: left;margin-top: 30px;" *ngIf="progressOfFrorm">
+    <mat-card style="width: 1000px;height: 186px;background-color: #e7e7e7;color: #004385;">
+      <div style="float: left;width: 960px;">
+        <div style="float: left;width: 380px;">
+          <div style="margin-left: 0px;"><b>Name of the form</b></div>
+        </div>
+        <div style="float: left;width: 200px;">
+          <div style="margin-left: 20px;"><b>Status</b></div>
+        </div>
+        <div style="float: left;width: 370px;">
+          <div style="margin-left: 20px;"><b>Percentage Completion</b></div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T3010</div>
+        <div style="float: left;width: 200px;">{{t3010Status}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;" class="myclass">
+            <mat-progress-bar [color]="t3010color" [mode]="mode" [value]="t3010value" [bufferValue]="t3010bufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">RC2321-8e</div>
+        <div style="float: left;width: 200px;">{{rc23218eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="rc23218ecolor" [mode]="mode" [value]="rc23218evalue"
+              [bufferValue]="rc23218ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T1235-20e</div>
+        <div style="float: left;width: 200px;">{{t123520eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="t123520ecolor" [mode]="mode" [value]="t123520evalue"
+              [bufferValue]="t123520ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T1236-19e</div>
+        <div style="float: left;width: 200px;">{{t123619eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="t123619ecolor" [mode]="mode" [value]="t123619evalue"
+              [bufferValue]="t123619ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T2081-10e</div>
+        <div style="float: left;width: 200px;">{{t208110eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="t208110ecolor" [mode]="mode" [value]="t208110evalue"
+              [bufferValue]="t208110ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+  <div style="margin-top: 15px;float: left;width: 1000px;" *ngIf="showTabs">
+    <div style="float: left;">
+      <ul class="nav nav-tabs" style="margin-top: 50px;">
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionA" (click)="changeTabTot3010()">T3010</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionC" (click)="changeTabTorc232()">RC232-18e</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionD" (click)="changeTabTot1235()">T1235-20e</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionF" (click)="changeTabTot1236()">T1236-19e</a></li>
+        <li class="active" style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionE" (click)="changeTabTot2081()">T2081-10e</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#Guide" (click)="changeTabToGuide()">Guide T4033</a></li>
+      </ul>
+    </div>
+  </div>
+
+<div id="SectionE" class="tab-pane fade">
+  <form [formGroup]="formT2081" (ngSubmit)="submitFormT2081()">
+    <div style="float: left;width: 1000px;font-size: 22px;margin-top: 20px;">
+      <b>Excess corporate holding worksheet for private foundations</b>
+    </div>
+    <div style="float: left;width: 1000px;text-align: justify;margin-top: 20px;font-size: 13px;">
+      Most of the
+      Registered Charity Information Return, which includes this worksheet, is available to the public.
+      Confidential information is in Part II, Section B of
+      this form, marked "Confidential Data". Confidential information may be shared as permitted by law
+      (e.g.,
+      with certain other government departments and
+      agencies). A separate worksheet must be completed for each class of shares held by the foundation.
+    </div>
+    <div style="float: left;width: 1000px;text-align: justify;margin-top: 20px;font-size: 13px;">
+      Unless otherwise indicated, all figures requested are for the end of the fiscal period that
+      corresponds
+      to the charity's complete annual Information Return.
+    </div>
+
+    <div style="float: left;border: solid 1px black;width: 1000px;margin-top: 20px;font-size: 12px;">
+      <div style="width: 1000px;float: left;border: solid 1px black;background-color: lightgray;">
+        <div style="padding: 5px;"><b>Part I – Calculation of Holdings and Divestment Obligations</b>
+        </div>
+      </div>
+      <div style="width: 1000px;float: left;border: solid 1px black;background-color: lightgray;">
+        <div style="padding: 5px;"><b>Section A – Identification</b></div>
+      </div>
+    </div>
+    <div style="float: left;border: solid 1px black;width: 1000px;font-size: 12px;">
+      <div style="float: left;width: 1000px;">
+        <div style="float: left;margin-left: 10px;margin-top: 5px;">
+          <div style="float: left;width: 150px;">Name of the foundation</div>
+          <div style="float: left;width: 300px;"><input type="text" style="width: 300px;" formControlName="t2081FoundName"></div>
+        </div>
+        <div style="float: left;margin-left: 40px;margin-top: 5px;">
+          <div style="float: left;width: 150px;">BN/Registration number</div>
+          <div style="float: left;width: 200px;"><input type="text" style="width: 200px;" formControlName="t2081prefix" minlength="9" maxlength="9"></div>
+          <div style="float: left;width: 25px;"><input type="text" style="width: 25px;border: none;" value="RR" readonly></div>
+          <div style="float: left;width: 90px;"><input type="text" style="width: 90px;" formControlName="t2081suffix" minlength="4" maxlength="4"></div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;">
+        <div style="float: left;margin-left: 10px;margin-top: 5px;">
+          <div style="float: left;width: 150px;">Name of the Corporation</div>
+          <div style="float: left;width: 300px;"><input type="text" style="width: 300px;" formControlName="t2081CorpName"></div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;">
+        <div style="float: left;margin-left: 10px;margin-top: 5px;">
+          <div style="float: left;width: 150px;">Class of shares</div>
+          <div style="float: left;width: 300px;"><input type="text" style="width: 300px;" formControlName="t2081SharesClass"></div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;">
+        <div style="float: left;margin-left: 10px;margin-top: 5px;">
+          <div style="float: left;width: 350px;">Total number of issued and outstanding shares in this
+            class</div>
+          <div style="float: left;width: 300px;"><input type="text" style="width: 300px;" formControlName="t2081NoOfOutShares"></div>
+          <div style="float: left;width: 30px;"><input type="text"
+              style="width: 20px;margin-left: 1px;padding-left: 5px;" readonly value="A"></div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;">
+        <div style="float: left;margin-left: 10px;margin-top: 5px;">
+          <div style="float: left;width: 350px;">Fare market value <b>per share</b> at end of fiscal
+            period</div>
+          <div style="float: left;width: 20px;"><input type="text" style="width: 20px;padding-left: 5px;" readonly
+              value="$"></div>
+          <div style="float: left;width: 300px;margin-left: 1px;"><input type="text" style="width: 300px;" formControlName="t2081FareMktValue">
+          </div>
+          <div style="float: left;width: 20px;"><input type="text"
+              style="width: 20px;margin-left: 1px;padding-left: 5px;" readonly value="B"></div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;">
+        <div style="float: left;margin-left: 10px;margin-top: 5px;">
+          <div style="float: left;width: 340px;margin-top: 2px;">Is this class of shares listed on a
+            designated stock exchange?</div>
+          <div style="float: left;">
+            <mat-radio-group aria-label="Select an option" color="primary" formControlName="t2081IsClassListed">
+              <div style="float: left;margin-left: 8px;">
+                <mat-radio-button value="1">Yes</mat-radio-button>
+              </div>
+              <div style="float: left; margin-left: 7px;">
+                <mat-radio-button value="2">No</mat-radio-button>
+              </div>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      style="width: 1000px;float: left;border: solid 1px black;background-color: lightgray;font-size: 12px;">
+      <div style="padding: 5px;"><b>Section B – Original corporate holdings percentage (on March 18,
+          2007)</b>
+      </div>
+    </div>
+    <div style="width: 1000px;float: left;font-size: 12px;">
+      <div style="width: 1000px;float: left;margin-top: 10px;">
+        <div style="float: left;margin-left: 10px;width:472px;margin-top: 6px;">Holdings of the
+          foundation
+        </div>
+        <div style="float: left;width: 150px;">
+          <div style="float: left;margin-top: 5px;"><input type="text" style="width: 50px;" formControlName="t2081905"></div>
+          <div style="float: left;margin-top: 6px;margin-left: 6px;">%</div>
+          <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 5px;
+                    padding-left: 20px;padding-top: 2px;height: 23px;"><b>905</b></div>
+        </div>
+        <div style="float: left;width: 368px;">
+          <div style="float: left;width: 50px;"><img src="http://3.98.43.92/CharityTaxPro/assets/imgs/right_arrow_long.png"
+              style="width: 33px;margin-top: 13px;margin-left: 0px;"></div>
+          <div style="float: left;margin-top: 8px;margin-left: 10px;width: 170px;">Exempt shares
+            percentage</div>
+          <div style="float: left;margin-top: 5px;"><input type="text" style="width: 50px;" formControlName="t2081920"></div>
+          <div style="float: left;margin-top: 6px;margin-left: 6px;">%</div>
+          <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 5px;
+                    padding-left: 20px;padding-top: 2px;height: 23px;"><b>920</b></div>
+        </div>
+
+      </div>
+      <div style="width: 1000px;float: left;">
+        <div style="width: 472px;float: left;margin-left: 10px;">
+          <div style="width: 472px;float: left;margin-top: 10px;">
+            <div>Holdings of relevant person(s) with a material interest</div>
+          </div>
+          <div style="width: 472px;float: left;margin-top: 10px;">
+            <div>Original corporate holdings percentage (add lines 905 and 910)</div>
+          </div>
+        </div>
+        <div style="width: 150px;float: left;">
+          <div style="float: left;width: 150px;">
+            <div style="float: left;margin-top: 5px;"><input type="text" style="width: 50px;" formControlName="t2081910">
+            </div>
+            <div style="float: left;margin-top: 6px;margin-left: 6px;">%</div>
+            <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 5px;
+                    padding-left: 20px;padding-top: 2px;height: 23px;"><b>910</b></div>
+          </div>
+          <div style="float: left;width: 150px;">
+            <div style="float: left;margin-top: 5px;"><input type="text" style="width: 50px;" formControlName="t2081915">
+            </div>
+            <div style="float: left;margin-top: 6px;margin-left: 6px;">%</div>
+            <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 5px;
+                    padding-left: 20px;padding-top: 2px;height: 23px;"><b>915</b></div>
+          </div>
+        </div>
+        <div style="float: left;width: 368px;">
+          <div style="float: left;width: 50px;">&nbsp;</div>
+          <div style="float: left;margin-top: 8px;margin-left: 10px;width: 250px;text-align: justify;">
+            See Guide T2082 to determine if any part of the
+            amount reported on line 905 qualifies as exempt
+            shares</div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      style="width: 1000px;float: left;border: solid 1px black;background-color: lightgray;font-size: 12px;">
+      <div style="padding: 5px;"><b>Section C – Total corporate holdings percentage (as per the end of
+          fiscal
+          period)</b></div>
+    </div>
+    <div style="width: 1000px;float: left;font-size: 12px;">
+      <div style="width: 1000px;float: left;margin-top: 10px;">
+        <div style="float: left;margin-left: 10px;width:472px;margin-top: 6px;">Holdings of the
+          foundation
+        </div>
+        <div style="float: left;width: 150px;">
+          <div style="float: left;margin-top: 5px;"><input type="text" style="width: 50px;" formControlName="t2081925"></div>
+          <div style="float: left;margin-top: 6px;margin-left: 6px;">%</div>
+          <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 5px;
+                    padding-left: 20px;padding-top: 2px;height: 23px;"><b>925</b></div>
+        </div>
+        <div style="float: left;width: 368px;">
+          <div style="float: left;width: 50px;"><img src="http://3.98.43.92/CharityTaxPro/assets/imgs/right_arrow_long.png"
+              style="width: 33px;margin-top: 13px;margin-left: 0px;"></div>
+          <div style="float: left;margin-top: 8px;margin-left: 10px;width: 170px;">Exempt shares
+            percentage</div>
+          <div style="float: left;margin-top: 5px;"><input type="text" style="width: 50px;" formControlName="t2081940"></div>
+          <div style="float: left;margin-top: 6px;margin-left: 6px;">%</div>
+          <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 5px;
+                    padding-left: 20px;padding-top: 2px;height: 23px;"><b>940</b></div>
+        </div>
+
+      </div>
+      <div style="width: 1000px;float: left;">
+        <div style="width: 472px;float: left;margin-left: 10px;">
+          <div style="width: 472px;float: left;margin-top: 10px;">
+            <div>Holdings of relevant person(s) with a material interest</div>
+          </div>
+          <div style="width: 472px;float: left;margin-top: 10px;">
+            <div>Total corporate holdings percentage (add lines 925 and 930)</div>
+          </div>
+        </div>
+        <div style="width: 150px;float: left;">
+          <div style="float: left;width: 150px;">
+            <div style="float: left;margin-top: 5px;"><input type="text" style="width: 50px;" formControlName="t2081930">
+            </div>
+            <div style="float: left;margin-top: 6px;margin-left: 6px;">%</div>
+            <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 5px;
+                    padding-left: 20px;padding-top: 2px;height: 23px;"><b>930</b></div>
+          </div>
+          <div style="float: left;width: 150px;">
+            <div style="float: left;margin-top: 5px;"><input type="text" style="width: 50px;" formControlName="t2081935">
+            </div>
+            <div style="float: left;margin-top: 6px;margin-left: 6px;">%</div>
+            <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 5px;
+                    padding-left: 20px;padding-top: 2px;height: 23px;"><b>935</b></div>
+          </div>
+        </div>
+        <div style="float: left;width: 368px;">
+          <div style="float: left;width: 50px;">&nbsp;</div>
+          <div style="float: left;margin-top: 8px;margin-left: 10px;width: 250px;text-align: justify;">
+            See Guide T2082 to determine if any part of the
+            amount reported on line 925 qualifies as exempt
+            shares</div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      style="width: 1000px;float: left;border: solid 1px black;background-color: lightgray;font-size: 12px;">
+      <div style="padding: 5px;">
+        <b>Note: Complete Section D or Section D.1 as per instructions, not both</b>
+      </div>
+    </div>
+
+    <div style="float: left;width: 1000px;font-size: 12px;">
+
+      <div style="float: left;width: 1000px;height: 510px;">
+        <div style="float: left;width: 80px;height: 510px;background-color:#f1f1f1;">&nbsp;</div>
+        <div style="float: left;width: 920px;border: solid 1px black;background-color: lightgray;padding: 5px;">
+          <b>Section D – Excess corporate holdings percentage (complete if line 915 is less than or
+            equal
+            to 20%)</b>
+        </div>
+        <div style="width: 920px;float: left;">
+          <div style="float: left;width: 770px;">
+            <div style="float: left;width: 671px;padding: 5px;">Total corporate holdings percentage
+              (enter % from line 935)</div>
+            <div style="float: left;width: 671px;padding: 5px;">Enter the greater of 20% or line 940
+            </div>
+            <div style="float: left;width: 671px;padding: 5px;">Excess corporate holdings
+              percentage:
+              subtract line 950 from line 945 (if positive enter %, otherwise enter "0")</div>
+          </div>
+          <div style="float: left;width: 150px;">
+            <div style="float: left;width: 150px;">
+              <div style="float: left;"><input type="text" style="width: 50px;margin-top: 5px;margin-left: 10px;" formControlName="t2081945"></div>
+              <div style="float: left;margin-top: 6px;margin-left: 6px;">%</div>
+              <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 5px;
+                            padding-left: 20px;padding-top: 2px;height: 23px;"><b>945</b></div>
+            </div>
+            <div style="float: left;width: 150px;">
+              <div style="float: left;"><input type="text" style="width: 50px;margin-top: 5px;margin-left: 10px;" formControlName="t2081950"></div>
+              <div style="float: left;margin-top: 6px;margin-left: 6px;">%</div>
+              <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 5px;
+                            padding-left: 20px;padding-top: 2px;height: 23px;"><b>950</b></div>
+            </div>
+            <div style="float: left;width: 150px;">
+              <div style="float: left;"><input type="text" style="width: 50px;margin-top: 5px;margin-left: 10px;" formControlName="t2081955"></div>
+              <div style="float: left;margin-top: 6px;margin-left: 6px;">%</div>
+              <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 5px;
+                            padding-left: 20px;padding-top: 2px;height: 23px;"><b>955</b></div>
+            </div>
+          </div>
+        </div>
+        <div style="float: left;width: 920px;border: solid 1px black;background-color: lightgray;
+                padding: 5px;margin-top: 5px;"><b>
+            Section D.1 – Excess corporate holdings percentage (complete if line 915 is more than
+            20%)</b></div>
+        <div style="width: 920px;float: left;">
+          <div style="float: left;width: 920px;padding-top: 5px;padding-left: 5px;">
+            <div style="width: 765px;float: left;">
+              <div style="float: left;">Total corporate holdings percentage (enter % from line 93)
+              </div>
+            </div>
+
+            <div style="float: left;width: 150px;">
+              <div style="float: left;"><input type="text" style="width: 50px;margin-top: 0px;margin-left: 10px;" formControlName="d1t2081945"></div>
+              <div style="float: left;margin-top: 3px;margin-left: 6px;">%</div>
+              <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 0px;
+                        padding-left: 20px;padding-top: 2px;height: 23px;"><b>945</b></div>
+            </div>
+          </div>
+          <div style="float: left;width: 920px;">
+            <div style="float: left;width: 920px;padding-top: 5px;padding-left: 5px;">
+              <div style="width: 765px;float: left;">
+                <div style="float: left;text-align: justify;">Enter total corporate holdings
+                  percentage from the end of the previous fiscal period
+                  (line 935 from last year's form
+                </div>
+              </div>
+              <div style="float: left;width: 150px;">
+                <div style="float: left;"><input type="text" style="width: 50px;margin-top: 0px;margin-left: 10px;" formControlName="d1t2081941">
+                </div>
+                <div style="float: left;margin-top: 3px;margin-left: 6px;">%</div>
+                <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 0px;
+                            padding-left: 20px;padding-top: 2px;height: 23px;"><b>941</b></div>
+              </div>
+
+            </div>
+
+            <div style="float: left;width: 920px;padding-top: 5px;padding-left: 5px;">
+              <div style="width: 765px;float: left;">
+                <div style="float: left;text-align: justify;">
+                  Enter the number of percentage points by which line 915 exceeds the
+                  <b>"relevant
+                    percentage"</b>, as defined below
+                </div>
+              </div>
+              <div style="float: left;width: 150px;">
+                <div style="float: left;"><input type="text" style="width: 50px;margin-top: 0px;margin-left: 10px;" formControlName="d1t2081946">
+                </div>
+                <div style="float: left;margin-top: 3px;margin-left: 6px;">%</div>
+                <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 0px;
+                            padding-left: 20px;padding-top: 2px;height: 23px;"><b>946</b></div>
+              </div>
+
+            </div>
+
+            <div style="float: left;width: 920px;padding-top: 5px;padding-left: 5px;">
+              <div style="width: 765px;float: left;">
+                <div style="float: left;">Enter the lesser of line 941 and line 946
+                </div>
+              </div>
+              <div style="float: left;width: 150px;">
+                <div style="float: left;"><input type="text" style="width: 50px;margin-top: 0px;margin-left: 10px;" formControlName="d1t2081947">
+                </div>
+                <div style="float: left;margin-top: 3px;margin-left: 6px;">%</div>
+                <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 0px;
+                            padding-left: 20px;padding-top: 2px;height: 23px;"><b>947</b></div>
+              </div>
+
+            </div>
+
+            <div style="float: left;width: 920px;padding-top: 5px;padding-left: 5px;height: 30px;">
+              <div style="width: 765px;float: left;">
+                <div style="float: left;">Enter the greater of 20% and line 947
+                </div>
+              </div>
+
+
+              <div style="float: left;width: 150px;">
+                <div style="float: left;"><input type="text" style="width: 50px;margin-top: 0px;margin-left: 10px;" formControlName="d1t2081948">
+                </div>
+                <div style="float: left;margin-top: 3px;margin-left: 6px;">%</div>
+                <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 0px;
+                            padding-left: 19px;padding-top: 3px;height: 23px;"><b>948</b></div>
+              </div>
+
+            </div>
+            <div style="float: left;width: 920px;padding-top: 0px;padding-left: 5px;height: 30px;">
+              <div style="width: 765px;float: left;">
+                <div style="float: left;text-align: justify;">Enter the exempt share percentage
+                  from
+                  line 940
+                </div>
+              </div>
+
+
+              <div style="float: left;width: 150px;">
+                <div style="float: left;"><input type="text" style="width: 50px;margin-top: 0px;margin-left: 10px;" formControlName="d1t2081949">
+                </div>
+                <div style="float: left;margin-top: 3px;margin-left: 6px;">%</div>
+                <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 0px;
+                            padding-left: 19px;padding-top: 3px;height: 23px;"><b>949</b></div>
+              </div>
+
+            </div>
+            <div style="float: left;width: 920px;padding-top: 3px;padding-left: 5px;">
+              <div style="width: 765px;float: left;">
+                <div style="float: left;">Enter the greater of line 948 and line 949
+                </div>
+              </div>
+
+              <div style="float: left;width: 150px;">
+                <div style="float: left;"><input type="text" style="width: 50px;margin-top: 0px;margin-left: 10px;" formControlName="d1t2081950">
+                </div>
+                <div style="float: left;margin-top: 3px;margin-left: 6px;">%</div>
+                <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 0px;
+                            padding-left: 20px;padding-top: 2px;height: 23px;"><b>950</b></div>
+              </div>
+            </div>
+            <div style="float: left;width: 920px;padding-top: 3px;padding-left: 5px;">
+              <div style="width: 765px;float: left;">
+                <div style="float: left;">
+                  Excess corporate holdings percentage: subtract line 950 from line 945 (if
+                  positive enter %, otherwise enter "
+                </div>
+              </div>
+
+
+              <div style="float: left;width: 150px;">
+                <div style="float: left;"><input type="text" style="width: 50px;margin-top: 0px;margin-left: 10px;" formControlName="d1t2081955">
+                </div>
+                <div style="float: left;margin-top: 3px;margin-left: 6px;">%</div>
+                <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 0px;
+                            padding-left: 20px;padding-top: 2px;height: 23px;"><b>955</b></div>
+              </div>
+            </div>
+
+
+          </div>
+          <div style="float: left;width: 920px;margin-top: 5px;">
+            <div style="float: left;width: 920px;">For the purpose of calculating line 946,
+              <b>"relevant percentage"</b> means:
+            </div>
+            <div style="float: left;width: 920px;margin-left: 10px;">0% for the fiscal periods that
+              begin after March 18, 2007 and before March 19, 2012;</div>
+            <div style="float: left;width: 920px;margin-left: 10px;">20% for the fiscal periods that
+              begin after March 18, 2012 and before March 19, 2017</div>
+            <div style="float: left;width: 920px;margin-left: 10px;">40% for the fiscal periods that
+              begin after March 18, 2017 and before March 19, 2022;</div>
+            <div style="float: left;width: 920px;margin-left: 10px;">60% for the fiscal periods that
+              begin after March 18, 2022 and before March 19, 2027</div>
+            <div style="float: left;width: 920px;">For fiscal periods that begin after March 18,
+              2027,
+              refer to the calculation at Section D</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div
+      style="width: 1000px;float: left;border: solid 1px black;background-color: lightgray;font-size: 12px;">
+      <div style="padding: 5px;">
+        <b>Section E – Net increase/decrease in excess corporate holdings percentage </b>
+      </div>
+    </div>
+    <div style="width: 1000px;float: left;font-size: 12px;">
+      <div style="width: 1000px;float: left;margin-top: 0px;">
+        <div style="float: left;margin-left: 10px;width:840px;margin-top: 6px;">
+          Current fiscal period's excess corporate holdings percentage (enter % from line 955)
+        </div>
+        <div style="float: left;width: 150px;">
+          <div style="float: left;margin-top: 5px;margin-left: 13px;"><input type="text" style="width: 50px;" formControlName="t2081960"></div>
+          <div style="float: left;margin-top: 6px;margin-left: 6px;">%</div>
+          <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 5px;
+                padding-left: 20px;padding-top: 2px;height: 23px;"><b>960</b></div>
+        </div>
+      </div>
+      <div style="width: 1000px;float: left;margin-top: 0px;">
+        <div style="float: left;margin-left: 10px;width:840px;margin-top: 6px;">
+          Enter previous fiscal period's excess corporate holdings percentage (line 955 from last
+          year's
+          form)
+        </div>
+        <div style="float: left;width: 150px;">
+          <div style="float: left;margin-top: 5px;margin-left: 13px;"><input type="text" style="width: 50px;" formControlName="t2081965"></div>
+          <div style="float: left;margin-top: 6px;margin-left: 6px;">%</div>
+          <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 5px;
+                padding-left: 20px;padding-top: 2px;height: 23px;"><b>965</b></div>
+        </div>
+      </div>
+      <div style="width: 1000px;float: left;margin-top: 0px;">
+        <div style="float: left;margin-left: 10px;width:840px;margin-top: 6px;">
+          Calculate the difference between line 960 and line 965 (if positive or "0" enter % on line
+          970,
+          if negative enter % on line 975)
+        </div>
+      </div>
+      <div style="width: 1000px;float: left;margin-top: 0px;">
+        <div style="float: left;margin-left: 20px;width:830px;margin-top: 6px;">
+          <b>Net increase in excess corporate holdings percentage</b>
+        </div>
+
+        <div style="float: left;width: 150px;">
+          <div style="float: left;margin-top: 5px;margin-left: 13px;"><input type="text" style="width: 50px;" formControlName="t2081970"></div>
+          <div style="float: left;margin-top: 6px;margin-left: 6px;">%</div>
+          <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 5px;
+                padding-left: 20px;padding-top: 2px;height: 23px;"><b>970</b></div>
+        </div>
+      </div>
+      <div style="width: 1000px;float: left;margin-top: 0px;">
+        <div style="float: left;margin-left: 20px;width:830px;margin-top: 6px;">
+          <b>Net decrease in excess corporate holdings percentage</b>
+        </div>
+
+        <div style="float: left;width: 150px;">
+          <div style="float: left;margin-top: 5px;margin-left: 13px;"><input type="text" style="width: 50px;" formControlName="t2081975"></div>
+          <div style="float: left;margin-top: 6px;margin-left: 6px;">%</div>
+          <div style="background-color: #e9e9e9;float: left;width: 60px;margin-left: 10px;margin-top: 5px;
+                padding-left: 20px;padding-top: 2px;height: 23px;"><b>975</b></div>
+        </div>
+      </div>
+    </div>
+    <div
+      style="width: 1000px;float: left;border: solid 1px black;background-color: lightgray;font-size: 12px;">
+      <div style="padding: 5px;">
+        <b>Section F – Divestment obligation table</b>
+      </div>
+    </div>
+    <div style="width: 1000px;float: left;font-size: 12px;">
+      <div style="float: left;width: 1000px;height: 50px;">
+        <div style="float: left;width: 510px;text-align: justify;height: 50px;margin-right: 10px;">
+          <div style="float: left;margin-left: 10px;margin-top: 5px;">
+            Follow the steps below to calculate the foundation's divestment obligations (if
+            applicable).
+            Refer to Guide T2082 for full instructions on how to allocate net increases and
+            decreases
+            in excess corporate holdings.
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 20px;margin-left: 35px;"><b>1</b></div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 20px;margin-left: 35px;"><b>2</b></div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 20px;margin-left: 35px;"><b>3</b></div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 20px;margin-left: 35px;"><b>4</b></div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 20px;margin-left: 35px;"><b>5</b></div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 20px;margin-left: 35px;"><b>6</b></div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;height: 50px;">
+        <div style="float: left;width: 510px;text-align: justify;height: 50px;margin-right: 10px;">
+          <div style="float: left;margin-left: 10px;margin-top: 17px;">
+            Enter a fiscal period for each column. For column 1, enter the fiscal period for which
+            you
+            are submitting this form.
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;"><b>20 &nbsp;<input type="text" formControlName="t2081FiscalPeriod1"
+                style="width: 25px;border: none;border-bottom: solid black 1px;"></b></div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;"><b>20 &nbsp;<input type="text" formControlName="t2081FiscalPeriod2"
+                style="width: 25px;border: none;border-bottom: solid black 1px;"></b></div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;"><b>20 &nbsp;<input type="text" formControlName="t2081FiscalPeriod3"
+                style="width: 25px;border: none;border-bottom: solid black 1px;"></b></div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;"><b>20 &nbsp;<input type="text" formControlName="t2081FiscalPeriod4"
+                style="width: 25px;border: none;border-bottom: solid black 1px;"></b></div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;"><b>20 &nbsp;<input type="text" formControlName="t2081FiscalPeriod5"
+                style="width: 25px;border: none;border-bottom: solid black 1px;"></b></div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;"><b>20 &nbsp;<input type="text" formControlName="t2081FiscalPeriod6"
+                style="width: 25px;border: none;border-bottom: solid black 1px;"></b></div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;height: 50px;">
+        <div style="float: left;width: 510px;text-align: justify;height: 50px;margin-right: 10px;">
+          <div style="float: left;margin-left: 10px;margin-top: 17px;">
+            <b>Step 1</b> – Record obligations carried forward from previous fiscal periods.
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step1_1">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step1_2">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step1_3">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step1_4">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step1_5">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step1_6">
+            &nbsp;
+            %
+          </div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;height: 50px;">
+        <div style="float: left;width: 510px;text-align: justify;height: 50px;margin-right: 10px;">
+          <div style="float: left;margin-left: 10px;margin-top: 17px;">
+            <b>Step 2</b> – Allocate any net increase (from line 970) to the extent of purchases by
+            the
+            foundation to column 1.
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step2_1">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;height: 50px;">
+        <div style="float: left;width: 510px;text-align: justify;height: 50px;margin-right: 10px;">
+          <div style="float: left;margin-left: 10px;margin-top: 17px;">
+            <b>Step 3</b> – If a portion of the net increase remains unallocated, allocate the
+            remainder
+            to column 6, to the extent that the net increase results from bequests.
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step3_6">
+            &nbsp;
+            %
+          </div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;height: 60px;">
+        <div style="float: left;width: 510px;text-align: justify;height: 50px;margin-right: 10px;">
+          <div style="float: left;margin-left: 10px;margin-top: 17px;">
+            <b>Step 4</b> – If a portion of the net increase remains unallocated, allocate the
+            remainder
+            to column 3,
+            to the extent that the net increase results from gifts of shares (other than gifts from
+            relevant persons or from bequests),
+            and from redemptions, acquisitions or cancellations of shares by the corporation.
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step4_3">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;height: 50px;">
+        <div style="float: left;width: 510px;text-align: justify;height: 50px;margin-right: 10px;">
+          <div style="float: left;margin-left: 10px;margin-top: 25px;">
+            <b>Step 5</b> – If a portion of the net increase remains unallocated, allocate the
+            remainder
+            to column 2.
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step5_2">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;background-color: lightgray;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            &nbsp; </div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;height: 50px;">
+        <div style="float: left;width: 510px;text-align: justify;height: 50px;margin-right: 10px;">
+          <div style="float: left;margin-left: 10px;margin-top: 17px;">
+            <b>Step 6</b> – Allocate any net decrease (from line 975) first to meet the current
+            obligation (column 1), then to meet future obligations (columns 2 through 6) as
+            required.
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step6_1">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step6_2">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step6_3">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step6_4">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step6_5">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Step6_6">
+            &nbsp;
+            %
+          </div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;height: 50px;">
+        <div style="float: left;width: 510px;text-align: justify;height: 50px;margin-right: 10px;">
+          <div style="float: left;margin-left: 10px;margin-top: 17px;">
+            Divestment obligation for current fiscal period, and projected obligations for 5
+            subsequent
+            periods: complete the
+            calculations for each column (if positive enter %, otherwise enter "0").
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Divestment_1">
+            &nbsp;
+            % <b>C</b>
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Divestment_2">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Divestment_3">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Divestment_4">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Divestment_5">
+            &nbsp;
+            %
+          </div>
+        </div>
+        <div style="float: left;width: 80px;height: 50px;">
+          <div style="float: left;margin-top: 17px;margin-left: 13px;">
+            <input type="text" style="width: 25px;border: none;border-bottom: solid black 1px;" formControlName="t2081Divestment_6">
+            &nbsp;
+            %
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div style="width: 1000px;float: left;border: solid 1px black;font-size: 12px;margin-top: 10px;">
+      <div style="padding: 5px;">
+        <b>Note:</b>If the amount in box C is more than "0", the foundation is liable to
+        a penalty, and its registration may be revoked.
+      </div>
+    </div>
+    <div style="width: 1000px;float: left;border: solid 1px black;height: 15px;">
+      <div style="float: left;">
+        &nbsp;
+      </div>
+    </div>
+
+    <div style="width: 1000px;float: left;font-size: 12px;">
+      <div style="width: 1000px;float: left;border: solid 1px black;background-color: lightgray;">
+        <div style="padding: 5px;"><b>Part II – Material Transactions Tables</b></div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;">
+        <div style="float: left;text-align: justify;margin-left: 10px;">
+          Did the foundation or any relevant person(s) engage in a transaction or a series of
+          transactions
+          that exceeded the lesser of $100,000 and 0.5% of the fair
+          market value of all the issued and outstanding shares of the class?
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;">
+        <mat-radio-group aria-label="Select an option" color="primary" formControlName="MTT">
+          <div style="float: left;width: 400px;margin-left: 160px;">
+            <mat-radio-button value="1">Yes (complete the tables)</mat-radio-button>
+          </div>
+          <div style="float: left;width: 400px;">
+            <mat-radio-button value="2">No (do not complete the tables)</mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+      <div style="float: left;width: 1000px;">
+        <div style="float: left;text-align: justify;margin-left: 10px;">
+          (if more space is required, please attach additional pages)
+        </div>
+      </div>
+      <div style="width: 1000px;float: left;border: solid 1px black;background-color: lightgray;margin-top: 5px;">
+        <div style="padding: 5px;"><b>Section A – Material transactions by the foundation</b></div>
+      </div>
+      <div style="width:1000px;float: left;border: solid black 1px;background-color: lightgray;">
+        <div style="float: left;width: 225px;">
+          <div style="float: left;text-align: center;width: 299px;"><b>%</b></div>
+        </div>
+        <div style="float: left;width: 225px;">
+          <div style="float: left;text-align: center;width: 299px;"><b>$</b></div>
+        </div>
+        <div style="float: left;width: 225px;">
+          <div style="float: left;text-align: center;width: 300px;"><b>Aquisition (X)</b></div>
+        </div>
+        <div style="float: left;width: 225px;">
+          <div style="float: left;text-align: center;width: 300px;"><b>Disposition (X)</b></div>
+        </div>
+      </div>
+      <div style="width:1000px;float: left;border: solid black 1px;">
+        <div style="float: left;width: 1000px;">
+          <div style="float: left;width: 225px;">
+            <div style="float: left;width: 225px;">
+              <mat-form-field style="margin-left: 60px;">
+                <input matInput style="width: 280px;text-align: center;" formControlName="SecAMTT_1_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 225px;">
+            <mat-form-field style="margin-left: 60px;">
+              <input matInput style="width: 280px;text-align: center;" formControlName="SecAMTT_1_2">
+            </mat-form-field>
+          </div>
+          <mat-radio-group aria-label="Select an option" color="primary" formControlName="SecAMTT_1_3">
+            <div style="float: left;width: 225px;">
+              <div style="float: left;margin-top: 20px;margin-left: 135px;">
+                <mat-radio-button value="1"></mat-radio-button>
+              </div>
+            </div>
+            <div style="float: left;width: 225px;">
+              <div style="float: left;margin-top: 20px;margin-left: 135px;">
+                <mat-radio-button value="2"></mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        </div>
+        <div style="float: left;width: 1000px;">
+          <div style="float: left;width: 225px;">
+            <div style="float: left;width: 225px;">
+              <mat-form-field style="margin-left: 60px;">
+                <input matInput style="width: 280px;text-align: center;" formControlName="SecAMTT_2_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 225px;">
+            <mat-form-field style="margin-left: 60px;">
+              <input matInput style="width: 280px;text-align: center;" formControlName="SecAMTT_2_2">
+            </mat-form-field>
+          </div>
+          <mat-radio-group aria-label="Select an option" color="primary" formControlName="SecAMTT_2_3">
+            <div style="float: left;width: 225px;">
+              <div style="float: left;margin-top: 20px;margin-left: 135px;">
+                <mat-radio-button value="1"></mat-radio-button>
+              </div>
+            </div>
+            <div style="float: left;width: 225px;">
+              <div style="float: left;margin-top: 20px;margin-left: 135px;">
+                <mat-radio-button value="2"></mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        </div>
+        <div style="float: left;width: 1000px;">
+          <div style="float: left;width: 225px;">
+            <div style="float: left;width: 225px;">
+              <mat-form-field style="margin-left: 60px;">
+                <input matInput style="width: 280px;text-align: center;" formControlName="SecAMTT_3_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 225px;">
+            <mat-form-field style="margin-left: 60px;">
+              <input matInput style="width: 280px;text-align: center;" formControlName="SecAMTT_3_2">
+            </mat-form-field>
+          </div>
+          <mat-radio-group aria-label="Select an option" color="primary" formControlName="SecAMTT_3_3">
+            <div style="float: left;width: 225px;">
+              <div style="float: left;margin-top: 20px;margin-left: 135px;">
+                <mat-radio-button value="1"></mat-radio-button>
+              </div>
+            </div>
+            <div style="float: left;width: 225px;">
+              <div style="float: left;margin-top: 20px;margin-left: 135px;">
+                <mat-radio-button value="2"></mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        </div>
+        <div style="float: left;width: 1000px;">
+          <div style="float: left;width: 225px;">
+            <div style="float: left;width: 225px;">
+              <mat-form-field style="margin-left: 60px;">
+                <input matInput style="width: 280px;text-align: center;" formControlName="SecAMTT_4_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 225px;">
+            <mat-form-field style="margin-left: 60px;">
+              <input matInput style="width: 280px;text-align: center;" formControlName="SecAMTT_4_2">
+            </mat-form-field>
+          </div>
+          <mat-radio-group aria-label="Select an option" color="primary" formControlName="SecAMTT_4_3">
+            <div style="float: left;width: 225px;">
+              <div style="float: left;margin-top: 20px;margin-left: 135px;">
+                <mat-radio-button value="1"></mat-radio-button>
+              </div>
+            </div>
+            <div style="float: left;width: 225px;">
+              <div style="float: left;margin-top: 20px;margin-left: 135px;">
+                <mat-radio-button value="2"></mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        </div>
+        <div style="float: left;width: 1000px;">
+          <div style="float: left;width: 225px;">
+            <div style="float: left;width: 225px;">
+              <mat-form-field style="margin-left: 60px;">
+                <input matInput style="width: 280px;text-align: center;" formControlName="SecAMTT_5_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 225px;">
+            <mat-form-field style="margin-left: 60px;">
+              <input matInput style="width: 280px;text-align: center;" formControlName="SecAMTT_5_2">
+            </mat-form-field>
+          </div>
+          <mat-radio-group aria-label="Select an option" color="primary" formControlName="SecAMTT_5_3">
+            <div style="float: left;width: 225px;">
+              <div style="float: left;margin-top: 20px;margin-left: 135px;">
+                <mat-radio-button value="1"></mat-radio-button>
+              </div>
+            </div>
+            <div style="float: left;width: 225px;">
+              <div style="float: left;margin-top: 20px;margin-left: 135px;">
+                <mat-radio-button value="2"></mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        </div>
+        <div style="float: left;width: 1000px;">
+          <div style="float: left;width: 225px;">
+            <div style="float: left;width: 225px;">
+              <mat-form-field style="margin-left: 60px;">
+                <input matInput style="width: 280px;text-align: center;" formControlName="SecAMTT_6_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 225px;">
+            <mat-form-field style="margin-left: 60px;">
+              <input matInput style="width: 280px;text-align: center;" formControlName="SecAMTT_6_2">
+            </mat-form-field>
+          </div>
+          <mat-radio-group aria-label="Select an option" color="primary" formControlName="SecAMTT_6_3">
+            <div style="float: left;width: 225px;">
+              <div style="float: left;margin-top: 20px;margin-left: 135px;">
+                <mat-radio-button value="1"></mat-radio-button>
+              </div>
+            </div>
+            <div style="float: left;width: 225px;">
+              <div style="float: left;margin-top: 20px;margin-left: 135px;">
+                <mat-radio-button value="2"></mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        </div>
+        <div style="float: left;width: 1000px;">
+          <div style="float: left;width: 225px;">
+            <div style="float: left;width: 225px;">
+              <mat-form-field style="margin-left: 60px;">
+                <input matInput style="width: 280px;text-align: center;" formControlName="SecAMTT_7_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 225px;">
+            <mat-form-field style="margin-left: 60px;">
+              <input matInput style="width: 280px;text-align: center;" formControlName="SecAMTT_7_2">
+            </mat-form-field>
+          </div>
+          <mat-radio-group aria-label="Select an option" color="primary" formControlName="SecAMTT_7_3">
+            <div style="float: left;width: 225px;">
+              <div style="float: left;margin-top: 20px;margin-left: 135px;">
+                <mat-radio-button value="1"></mat-radio-button>
+              </div>
+            </div>
+            <div style="float: left;width: 225px;">
+              <div style="float: left;margin-top: 20px;margin-left: 135px;">
+                <mat-radio-button value="2"></mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        </div>
+      </div>
+      <div style="width: 1000px;float: left;border: solid 1px black;background-color: lightgray;">
+        <div style="padding-left: 5px;padding-top: 5px;"><b>Section B – Confidential data </b></div>
+        <div style="width: 995px;float: left;background-color: lightgray;">
+          <div style="padding-left: 5px;padding-bottom: 5px;"><b>Material transactions by relevant
+              person(s) </b></div>
+        </div>
+      </div>
+      <div style="width:1000px;float: left;border: solid black 1px;background-color: lightgray;">
+        <div style="float: left;width: 400px;">
+          <div style="float: left;text-align: center;width: 400px;"><b>Full name of relevant
+              person</b>
+          </div>
+        </div>
+        <div style="float: left;width: 150px;">
+          <div style="float: left;text-align: center;width: 150px;"><b>%</b></div>
+        </div>
+        <div style="float: left;width: 150px;">
+          <div style="float: left;text-align: center;width: 150px;"><b>$</b></div>
+        </div>
+        <div style="float: left;width: 150px;">
+          <div style="float: left;text-align: center;width: 150px;"><b>Aquisition (X)</b></div>
+        </div>
+        <div style="float: left;width: 145px;">
+          <div style="float: left;text-align: center;width: 145px;"><b>Disposition (X)</b></div>
+        </div>
+      </div>
+      <div style="width:1000px;float: left;border: solid black 1px;">
+        <div style="float: left;width: 1000px;">
+          <div style="float: left;width: 400px;">
+            <div style="float: left;width: 400px;">
+              <mat-form-field style="margin-left: 60px;width: 330px;">
+                <input matInput style="text-align: center;" formControlName="SecBMTT_1_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 150px;">
+            <div style="float: left;width: 150px;">
+              <mat-form-field style="margin-left: 8px; width: 140px;">
+                <input matInput style="text-align: center;" formControlName="SecBMTT_1_2">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 150px;">
+            <mat-form-field style="margin-left: 8px;width: 140px;">
+              <input matInput style="text-align: center;" formControlName="SecBMTT_1_3">
+            </mat-form-field>
+          </div>
+          <mat-radio-group aria-label="Select an option" color="primary" formControlName="SecBMTT_1_4">
+            <div style="float: left;width: 150px;">
+              <div style="float: left;margin-top: 20px;margin-left: 63px;">
+                <mat-radio-button value="1"></mat-radio-button>
+              </div>
+            </div>
+            <div style="float: left;width: 150px;">
+              <div style="float: left;margin-top: 20px;margin-left: 63px;">
+                <mat-radio-button value="2"></mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        </div>
+        <div style="float: left;width: 1000px;">
+          <div style="float: left;width: 400px;">
+            <div style="float: left;width: 400px;">
+              <mat-form-field style="margin-left: 60px;width: 330px;">
+                <input matInput style="text-align: center;" formControlName="SecBMTT_2_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 150px;">
+            <div style="float: left;width: 150px;">
+              <mat-form-field style="margin-left: 8px; width: 140px;">
+                <input matInput style="text-align: center;" formControlName="SecBMTT_2_2">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 150px;">
+            <mat-form-field style="margin-left: 8px;width: 140px;">
+              <input matInput style="text-align: center;" formControlName="SecBMTT_2_3">
+            </mat-form-field>
+          </div>
+          <mat-radio-group aria-label="Select an option" color="primary" formControlName="SecBMTT_2_4">
+            <div style="float: left;width: 150px;">
+              <div style="float: left;margin-top: 20px;margin-left: 63px;">
+                <mat-radio-button value="1"></mat-radio-button>
+              </div>
+            </div>
+            <div style="float: left;width: 150px;">
+              <div style="float: left;margin-top: 20px;margin-left: 63px;">
+                <mat-radio-button value="2"></mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        </div>
+        <div style="float: left;width: 1000px;">
+          <div style="float: left;width: 400px;">
+            <div style="float: left;width: 400px;">
+              <mat-form-field style="margin-left: 60px;width: 330px;">
+                <input matInput style="text-align: center;" formControlName="SecBMTT_3_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 150px;">
+            <div style="float: left;width: 150px;">
+              <mat-form-field style="margin-left: 8px; width: 140px;">
+                <input matInput style="text-align: center;" formControlName="SecBMTT_3_2">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 150px;">
+            <mat-form-field style="margin-left: 8px;width: 140px;">
+              <input matInput style="text-align: center;" formControlName="SecBMTT_3_3">
+            </mat-form-field>
+          </div>
+          <mat-radio-group aria-label="Select an option" color="primary" formControlName="SecBMTT_3_4">
+            <div style="float: left;width: 150px;">
+              <div style="float: left;margin-top: 20px;margin-left: 63px;">
+                <mat-radio-button value="1"></mat-radio-button>
+              </div>
+            </div>
+            <div style="float: left;width: 150px;">
+              <div style="float: left;margin-top: 20px;margin-left: 63px;">
+                <mat-radio-button value="2"></mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        </div>
+        <div style="float: left;width: 1000px;">
+          <div style="float: left;width: 400px;">
+            <div style="float: left;width: 400px;">
+              <mat-form-field style="margin-left: 60px;width: 330px;">
+                <input matInput style="text-align: center;" formControlName="SecBMTT_4_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 150px;">
+            <div style="float: left;width: 150px;">
+              <mat-form-field style="margin-left: 8px; width: 140px;">
+                <input matInput style="text-align: center;" formControlName="SecBMTT_4_2">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 150px;">
+            <mat-form-field style="margin-left: 8px;width: 140px;">
+              <input matInput style="text-align: center;" formControlName="SecBMTT_4_3">
+            </mat-form-field>
+          </div>
+          <mat-radio-group aria-label="Select an option" color="primary" formControlName="SecBMTT_4_4">
+            <div style="float: left;width: 150px;">
+              <div style="float: left;margin-top: 20px;margin-left: 63px;">
+                <mat-radio-button value="1"></mat-radio-button>
+              </div>
+            </div>
+            <div style="float: left;width: 150px;">
+              <div style="float: left;margin-top: 20px;margin-left: 63px;">
+                <mat-radio-button value="2"></mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        </div>
+        <div style="float: left;width: 1000px;">
+          <div style="float: left;width: 400px;">
+            <div style="float: left;width: 400px;">
+              <mat-form-field style="margin-left: 60px;width: 330px;">
+                <input matInput style="text-align: center;" formControlName="SecBMTT_5_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 150px;">
+            <div style="float: left;width: 150px;">
+              <mat-form-field style="margin-left: 8px; width: 140px;">
+                <input matInput style="text-align: center;" formControlName="SecBMTT_5_2">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 150px;">
+            <mat-form-field style="margin-left: 8px;width: 140px;">
+              <input matInput style="text-align: center;" formControlName="SecBMTT_5_3">
+            </mat-form-field>
+          </div>
+          <mat-radio-group aria-label="Select an option" color="primary" formControlName="SecBMTT_5_4">
+            <div style="float: left;width: 150px;">
+              <div style="float: left;margin-top: 20px;margin-left: 63px;">
+                <mat-radio-button value="1"></mat-radio-button>
+              </div>
+            </div>
+            <div style="float: left;width: 150px;">
+              <div style="float: left;margin-top: 20px;margin-left: 63px;">
+                <mat-radio-button value="2"></mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        </div>
+
+      </div>
+
+    </div>
+    </form>
+  </div>
+
+  <div style="float: left;width: 1000px;margin-top: 25px;background-color: gainsboro;margin-bottom: 15px;">
+    <a href="javascript:void();">
+      <div [ngClass]="{'disableDiv': isDownloadDisabled}" style="font-size: 13px;float: right;background-color:#00AFFF;
+      color: white;padding: 5px;width: 200px;margin-right: 0px;text-align: center;border: 2px solid #9e9e9e;"
+        (click)="downloadForm('T2081','fr')">DOWNLOAD - FRENCH</div>
+    </a>
+    <a href="javascript:void();">
+      <div [ngClass]="{'disableDiv': isDownloadDisabled}" style="float: right;background-color:#00AFFF;color: white;font-size: 13px;
+      padding: 5px;width: 200px;margin-right: 10px;text-align: center;border: 2px solid #9e9e9e;"
+        (click)="downloadForm('T2081','en')">DOWNLOAD - ENGLISH</div>
+    </a>
+    <a href="javascript:void();">
+      <div style="float: right;background-color:#00AFFF;color: white;padding: 5px;width: 110px;
+      font-size: 13px;margin-right: 10px;text-align: center;border: 2px solid #9e9e9e;"
+        (click)="submitFormT2081()">SAVE</div>
+    </a>
+    <div style="float: right;margin-right: 30px;" class="overlay" *ngIf="showSpinner">
+      <div class="center">
+          <div class="loading">
+            <mat-spinner diameter="30"></mat-spinner>
+          </div>
+      </div>
+    </div>
+  </div>

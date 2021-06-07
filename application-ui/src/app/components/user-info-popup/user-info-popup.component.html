@@ -1,0 +1,26 @@
+<div mat-dialog-content >
+    <div style="float: left;width: 100%;">
+        <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/user.png" style="width: 80px;margin-left: 78px;">
+    </div>
+    <div style="float: left;width: 100%;margin-top: 20px;"><mat-divider></mat-divider></div>
+    <div style="float: left;width: 100%;text-align: center;margin-top: 20px;">
+        {{userName}}
+        </div>
+        <div style="float: left;width: 100%;text-align: center;margin-top: 10px;">
+            {{charityName}}
+            </div>
+    <div style="float: left;width: 100%;text-align: center;margin-top: 10px;">
+        {{currentDate | date:'yyyy-MM-dd hh:mm a'}}
+        </div>
+        <div style="float: left;width: 100%;margin-top: 20px;"><mat-divider></mat-divider></div>
+  </div>
+
+  <div mat-dialog-actions>
+    <div style="float: left;margin-top: 20px;margin-left: 80px;">
+       <a href="javascript:void();">
+       <div style="float: left;padding-top: 2px;height: 25px;width: 80px;text-align: center;border-radius: 5%;
+        background-color: #006ad1;color: white;" (click)="logout()">Logout</div>
+        </a>
+    </div>
+    
+  </div>

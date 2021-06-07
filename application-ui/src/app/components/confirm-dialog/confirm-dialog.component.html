@@ -1,0 +1,25 @@
+<div *ngIf="!showFor4530" mat-dialog-content >
+  <!--<div style="float: left;width: 450px;font-size: 12px;">Amount enterd : {{amount}}</div>-->
+  <div style="float: left;width: 450px;font-size: 12px;margin-top: 10px;">{{message}}</div>
+</div>
+<div *ngIf="showFor4530" style="float:left;font-size: 13px;">
+  <ul>
+    <li>Enter the amount of other gifts received for which a tax receipt was <b>NOT</b> issued by the charity. </li>
+    <li>Do <b>NOT</b> include non tax-receipted revenue from all sources outside Canada (government and non-government). </li>
+    <li>Do <b>NOT</b> include any non tax-receipted revenue from fundraising.</li>
+    </ul>
+  </div>
+<div mat-dialog-actions>
+  <div style="float: left;margin-top: 20px;">
+     <a href="javascript:void();">
+     <div style="float: left;padding-top: 2px;height: 25px;width: 80px;text-align: center;border-radius: 5%;
+      background-color: #006ad1;color: white;" (click)="proceedAsIs()">Ok</div>
+      </a>
+  </div>
+  <div *ngIf="showForSchedule3" style="float: left;margin-top: 20px;margin-left: 10px;">
+    <a href="javascript:void();">
+        <div style="float: left;padding-top: 2px;height: 25px;width: 80px;text-align: center;border-radius: 5%;
+         background-color: #cc0000;color: white;" (click)="cancel()">Cancel</div>
+         </a>
+  </div>
+</div>

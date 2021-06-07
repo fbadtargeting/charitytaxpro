@@ -1,0 +1,13 @@
+::ng-deep .nav-tabs li.active a {
+    background-color: #00AFFF !important;
+    color: white !important;
+    border: 2px solid #9e9e9e;
+}
+
+::ng-deep .nav-tabs li a {
+    border: 1px solid #9e9e9e;
+}
+
+::ng-deep .tooltip-blue{
+    background: #00AFFF !important;
+}

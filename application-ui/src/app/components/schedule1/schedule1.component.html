@@ -1,0 +1,205 @@
+<form [formGroup]="schedule1Form" (ngSubmit)="saveSchedule1()">
+    <div style="float: left;width: 1000px;margin-top: 10px;font-size: 14px;">
+      <div style="width: 1000px;float: left;border: solid 1px black;background-color: #002952;">
+        <div style="padding: 5px;color: white;text-align: center;width: 750px;float: left;">
+          <b>Foundations</b>
+        </div>
+        <div style="padding: 5px;color: white;text-align: center;width: 230px;float: left;"><b>
+            Schedule
+            1</b></div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 20px;">
+        <div style="margin-top: 5px;float: left;">
+          <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 6px;padding-top: 1.5px;">1</div>
+          </div>
+          <div style="float: left;margin-top: 0px;margin-left: 5px;width: 740px;text-align: justify;">
+            Did the foundation acquire control of a corporation?
+          </div>
+          <div style="float: left;margin-left: 10px;">
+            <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+              <div style="padding-left: 7px;padding-top: 1.5px;">100</div>
+            </div>
+          </div>
+          
+          <div style="float: left;">
+            <div #tooltip="matTooltip"
+            matTooltip="Select YES if the foundation acquired control of a
+            corporation in the fiscal period." matTooltipPosition="above"
+            matTooltipClass="tooltip-blue"
+            class="largeFontSize" style="float: left;margin-left: 4px;border: 1px solid black;border-radius: 50%;
+              width: 15px;height: 15px;">
+              <div style="margin-top: -3px;"><i style="margin-left: 5px;font-size: 12px;"><b >i</b></i></div>
+            </div>
+            <mat-radio-group aria-label="Select an option" color="primary" formControlName="col_100">
+              <div style="float: left;margin-left: 15px;">
+                <mat-radio-button #col100 value="1">Yes</mat-radio-button>
+              </div>
+              <div style="float: left; margin-left: 20px;">
+                <mat-radio-button value="2">No</mat-radio-button>
+              </div>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;">
+        <div style="margin-top: 5px;float: left;">
+          <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 6px;padding-top: 1.5px;">2</div>
+          </div>
+          <div style="float: left;margin-top: 0px;margin-left: 5px;width: 740px;text-align: justify;">
+            Did the foundation incur any debts other than for current operating expenses,
+            purchasing or selling investments, or in administering charitable activities?
+          </div>
+          <div style="float: left;margin-left: 10px;">
+            <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+              <div style="padding-left: 7px;padding-top: 1.5px;">110</div>
+            </div>
+          </div>
+          
+          <div style="float: left;">
+            <div #tooltip="matTooltip"
+            matTooltip="Select YES if the foundation incurred debts (other than
+            for current operating expenses) related to the buying and
+            selling of investments or in administering charitable
+            activities during the fiscal period.
+            
+            Public and private foundations are not allowed to incur
+            debts other than in the situations described below.
+            
+            Debts incurred for current operating expenses are usually
+            short-term debts. This allows a foundation to have accounts
+            payable, i.e., salaries payable, rent payable,
+            or an amount due on account with their office supplies
+            distributor.
+            
+            Debts incurred in connection with the buying and selling
+            of investments includes debts, i.e., brokerage fees and
+            other incidental amounts related to the buying or selling of
+            investments. Debts to acquire investments, i.e., shares or
+            other securities are also acceptable.
+            
+            Debts for administering charitable activities must be
+            directly linked to the charitable activities of the foundation.
+            
+            The debts can include short-term debts, i.e., for current
+            operating expenses, and debts of larger amounts and longer
+            terms incurred in buying an asset used directly in
+            charitable activities, i.e., a loan to buy a vehicle used to
+            deliver meals to the poor.
+            
+            NOTE: Questions 3 and 4 apply to private foundations only." matTooltipPosition="above"
+            matTooltipClass="tooltip-blue"
+            class="largeFontSize" style="float: left;margin-left: 4px;border: 1px solid black;border-radius: 50%;
+              width: 15px;height: 15px;">
+              <div style="margin-top: -3px;"><i style="margin-left: 5px;font-size: 12px;"><b >i</b></i></div>
+            </div>
+            <mat-radio-group aria-label="Select an option" color="primary" formControlName="col_110">
+              <div style="float: left;;margin-left: 15px;">
+                <mat-radio-button value="1">Yes</mat-radio-button>
+              </div>
+              <div style="float: left; margin-left: 20px;">
+                <mat-radio-button value="2">No</mat-radio-button>
+              </div>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 20px;">
+        <b>For private foundations only:</b>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 20px;">
+        <div style="margin-top: 5px;float: left;">
+          <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 6px;padding-top: 1.5px;">3</div>
+          </div>
+          <div style="float: left;margin-top: 0px;margin-left: 5px;width: 740px;text-align: justify;">
+            Did the foundation hold any shares, rights to acquire shares, or debts owing to it
+            that
+            meet
+            the definition of a non- qualified investment?
+          </div>
+          <div style="float: left;margin-left: 10px;">
+            <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+              <div style="padding-left: 7px;padding-top: 1.5px;">120</div>
+            </div>
+          </div>
+          <div style="float: left;">
+            <div #tooltip="matTooltip"
+            matTooltip="Select YES if the private foundation held any shares,
+            rights to acquire shares, or debts owing to it that could be
+            defined as a non-qualified investment during the fiscal
+            period. 
+            
+            Non-qualified investments (debts, shares,
+            or rights to a share) may result in a tax payable by the
+            debtor or corporation if the private foundation receives
+            interest or dividends on these investments, falling short of
+            an amount based on the prescribed rate (section 4301 of the
+            Income Tax Regulations)." matTooltipPosition="above"
+            matTooltipClass="tooltip-blue"
+            class="largeFontSize" style="float: left;margin-left: 10px;border: 1px solid black;border-radius: 50%;
+              width: 15px;height: 15px;margin-top: 1px;">
+              <div style="margin-top: -3px;"><i style="margin-left: 5px;font-size: 12px;"><b >i</b></i></div>
+            </div>
+            <mat-radio-group aria-label="Select an option" color="primary" formControlName="col_120">
+              <div style="float: left;;margin-left: 15px;">
+                <mat-radio-button value="1">Yes</mat-radio-button>
+              </div>
+              <div style="float: left; margin-left: 20px;">
+                <mat-radio-button value="2">No</mat-radio-button>
+              </div>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;">
+        <div style="margin-top: 5px;float: left;">
+          <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 6px;padding-top: 1.5px;">4</div>
+          </div>
+          <div style="float: left;margin-top: 0px;margin-left: 5px;width: 740px;text-align: justify;">
+            Did the foundation own more than 2% of any class of shares of a corporation at any
+            time
+            during the fiscal period?
+          </div>
+          <div style="float: left;margin-left: 10px;">
+            <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+              <div style="padding-left: 7px;padding-top: 1.5px;">130</div>
+            </div>
+          </div>
+          <div style="float: left;">
+            <div #tooltip="matTooltip"
+            matTooltip="Select YES if the foundation owned more than 2% of any
+            class of shares of a corporation at any time during the fiscal
+            period. Make sure to complete the Form T2081, Excess 
+            Corporate Holdings Worksheet for Private Foundations." matTooltipPosition="above"
+            matTooltipClass="tooltip-blue"
+            class="largeFontSize" style="float: left;margin-left: 10px;border: 1px solid black;border-radius: 50%;
+              width: 15px;height: 15px;margin-top: 1px;">
+              <div style="margin-top: -3px;"><i style="margin-left: 5px;font-size: 12px;"><b >i</b></i></div>
+            </div>
+            <mat-radio-group aria-label="Select an option" color="primary" formControlName="col_130">
+              <div style="float: left;;margin-left: 15px;">
+                <mat-radio-button value="1" (change)="backToA3($event)">Yes</mat-radio-button>
+              </div>
+              <div style="float: left; margin-left: 20px;">
+                <mat-radio-button value="2" (change)="backToA3($event)">No</mat-radio-button>
+              </div>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;" *ngIf="s1_4_showConfirmation">
+        <b>If yes</b>, you must complete and attach Form T2081, Excess Corporate Holdings
+        Worksheet for Private Foundations.
+      </div>
+    </div>
+    </form>
+
+    <div style="float: left;width: 1000px;margin-top: 10px;background-color: gainsboro;">
+        <a href="javascript:void();">
+            <div style="float: right;background-color:#006ad1;color: white;padding: 5px;width: 200px;" (click)="saveSchedule1()">
+                Save</div>
+        </a>
+    </div>

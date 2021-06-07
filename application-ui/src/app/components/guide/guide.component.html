@@ -1,0 +1,138 @@
+<div style="float: left;width: 1000px;">
+  <div style="float: left;width: 510px;">
+    <div style="float: left;width: 510px;">
+      <div style="float: left;margin-top: 20px;">
+        <div> <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/logo_red.png" style="width: 80px;"> </div>
+      </div>
+      <div class="largeFontSize" style="float: left;margin-top: 25px;width: 110px;margin-left: 15px;">Canada Revenue
+        Agency</div>
+      <div class="largeFontSize" style="float: left;margin-top: 25px;width: 115px;margin-left: 15px;">Agence du revenu
+        du Canada</div>
+    </div>
+    <div style="float: left;width: 510px;">
+      <div style="float: left;width: 510px;color: #004385;">
+        <h2>Registered Charity Information Return</h2>
+      </div>
+    </div>
+  </div>
+  <div style="float: left;width: 490px;">
+    <div style="float: left;width: 300px;">
+      <div style="float: left;margin-top: 20px;margin-left: 10px;">
+        <a href="javascript:void();">
+          <div (click)="userInfo()" style="float: left;" *ngIf="showLogout">
+            <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/user.png" 
+            style="width: 65px;border-radius: 50%;margin-left: 200px;margin-top: 113px;">
+          </div>
+        </a>
+      </div>
+    </div>
+    <div style="float: left;width: 190px;">
+      <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/Charity_Tax_Pro_Logo_1.png" style="width: 180px;margin-top: 14px;margin-left: 0px;height: 140px;">
+      <div style="float: left;width: 240px;">
+        <div style="float: left;margin-top: 2px;color: #004385;"><b>Protected B</b> when completed</div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+  <div style="width: 1000px;float: left;margin-top: 30px;" *ngIf="progressOfFrorm">
+    <mat-card style="width: 1000px;height: 186px;background-color: #e7e7e7;color: #004385;">
+      <div style="float: left;width: 960px;">
+        <div style="float: left;width: 380px;">
+          <div style="margin-left: 0px;"><b>Name of the form</b></div>
+        </div>
+        <div style="float: left;width: 200px;">
+          <div style="margin-left: 20px;"><b>Status</b></div>
+        </div>
+        <div style="float: left;width: 370px;">
+          <div style="margin-left: 20px;"><b>Percentage Completion</b></div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T3010</div>
+        <div style="float: left;width: 200px;">{{t3010Status}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;" class="myclass">
+            <mat-progress-bar [color]="t3010color" [mode]="mode" [value]="t3010value" [bufferValue]="t3010bufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">RC232-18e</div>
+        <div style="float: left;width: 200px;">{{rc23218eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="rc23218ecolor" [mode]="mode" [value]="rc23218evalue"
+              [bufferValue]="rc23218ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T1235-20e</div>
+        <div style="float: left;width: 200px;">{{t123520eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="t123520ecolor" [mode]="mode" [value]="t123520evalue"
+              [bufferValue]="t123520ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T1236-19e</div>
+        <div style="float: left;width: 200px;">{{t123619eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="t123619ecolor" [mode]="mode" [value]="t123619evalue"
+              [bufferValue]="t123619ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T2081-10e</div>
+        <div style="float: left;width: 200px;">{{t208110eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="t208110ecolor" [mode]="mode" [value]="t208110evalue"
+              [bufferValue]="t208110ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  
+  <div style="margin-top: 15px;float: left;width: 1000px;" *ngIf="showTabs">
+    <div style="float: left;">
+      <ul class="nav nav-tabs" style="margin-top: 50px;">
+        <li  style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionA"
+            (click)="changeTabTot3010()">T3010</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionC"
+            (click)="changeTabTorc232()">RC232-18e</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionD"
+            (click)="changeTabTot1235()">T1235-20e</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionF"
+            (click)="changeTabTot1236()">T1236-19e</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionE"
+            (click)="changeTabTot2081()">T2081-10e</a></li>
+            <li class="active" style="width: 166px;text-align: center;"><a data-toggle="tab" href="#Guide" (click)="changeTabToGuide()">Guide T4033</a></li>
+      </ul>
+    </div>
+  </div>
+  <div *ngIf="showPdf" id="Guide">
+<div class="container" style="float: left;width: 1000px;">
+    <pdf-viewer [src]="pdfSource"
+                [original-size]="false"
+    ></pdf-viewer>
+  </div>
+  </div>

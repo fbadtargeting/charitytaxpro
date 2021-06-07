@@ -1,0 +1,117 @@
+<div style="float: left; width: 1000px;">
+  <div style="float: left;width: 510px;">
+    <div style="float: left;width: 510px;">
+      <div style="float: left;margin-top: 20px;">
+        <div> <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/logo_red.png" style="width: 80px;"> </div>
+      </div>
+      <div style="float: left;margin-top: 25px;font-size: 14px;width: 110px;margin-left: 15px;">Canada Revenue Agency
+      </div>
+      <div style="float: left;margin-top: 25px;font-size: 14px;width: 115px;margin-left: 15px;">Agence du revenu du
+        Canada
+      </div>
+    </div>
+    <div style="float: left;width: 510px;">
+      <div style="float: left;width: 510px;color: #004385;">
+        <h2>Registered Charity Information Return</h2>
+      </div>
+      <div style="float: left;margin-top: 32px;"></div>
+    </div>
+  </div>
+  <div style="float: left;width: 480px;">
+    <div style="float: left;">
+      <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/Charity_Tax_Pro_Logo_1.png" style="width: 180px;margin-top: 14px;margin-left: 310px;height: 140px;">
+      </div>
+    </div>
+</div>
+
+
+<div style="width: 1000px;float: left;">
+  <div style="float: left;width: 1000px;height: 25px;">
+    &nbsp;
+  </div>
+  <div style="width: 100%;float: left;">
+  <div style="width: 1000px;float:left;">
+    <mat-card style="width: 1000px;height: 500px;background-color: #E5E7E9;margin-bottom: 25px;">
+     
+    <div id="loginDiv" style="width: 300px;height: 400px;float: left;margin-left: 100px;">
+      <div style="float: left;margin-top: 10px;font-size: 20px;color: #004385;">Existing User</div>
+      <div style="float: left;width: 300px;height: 80px;margin-top: 35px;">
+        <mat-form-field class="example-full-width" style="width: 300px;">
+          <mat-label>User Name</mat-label>
+          <input matInput placeholder="" value="" id="user_name">
+        </mat-form-field>
+        <!--<input type="text" placeholder="Username" style="width: 300px;height: 50px;text-align: center;">-->
+      </div>
+      <div style="float: left;width: 300px;height: 80px;">
+        <!--<input type="password" placeholder="Password" style="width: 300px;height: 50px;text-align: center;">-->
+        <mat-form-field class="example-full-width" style="width: 300px;">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="" value="" id="pass_word">
+        </mat-form-field>
+      </div>
+      <div style="float: left;width: 300px;height: 80px;color: white;font-size: 14px;">
+        <input type="button" (click)="validate()" value="Sign in" style="width: 300px;height: 50px;background-color: #00AFFF;border: none;">
+      </div>
+      
+      <div style="float: left;margin-left: 120px;">
+        <mat-spinner *ngIf="showSpinnerLogin" color="primary" diameter="50"></mat-spinner>
+        </div>
+      <a href="javascript:void();">
+        <div style="width: 300px;margin-top: 30px;float: left;color:rgba(0,0,0,.54);text-align: center;" (click)="sendPassword()">
+        Forgot User Name / Password 
+      </div></a>
+      <div style="float: left;margin-top: 20px;" *ngIf="showForgotPasswordMessage">
+        {{forgotPasswordMessage}}
+        </div>
+      
+    
+    </div>
+
+    <div style="float: left;width: 150px;height: 400px;">
+    <mat-divider vertical style="height: 470px;margin-right: 75px;border-right-width: 2px;"></mat-divider>
+    </div>
+
+    <div id="registerDiv" style="width: 300px;height: 400px;float: left;">
+      <div style="float: left;margin-top: 10px;font-size: 20px;color: #004385;">New User</div>
+      <div style="float: left;width: 300px;height: 80px;margin-top: 35px;">
+        <!--<input type="text" placeholder="Username" style="width: 300px;height: 50px;text-align: center;">-->
+        <mat-form-field class="example-full-width" style="width: 300px;">
+          <mat-label>Business Registration Number</mat-label>
+          <input matInput placeholder="" value="" id="charityName">
+        </mat-form-field>
+      </div>
+      <div style="float: left;width: 300px;height: 80px;margin-top: 0px;">
+        <!--<input type="text" placeholder="Username" style="width: 300px;height: 50px;text-align: center;">-->
+        <mat-form-field class="example-full-width" style="width: 300px;">
+          <mat-label>User Name</mat-label>
+          <input matInput placeholder="" value="" id="userName">
+        </mat-form-field>
+      </div>
+      <div style="float: left;width: 300px;height: 80px;">
+        <!--<input type="password" placeholder="Password" style="width: 300px;height: 50px;text-align: center;">-->
+        <mat-form-field class="example-full-width" style="width: 300px;">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="" value="" id="password">
+        </mat-form-field>
+      </div>
+      <div style="float: left;width: 300px;height: 80px;">
+        <!--<input type="text" placeholder="Email id" style="width: 300px;height: 50px;text-align: center;">-->
+        <mat-form-field class="example-full-width" style="width: 300px;">
+          <mat-label>Email Address</mat-label>
+          <input matInput placeholder="" value="" id="emailId">
+        </mat-form-field>
+      </div>
+      <div style="float: left;width: 300px;height: 80px;color: white;font-size: 14px;">
+        <input type="button" value="Register" style="width: 300px;height: 50px;background-color: #00AFFF;border: none;"
+        (click)="register()">
+      </div>
+      
+      
+    </div>
+ 
+    </mat-card>
+  </div>
+  
+</div>
+
+</div>

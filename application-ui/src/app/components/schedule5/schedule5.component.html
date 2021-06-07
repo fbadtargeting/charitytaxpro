@@ -1,0 +1,241 @@
+<form [formGroup]="schedule5Form" (ngSubmit)="saveSchedule5()">
+<div style="float: left;width: 1000px;margin-top: 15px;font-size: 13px;">
+    <div style="width: 1000px;float: left;border: solid 1px black;background-color: #002952;">
+      <div style="padding: 5px;color: white;text-align: center;width: 750px;float: left;">
+        <b>Non-cash gifts</b>
+      </div>
+      <div style="padding: 5px;color: white;text-align: center;width: 230px;float: left;"><b>
+          Schedule
+          5</b></div>
+    </div>
+    <div style="float: left;width: 1000px;">
+      <b>Important:</b> If you complete this section, you must answer yes to question C11.
+    </div>
+    <div style="margin-top: 10px;float: left;width: 1000px;">
+      <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+        <div style="padding-left: 6px;padding-top: 1.5px;">1</div>
+      </div>
+      <div style="float: left;">
+        <div style="float: left;margin-top: 5px;margin-left: 5px;width: 740px;text-align: justify;">
+          Select all types of non-cash gifts received for which a tax receipt was issued:
+        </div>
+      </div>
+    </div>
+    <div style="width: 1000px;float: left;margin-top: 5px;">
+      <div style="float: left;margin-top: 10px;">
+        <div style="float: left;width: 320px;">
+          <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 7px;padding-top: 1.5px;">500</div>
+          </div>
+          <div style="float: left;margin-left: 10px;margin-top: 2.5px;">
+            <section class="example-section">
+              <mat-checkbox #col500 class="example-margin" color="primary" formControlName="col_500"></mat-checkbox>
+            </section>
+          </div>
+          <div style="float: left;margin-left: 5px;margin-top: 2px;">
+            Artwork/wine/jewellery
+          </div>
+        </div>
+        <div style="float: left;width: 320px;">
+          <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 7px;padding-top: 1.5px;">525</div>
+          </div>
+          <div style="float: left;margin-left: 10px;margin-top: 2.5px;">
+            <section class="example-section">
+              <mat-checkbox class="example-margin" color="primary" formControlName="col_525"></mat-checkbox>
+            </section>
+          </div>
+          <div style="float: left;margin-left: 5px;margin-top: 2px;">
+            Ecological properties
+          </div>
+        </div>
+        <div style="float: left;width: 350px;">
+          <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 7px;padding-top: 1.5px;">550</div>
+          </div>
+          <div style="float: left;margin-left: 10px;margin-top: 2.5px;">
+            <section class="example-section">
+              <mat-checkbox class="example-margin" color="primary" formControlName="col_550"></mat-checkbox>
+            </section>
+          </div>
+          <div style="float: left;margin-left: 5px;margin-top: 2px;font-size: 12px;">
+            Publicly traded securities/ commodities/mutual funds
+          </div>
+        </div>
+      </div>
+      <div style="float: left;margin-top: 10px;">
+        <div style="float: left;width: 320px;">
+          <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 7px;padding-top: 1.5px;">505</div>
+          </div>
+          <div style="float: left;margin-left: 10px;margin-top: 2.5px;">
+            <section class="example-section">
+              <mat-checkbox class="example-margin" color="primary" formControlName="col_505"></mat-checkbox>
+            </section>
+          </div>
+          <div style="float: left;margin-left: 5px;margin-top: 2px;">
+            Building materials
+          </div>
+        </div>
+        <div style="float: left;width: 320px;">
+          <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 7px;padding-top: 1.5px;">530</div>
+          </div>
+          <div style="float: left;margin-left: 10px;margin-top: 2.5px;">
+            <section class="example-section">
+              <mat-checkbox class="example-margin" color="primary" formControlName="col_530"></mat-checkbox>
+            </section>
+          </div>
+          <div style="float: left;margin-left: 5px;margin-top: 2px;">
+            Life insurance policies
+          </div>
+        </div>
+        <div style="float: left;width: 350px;">
+          <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 7px;padding-top: 1.5px;">555</div>
+          </div>
+          <div style="float: left;margin-left: 10px;margin-top: 2.5px;">
+            <section class="example-section">
+              <mat-checkbox class="example-margin" color="primary" formControlName="col_555"></mat-checkbox>
+            </section>
+          </div>
+          <div style="float: left;margin-left: 5px;margin-top: 2px;">
+            Books
+          </div>
+        </div>
+      </div>
+      <div style="float: left;margin-top: 10px;">
+        <div style="float: left;width: 320px;">
+          <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 7px;padding-top: 1.5px;">510</div>
+          </div>
+          <div style="float: left;margin-left: 10px;margin-top: 2.5px;">
+            <section class="example-section">
+              <mat-checkbox class="example-margin" color="primary" formControlName="col_510"></mat-checkbox>
+            </section>
+          </div>
+          <div style="float: left;margin-left: 5px;margin-top: 2px;">
+            Clothing/furniture/food
+          </div>
+        </div>
+        <div style="float: left;width: 320px;">
+          <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 7px;padding-top: 1.5px;">535</div>
+          </div>
+          <div style="float: left;margin-left: 10px;margin-top: 2.5px;">
+            <section class="example-section">
+              <mat-checkbox class="example-margin" color="primary" formControlName="col_535"></mat-checkbox>
+            </section>
+          </div>
+          <div style="float: left;margin-left: 5px;margin-top: 2px;">
+            Medical equipment/supplies
+          </div>
+        </div>
+        <div style="float: left;width: 350px;">
+          <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 7px;padding-top: 1.5px;">560</div>
+          </div>
+          <div style="float: left;margin-left: 10px;margin-top: 2.5px;">
+            <section class="example-section">
+              <mat-checkbox class="example-margin" color="primary" formControlName="col_560"></mat-checkbox>
+            </section>
+          </div>
+          <div style="float: left;margin-left: 5px;margin-top: 2px;">
+            Other
+          </div>
+        </div>
+      </div>
+      <div style="float: left;margin-top: 10px;">
+        <div style="float: left;width: 320px;">
+          <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 7px;padding-top: 1.5px;">515</div>
+          </div>
+          <div style="float: left;margin-left: 10px;margin-top: 2.5px;">
+            <section class="example-section">
+              <mat-checkbox class="example-margin" color="primary" formControlName="col_515"></mat-checkbox>
+            </section>
+          </div>
+          <div style="float: left;margin-left: 5px;margin-top: 2px;">
+            Vehicles
+          </div>
+        </div>
+        <div style="float: left;width: 320px;">
+          <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 7px;padding-top: 1.5px;">540</div>
+          </div>
+          <div style="float: left;margin-left: 10px;margin-top: 2.5px;">
+            <section class="example-section">
+              <mat-checkbox class="example-margin" color="primary" formControlName="col_540"></mat-checkbox>
+            </section>
+          </div>
+          <div style="float: left;margin-left: 5px;margin-top: 2px;">
+            Privately-held securities
+          </div>
+        </div>
+        <div style="float: left;width: 350px;">
+          <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 7px;padding-top: 1.5px;">565</div>
+          </div>
+          <div style="float: left;margin-left: 10px;margin-top: -12px;">
+            <mat-form-field class="" appearance="fill">
+              <input matInput placeholder="Specify:" value="" formControlName="col_565">
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div style="float: left;margin-top: 10px;">
+        <div style="float: left;width: 320px;">
+          <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 7px;padding-top: 1.5px;">520</div>
+          </div>
+          <div style="float: left;margin-left: 10px;margin-top: 2.5px;">
+            <section class="example-section">
+              <mat-checkbox class="example-margin" color="primary" formControlName="col_520"></mat-checkbox>
+            </section>
+          </div>
+          <div style="float: left;margin-left: 5px;margin-top: 2px;">
+            Cultural properties
+          </div>
+        </div>
+        <div style="float: left;width: 350px;">
+          <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+            <div style="padding-left: 7px;padding-top: 1.5px;">545</div>
+          </div>
+          <div style="float: left;margin-left: 10px;margin-top: 2.5px;">
+            <section class="example-section">
+              <mat-checkbox class="example-margin" color="primary" formControlName="col_545"></mat-checkbox>
+            </section>
+          </div>
+          <div style="float: left;margin-left: 5px;margin-top: 2px;">
+            Machinery/equipment/ computers/software
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div style="margin-top: 15px;float: left;width: 1000px;">
+      <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+        <div style="padding-left: 6px;padding-top: 1.5px;">2</div>
+      </div>
+      <div style="float: left;">
+        <div style="float: left;margin-top: 5px;margin-left: 5px;width: 718px;text-align: justify;">
+          Enter the total amount of tax-receipted non-cash gifts
+        </div>
+      </div>
+      <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+        <div style="padding-left: 7px;padding-top: 1.5px;">580</div>
+      </div>
+      <div style="float: left;margin-left: 10px;margin-top: -12px;">
+        <mat-form-field class="" appearance="fill">
+          <input matInput placeholder="$" value="" formControlName="col_580">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  </form>
+  <div style="float: left;width: 1000px;margin-top: 10px;background-color: gainsboro;">
+    <a href="javascript:void();">
+        <div style="float: right;background-color:#006ad1;color: white;padding: 5px;width: 200px;" (click)="saveSchedule5()">
+            Save</div>
+    </a>
+</div>

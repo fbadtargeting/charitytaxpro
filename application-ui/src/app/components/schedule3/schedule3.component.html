@@ -1,0 +1,308 @@
+<style>
+    .redClass {
+      background-color: #ffd8d8 !important;
+    }
+  </style>
+
+<form [formGroup]="schedule3Form" (ngSubmit)="saveSchedule3()">
+<div style="float: left;width: 1000px;margin-top: 15px;font-size: 14px;">
+    <div style="width: 1000px;float: left;border: solid 1px black;background-color: #002952;">
+      <div style="padding: 5px;color: white;text-align: center;width: 750px;float: left;">
+        <b>Compensation</b>
+      </div>
+      <div style="padding: 5px;color: white;text-align: center;width: 230px;float: left;"><b>
+          Schedule
+          3</b></div>
+    </div>
+    <div style="float: left;width: 950px;">
+      <b>Important:</b> If you complete this section, you must answer yes to question C9.
+    </div>
+    <div style="float: left;width: 1000px;margin-top: 20px;">
+      <div style="margin-top: 5px;float: left;">
+        <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+          <div style="padding-left: 6px;padding-top: 1.5px;">1</div>
+        </div>
+        <div style="float: left;width: 970px;">
+          <div style="float: left;margin-top: 0px;margin-left: 5px;">
+            (a)
+          </div>
+          <div style="float: left;margin-top: 0px;margin-left: 5px;width: 720px;text-align: justify;">
+            Enter the number of permanent, full-time, compensated positions in the fiscal
+            period.
+            This number should represent the
+            number of positions the charity had including both managerial positions and
+            others,
+            and
+            should not include independent contractors. <b>Do not</b> enter a dollar amount
+          </div>
+          <div style="float: left;margin-left: 10px;">
+            <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+              <div style="padding-left: 7px;padding-top: 1.5px;">300</div>
+            </div>
+          </div>
+          <div #tooltip="matTooltip"
+            matTooltip="How many FULL-TIME, PAID EMPLOYEES did you have during the fiscal period?" matTooltipPosition="above"
+            matTooltipClass="tooltip-blue"
+            class="largeFontSize" style="float: left;margin-left: 4px;border: 1px solid black;border-radius: 50%;
+              width: 15px;height: 15px;">
+              <div style="margin-top: -3px;"><i style="margin-left: 5px;font-size: 12px;"><b >i</b></i></div>
+            </div>
+          <div style="float: left;">
+            <div style="float: left;margin-left: 10px;margin-top: -12px;">
+              <mat-form-field class="" style="width: 140px;" [ngClass]="{'redClass':alertClass}" appearance="fill">
+                <input id="sc3300" matInput placeholder="" value="" 
+                  (change)="confirmValue()" formControlName="col_300" #col300>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div style="float: left;margin-left: 30px;">
+          <div style="float: left;margin-top: 5px;margin-left: 0px;">
+            (b)
+          </div>
+          <div style="float: left;margin-top: 5px;margin-left: 5px;width: 720px;text-align: justify;">
+            For the <b>ten (10)</b> highest compensated, permanent, full-time positions
+            enter
+            the number of
+            positions that are within each of the following annual compensation categories.
+            <b>Do not</b> tick the boxes, use numbers
+          </div>
+          <div style="float: left;width: 970px;">
+            <div style="float: left;width: 970px;">
+              <div style="float: left;margin-left: 20px;width: 320px;">
+                <div style="float: left;width: 40px;height: 20px;background-color: black;
+                              color: white;margin-top: 13px;">
+                  <div style="padding-left: 7px;padding-top: 1.5px;">305</div>
+                </div>
+                <div style="float: left;margin-left: 10px;">
+                  <mat-form-field class="" style="width: 100px;" appearance="fill">
+                    <input matInput placeholder="" value="" formControlName="col_305">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 20px;margin-left: 10px;">
+                  $1 – $39,999
+                </div>
+              </div>
+              <div style="float: left;width: 320px;">
+                <div style="float: left;width: 40px;height: 20px;background-color: black;
+                              color: white;margin-top: 13px;">
+                  <div style="padding-left: 7px;padding-top: 1.5px;">310</div>
+                </div>
+                <div style="float: left;margin-left: 10px;">
+                  <mat-form-field class="" style="width: 100px;" appearance="fill">
+                    <input matInput placeholder="" value="" formControlName="col_310">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 20px;margin-left: 10px;">
+                  $40,000 – $79,999
+                </div>
+              </div>
+              <div style="float: left;width: 300px;">
+                <div style="float: left;width: 40px;height: 20px;background-color: black;
+                              color: white;margin-top: 13px;">
+                  <div style="padding-left: 7px;padding-top: 1.5px;">315</div>
+                </div>
+                <div style="float: left;margin-left: 10px;">
+                  <mat-form-field class="" style="width: 100px;" appearance="fill">
+                    <input matInput placeholder="" value="" formControlName="col_315">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 20px;margin-left: 10px;">
+                  $80,000 – $119,999
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 970px;">
+              <div style="float: left;margin-left: 20px;width: 320px;">
+                <div style="float: left;width: 40px;height: 20px;background-color: black;
+                              color: white;margin-top: 13px;">
+                  <div style="padding-left: 7px;padding-top: 1.5px;">320</div>
+                </div>
+                <div style="float: left;margin-left: 10px;">
+                  <mat-form-field class="" style="width: 100px;" appearance="fill">
+                    <input matInput placeholder="" value="" formControlName="col_320">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 20px;margin-left: 10px;">
+                  $120,000 – $159,999
+                </div>
+              </div>
+              <div style="float: left;width: 320px;">
+                <div style="float: left;width: 40px;height: 20px;background-color: black;
+                              color: white;margin-top: 13px;">
+                  <div style="padding-left: 7px;padding-top: 1.5px;">325</div>
+                </div>
+                <div style="float: left;margin-left: 10px;">
+                  <mat-form-field class="" style="width: 100px;" appearance="fill">
+                    <input matInput placeholder="" value="" formControlName="col_325">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 20px;margin-left: 10px;">
+                  $160,000 – $199,999
+                </div>
+              </div>
+              <div style="float: left;width: 300px;">
+                <div style="float: left;width: 40px;height: 20px;background-color: black;
+                              color: white;margin-top: 13px;">
+                  <div style="padding-left: 7px;padding-top: 1.5px;">330</div>
+                </div>
+                <div style="float: left;margin-left: 10px;">
+                  <mat-form-field class="" style="width: 100px;" appearance="fill">
+                    <input matInput placeholder="" value="" formControlName="col_330">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 20px;margin-left: 10px;">
+                  $200,000 – $249,999
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 970px;">
+              <div style="float: left;margin-left: 20px;width: 320px;">
+                <div style="float: left;width: 40px;height: 20px;background-color: black;
+                              color: white;margin-top: 13px;">
+                  <div style="padding-left: 7px;padding-top: 1.5px;">335</div>
+                </div>
+                <div style="float: left;margin-left: 10px;">
+                  <mat-form-field class="" style="width: 100px;" appearance="fill">
+                    <input matInput placeholder="" value="" formControlName="col_335">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 20px;margin-left: 10px;">
+                  $250,000 – $299,999
+                </div>
+              </div>
+              <div style="float: left;width: 320px;">
+                <div style="float: left;width: 40px;height: 20px;background-color: black;
+                              color: white;margin-top: 13px;">
+                  <div style="padding-left: 7px;padding-top: 1.5px;">340</div>
+                </div>
+                <div style="float: left;margin-left: 10px;">
+                  <mat-form-field class="" style="width: 100px;" appearance="fill">
+                    <input matInput placeholder="" value="" formControlName="col_340">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 20px;margin-left: 10px;">
+                  $300,000 – $349,999
+                </div>
+              </div>
+              <div style="float: left;width: 300px;">
+                <div style="float: left;width: 40px;height: 20px;background-color: black;
+                              color: white;margin-top: 13px;">
+                  <div style="padding-left: 7px;padding-top: 1.5px;">345</div>
+                </div>
+                <div style="float: left;margin-left: 10px;">
+                  <mat-form-field class="" style="width: 100px;" appearance="fill">
+                    <input matInput placeholder="" value="" formControlName="col_345">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 20px;margin-left: 10px;">
+                  $350,000 and over
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 5px;float: left;">
+        <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+          <div style="padding-left: 6px;padding-top: 1.5px;">2</div>
+        </div>
+        <div style="float: left;">
+          <div style="float: left;margin-top: 0px;margin-left: 5px;">
+            (a)
+          </div>
+          <div style="float: left;margin-top: 0px;margin-left: 5px;width: 720px;text-align: justify;">
+            Enter the number of part-time or part-year (for example, seasonal)
+            employees the charity employed during the fiscal period
+          </div>
+          <div style="float: left;margin-left: 10px;">
+            <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+              <div style="padding-left: 7px;padding-top: 1.5px;">370</div>
+            </div>
+          </div>
+          <div #tooltip="matTooltip"
+            matTooltip="HOW MANY PART-TIME (or part-year seasonal) EMPLOYEES were paid during this  fiscal period?" matTooltipPosition="above"
+            matTooltipClass="tooltip-blue"
+            class="largeFontSize" style="float: left;margin-left: 4px;border: 1px solid black;border-radius: 50%;
+              width: 15px;height: 15px;">
+              <div style="margin-top: -3px;"><i style="margin-left: 5px;font-size: 12px;"><b >i</b></i></div>
+            </div>
+          <div style="float: left;">
+            <div style="float: left;margin-left: 10px;margin-top: -12px;">
+              <mat-form-field class="" style="width: 140px;" appearance="fill">
+                <input matInput placeholder="$" value="" formControlName="col_370">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div style="float: left;margin-left: 30px;">
+          <div style="float: left;margin-top: 5px;margin-left: 0px;">
+            (b)
+          </div>
+          <div style="float: left;margin-top: 5px;margin-left: 5px;width: 720px;text-align: justify;">
+            Total expenditure on compensation for part-time or part-year employees in the
+            fiscal
+            period
+          </div>
+          <div style="float: left;margin-left: 10px;">
+            <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+              <div style="padding-left: 7px;padding-top: 1.5px;">380</div>
+            </div>
+          </div>
+          <div #tooltip="matTooltip"
+            matTooltip="What was the TOTAL EXPENDITURE on PART-TIME COMPENSATION during this fiscal period?" matTooltipPosition="above"
+            matTooltipClass="tooltip-blue"
+            class="largeFontSize" style="float: left;margin-left: 4px;border: 1px solid black;border-radius: 50%;
+              width: 15px;height: 15px;">
+              <div style="margin-top: -3px;"><i style="margin-left: 5px;font-size: 12px;"><b >i</b></i></div>
+            </div>
+          <div style="float: left;">
+            <div style="float: left;margin-left: 10px;margin-top: -12px;">
+              <mat-form-field class="" style="width: 140px;" appearance="fill">
+                <input matInput placeholder="$" value="" formControlName="col_380">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 5px;float: left;">
+        <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+          <div style="padding-left: 6px;padding-top: 1.5px;">3</div>
+        </div>
+        <div style="float: left;">
+          <div style="float: left;margin-top: 0px;margin-left: 5px;width: 740px;text-align: justify;">
+            Total expenditure on all compensation in the fiscal period
+          </div>
+          <div style="float: left;margin-left: 10px;">
+            <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+              <div style="padding-left: 7px;padding-top: 1.5px;">390</div>
+            </div>
+          </div>
+          <div #tooltip="matTooltip"
+            matTooltip="What was the TOTAL EXPENDITURE on ALL COMPENSATION during this fiscal period?" matTooltipPosition="above"
+            matTooltipClass="tooltip-blue"
+            class="largeFontSize" style="float: left;margin-left: 4px;border: 1px solid black;border-radius: 50%;
+              width: 15px;height: 15px;">
+              <div style="margin-top: -3px;"><i style="margin-left: 5px;font-size: 12px;"><b >i</b></i></div>
+            </div>
+          <div style="float: left;">
+            <div style="float: left;margin-left: 10px;margin-top: -12px;">
+              <mat-form-field style="width: 140px;" [ngClass]="{'redClass':alertClass}" appearance="fill">
+                <input id="sc3390" matInput placeholder="$" value="" (change)="calculate4880()"
+                   formControlName="col_390">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</form>
+
+<div style="float: left;width: 1000px;margin-top: 10px;background-color: gainsboro;">
+    <a href="javascript:void();">
+        <div style="float: right;background-color:#006ad1;color: white;padding: 5px;width: 200px;" (click)="saveSchedule3()">
+            Save</div>
+    </a>
+</div>

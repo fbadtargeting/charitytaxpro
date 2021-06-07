@@ -1,0 +1,36 @@
+<div mat-dialog-content>
+    <div style="float: left;width: 450px;font-size: 12px;margin-top: 10px;">{{message}}</div>
+    <div style="float: left;margin-top: 30px;">
+        <mat-radio-group aria-label="Select an option" color="primary" formControlName="col_1510">
+          <div style="float: left;;margin-left: 40px;">
+            <mat-radio-button value="1" (change)="fill4250($event)">Yes </mat-radio-button>
+          </div>
+          <div style="float: left; margin-left: 40px;">
+            <mat-radio-button value="2" (change)="fill4250($event)">No </mat-radio-button>
+          </div>
+        </mat-radio-group>
+      </div>
+    <!--<div style="float: left;">
+        <div style="float: left;margin-top: 21px;">
+            <b>Was used</b>
+            </div>
+        <div style="float: left;margin-top: 20px;margin-left: 10px;">
+            <mat-slide-toggle color="primary" (change)="fill4250($event)" checked>Was not used</mat-slide-toggle>
+            </div>
+        </div>-->
+</div>
+
+<div mat-dialog-actions style="margin-top: 0px;float: left;">
+    <div style="float: left;margin-top: 30px;margin-left: 340px;">
+        <a href="javascript:void();">
+            <div style="float: left;padding-top: 2px;height: 25px;width: 80px;text-align: center;border-radius: 5%;
+        background-color: #006ad1;color: white;" (click)="ok()">Ok</div>
+        </a>
+    </div>
+    <!--<div style="float: left;margin-top: 65px;margin-left: 10px;">
+        <a href="javascript:void();">
+            <div style="float: left;padding-top: 2px;height: 25px;width: 80px;text-align: center;border-radius: 5%;
+           background-color: #cc0000;color: white;" (click)="cancel()">Cancel</div>
+        </a>
+    </div>-->
+</div>

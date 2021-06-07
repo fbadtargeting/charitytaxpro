@@ -1,0 +1,982 @@
+<style>
+  .disableDiv{
+  pointer-events:none;
+  background-color: gainsboro !important;
+  }
+  </style>
+<div style="float: left;width: 1000px;">
+  <div style="float: left;width: 510px;">
+    <div style="float: left;width: 510px;">
+      <div style="float: left;margin-top: 20px;">
+        <div> <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/logo_red.png" style="width: 80px;"> </div>
+      </div>
+      <div class="largeFontSize" style="float: left;margin-top: 25px;width: 110px;margin-left: 15px;">Canada Revenue
+        Agency</div>
+      <div class="largeFontSize" style="float: left;margin-top: 25px;width: 115px;margin-left: 15px;">Agence du revenu
+        du Canada</div>
+    </div>
+    <div style="float: left;width: 510px;">
+      <div style="float: left;width: 510px;color: #004385;">
+        <h2>Registered Charity Information Return</h2>
+      </div>
+    </div>
+  </div>
+  <div style="float: left;width: 490px;">
+    <div style="float: left;width: 300px;">
+      <div style="float: left;margin-top: 20px;margin-left: 10px;">
+        <a href="javascript:void();">
+          <div (click)="userInfo()" style="float: left;" *ngIf="showLogout">
+            <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/user.png" 
+            style="width: 65px;border-radius: 50%;margin-left: 200px;margin-top: 113px;">
+          </div>
+        </a>
+      </div>
+    </div>
+    <div style="float: left;width: 190px;">
+      <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/Charity_Tax_Pro_Logo_1.png" style="width: 180px;margin-top: 14px;margin-left: 0px;height: 140px;">
+      <div style="float: left;width: 240px;">
+        <div style="float: left;margin-top: 2px;color: #004385;"><b>Protected B</b> when completed</div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+<div style="width: 1000px;float: left;margin-top: 30px;" *ngIf="progressOfFrorm">
+    <mat-card style="width: 1000px;height: 186px;background-color: #e7e7e7;color: #004385;">
+      <div style="float: left;width: 960px;">
+        <div style="float: left;width: 380px;">
+          <div style="margin-left: 0px;"><b>Name of the form</b></div>
+        </div>
+        <div style="float: left;width: 200px;">
+          <div style="margin-left: 20px;"><b>Status</b></div>
+        </div>
+        <div style="float: left;width: 370px;">
+          <div style="margin-left: 20px;"><b>Percentage Completion</b></div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T3010</div>
+        <div style="float: left;width: 200px;">{{t3010Status}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;" class="myclass">
+            <mat-progress-bar [color]="t3010color" [mode]="mode" [value]="t3010value" [bufferValue]="t3010bufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">RC232-18e</div>
+        <div style="float: left;width: 200px;">{{rc23218eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="rc23218ecolor" [mode]="mode" [value]="rc23218evalue"
+              [bufferValue]="rc23218ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T1235-20e</div>
+        <div style="float: left;width: 200px;">{{t123520eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="t123520ecolor" [mode]="mode" [value]="t123520evalue"
+              [bufferValue]="t123520ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T1236-19e</div>
+        <div style="float: left;width: 200px;">{{t123619eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="t123619ecolor" [mode]="mode" [value]="t123619evalue"
+              [bufferValue]="t123619ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T2081-10e</div>
+        <div style="float: left;width: 200px;">{{t208110eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="t208110ecolor" [mode]="mode" [value]="t208110evalue"
+              [bufferValue]="t208110ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+  <div style="margin-top: 15px;float: left;width: 1000px;" *ngIf="showTabs">
+    <div style="float: left;">
+      <ul class="nav nav-tabs" style="margin-top: 50px;">
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionA" (click)="changeTabTot3010()">T3010</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionC" (click)="changeTabTorc232()">RC232-18e</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionD" (click)="changeTabTot1235()">T1235-20e</a></li>
+        <li class="active" style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionF" (click)="changeTabTot1236()">T1236-19e</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionE" (click)="changeTabTot2081()">T2081-10e</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#Guide" (click)="changeTabToGuide()">Guide T4033</a></li>
+      </ul>
+    </div>
+  </div>
+
+<div id="SectionF" class="tab-pane fade">
+  <form [formGroup]="formT1236" (ngSubmit)="submitFormT1236()">
+    <div style="float: left;width: 1000px;margin-top: 20px;">
+
+      <div style="float: left;width: 1000px;text-align: center;font-size: 22px;">
+        <div style="float: left;text-align: justify;"><b>Qualified donees worksheet / Amounts provided to other
+            organizations</b></div>
+      </div>
+      <div style="float: left;width: 1000px;text-align: center;margin-top: 20px;font-size: 12px">
+        <div style="float: left;text-align: justify;">
+          Registered charities can make gifts to qualified donees. Enter the required information for gifts made to each
+          qualified donee or other organization.
+          See the reverse for information on filling out this form
+        </div>
+      </div>
+      <div style="float: left;font-size: 12px;"><b>Important:</b> If you submit this form, you <b>
+          must</b>answer<b>Yes</b> to question C3 in form T3010 Charities information return for the same fiscal period.
+      </div>
+      <div style="width: 1000px;float: left;font-size: 12px;border: .5px solid black;margin-top: 10px;">
+        <div style="float: left;width: 550px;margin-left: 10px;">
+          <div style="float: left;">
+            <div style="width: 150px;float: left;margin-top: 19px;">
+              Charity name:
+            </div>
+            <div style="float: left;">
+              <mat-form-field style="width: 350px;text-align: center;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236ChanrityName">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div style="float: left;">
+          <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+        </div>
+        <div style="width: 425px;margin-left: 10px;float: left;">
+          <div style="width: 425px;float: left;margin-left: 0px;">
+            <div style="float: left;margin-top: 19px;width: 166px;">
+              <div style="float: left;">BN/registration number:</div>
+              <div #tooltip="matTooltip"
+              matTooltip="BN: (9 digits, 2 letters, 4 digits. Example: 123456789RR0001" matTooltipPosition="above"
+              matTooltipClass="tooltip-blue"
+                style="float: left;margin-left: 4px;font-size: 12px;border: 1px solid black;border-radius: 50%;
+                width: 15px;height: 15px;">
+                <div style="margin-top: -2px;"><i style="margin-left: 5px;"><b >i</b></i></div>
+              </div>
+            </div>
+            <div style="float: left;width: 250px;height: 49px;">
+              <div style="float: left;">
+                <mat-form-field class="example-full-width" style="width: 145px;margin-top: 3px;" appearance="fill">
+                  <mat-label></mat-label>
+                  <input matInput placeholder="" formControlName="t1236bn_prefix_1" minlength="9" maxlength="9"
+                    style="text-align: center;">
+                </mat-form-field>
+              </div>
+              <div style="float: left;margin-top: 19px;">RR</div>
+              <div style="float: left;">
+                <mat-form-field class="example-full-width" style="width: 87px;margin-top: 3px;" appearance="fill">
+                  <mat-label></mat-label>
+                  <input matInput placeholder="" formControlName="t1236bn_suffix_1" minlength="4" maxlength="4"
+                    style="text-align: center;">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 20px;font-size: 12px;">
+        <mat-card style="width: 1000px;height: 110px;">
+          <div style="float: left;margin-top: 7px;width: 200px;">Return for fiscal period
+            ending:
+          </div>
+          <div style="float: left;">
+            <mat-form-field style="width: 250px;margin-top: -7px;">
+              <mat-label></mat-label>
+              <input matInput [matDatepicker]="fiscalPeriodEnding_1236" formControlName="fiscalPeriodEnding_1236"/>
+              <mat-datepicker-toggle matSuffix [for]="fiscalPeriodEnding_1236">
+              </mat-datepicker-toggle>
+              <mat-datepicker #fiscalPeriodEnding_1236></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div style="float: left;width: 1000px;">
+            <div style="float: left;margin-top: 19px;"><b>Total number of qualified donees/other organizations:</b>
+            </div>
+            <div style="float: left;margin-left: 10px;">
+              <mat-form-field style="width: 50px;text-align: center;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236NumberOfDonees" maxlength="2">
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+      <div style="width: 1000px;float: left;font-size: 12px;margin-top: 15px;">
+        <div style="float: left;width: 1000px;border: .5px solid black;">
+          <div style="float: left;width: 650px;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">Name of organization:</div>
+            <div style="float: left;">
+              <mat-form-field style="width: 350px;text-align: center;margin-left: 48px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236OrgName_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="float: left;width: 300px;margin-top: 19px;margin-left: 10px;">
+            <div style="float: left;margin-left: 10px;">Associated charity:</div>
+            <div style="float: left;">
+              <mat-radio-group aria-label="Select an option" color="primary" formControlName="t1236AssoCharity_1">
+                <div style="float: left;;margin-left: 40px;">
+                  <mat-radio-button value="1">Yes </mat-radio-button>
+                </div>
+                <div style="float: left; margin-left: 40px;">
+                  <mat-radio-button value="2">No </mat-radio-button>
+                </div>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+        <div
+          style="float: left;width: 1000px;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          <div style="float: left;width: 400px;">
+            <div style="float: left;margin-left: 6px;">
+              <div style="float: left;margin-top: 19px;margin-left: 5px;">BN/registration number:
+              </div>
+              <div style="float: left;margin-left: 5px;">
+                <div style="float: left;">
+                  <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                    <mat-label></mat-label>
+                    <input matInput placeholder="" formControlName="t1236Prefix_1" minlength="9" maxlength="9" style="text-align: center;">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 19px;">RR</div>
+                <div style="float: left;">
+                  <mat-form-field class="example-full-width" style="width: 70px;">
+                    <mat-label></mat-label>
+                    <input matInput placeholder="" formControlName="t1236Suffix_1" minlength="4" maxlength="4" style="text-align: center;">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="width: 300px;float: left;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">City and Prov/Terr:</div>
+            <div style="float: left;">
+              <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236CityProv_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="width: 295px;float: left;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">Country:</div>
+            <div style="float: left;">
+              <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236Country_1">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 1000px;float: left;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          <div style="float: left;width: 500px;">
+            <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
+              Amount of non-cash gifts
+            </div>
+            <div style="float: left;width: 235px;">
+              <div style="float: left;margin-left: 10px;margin-top: 0px;">
+                <mat-form-field class="">
+                  <input matInput placeholder="$" value="" formControlName="t1236NonCashGifts_1">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="float: left;width: 490px;">
+            <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
+              Total amount of gifts
+            </div>
+            <div style="float: left;width: 235px;">
+              <div style="float: left;margin-left: 10px;margin-top: 0px;">
+                <mat-form-field class="">
+                  <input matInput placeholder="$" value="" formControlName="t1236TotalAmtGifts_1">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 1000px;float: left;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          &nbsp;</div>
+      </div>
+      <div
+        style="width: 1000px;float: left;margin-top: 1px;margin-bottom: 1px;height: 10px;background-color: gainsboro;">
+        &nbsp;
+      </div>
+      <div style="width: 1000px;float: left;font-size: 12px;">
+        <div style="float: left;width: 1000px;border: .5px solid black;">
+          <div style="float: left;width: 650px;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">Name of organization:</div>
+            <div style="float: left;">
+              <mat-form-field style="width: 350px;text-align: center;margin-left: 48px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236OrgName_2">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="float: left;width: 300px;margin-top: 19px;margin-left: 10px;">
+            <div style="float: left;margin-left: 10px;">Associated charity:</div>
+            <div style="float: left;">
+              <mat-radio-group aria-label="Select an option" color="primary" formControlName="t1236AssoCharity_2">
+                <div style="float: left;;margin-left: 40px;">
+                  <mat-radio-button value="1">Yes </mat-radio-button>
+                </div>
+                <div style="float: left; margin-left: 40px;">
+                  <mat-radio-button value="2">No </mat-radio-button>
+                </div>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+        <div
+          style="float: left;width: 1000px;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          <div style="float: left;width: 400px;">
+            <div style="float: left;margin-left: 6px;">
+              <div style="float: left;margin-top: 19px;margin-left: 5px;">BN/registration number:
+              </div>
+              <div style="float: left;margin-left: 5px;">
+                <div style="float: left;">
+                  <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                    <mat-label></mat-label>
+                    <input matInput placeholder="" formControlName="t1236Prefix_2" minlength="9" maxlength="9" style="text-align: center;">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 19px;">RR</div>
+                <div style="float: left;">
+                  <mat-form-field class="example-full-width" style="width: 70px;">
+                    <mat-label></mat-label>
+                    <input matInput placeholder="" formControlName="t1236Suffix_2" minlength="4" maxlength="4" style="text-align: center;">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="width: 300px;float: left;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">City and Prov/Terr:</div>
+            <div style="float: left;">
+              <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236CityProv_2">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="width: 295px;float: left;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">Country:</div>
+            <div style="float: left;">
+              <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236Country_2">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 1000px;float: left;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          <div style="float: left;width: 500px;">
+            <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
+              Amount of non-cash gifts
+            </div>
+            <div style="float: left;width: 235px;">
+              <div style="float: left;margin-left: 10px;margin-top: 0px;">
+                <mat-form-field class="">
+                  <input matInput placeholder="$" value="" formControlName="t1236NonCashGifts_2">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="float: left;width: 490px;">
+            <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
+              Total amount of gifts
+            </div>
+            <div style="float: left;width: 235px;">
+              <div style="float: left;margin-left: 10px;margin-top: 0px;">
+                <mat-form-field class="">
+                  <input matInput placeholder="$" value="" formControlName="t1236TotalAmtGifts_2">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 1000px;float: left;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          &nbsp;</div>
+      </div>
+      <div
+        style="width: 1000px;float: left;margin-top: 1px;margin-bottom: 1px;height: 10px;background-color: gainsboro;">
+        &nbsp;
+      </div>
+      <div style="width: 1000px;float: left;font-size: 12px;">
+        <div style="float: left;width: 1000px;border: .5px solid black;">
+          <div style="float: left;width: 650px;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">Name of organization:</div>
+            <div style="float: left;">
+              <mat-form-field style="width: 350px;text-align: center;margin-left: 48px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236OrgName_3">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="float: left;width: 300px;margin-top: 19px;margin-left: 10px;">
+            <div style="float: left;margin-left: 10px;">Associated charity:</div>
+            <div style="float: left;">
+              <mat-radio-group aria-label="Select an option" color="primary" formControlName="t1236AssoCharity_3">
+                <div style="float: left;;margin-left: 40px;">
+                  <mat-radio-button value="1">Yes </mat-radio-button>
+                </div>
+                <div style="float: left; margin-left: 40px;">
+                  <mat-radio-button value="2">No </mat-radio-button>
+                </div>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+        <div
+          style="float: left;width: 1000px;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          <div style="float: left;width: 400px;">
+            <div style="float: left;margin-left: 6px;">
+              <div style="float: left;margin-top: 19px;margin-left: 5px;">BN/registration number:
+              </div>
+              <div style="float: left;margin-left: 5px;">
+                <div style="float: left;">
+                  <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                    <mat-label></mat-label>
+                    <input matInput placeholder="" formControlName="t1236Prefix_3" minlength="9" maxlength="9" style="text-align: center;">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 19px;">RR</div>
+                <div style="float: left;">
+                  <mat-form-field class="example-full-width" style="width: 70px;">
+                    <mat-label></mat-label>
+                    <input matInput placeholder="" formControlName="t1236Suffix_3" minlength="4" maxlength="4" style="text-align: center;">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="width: 300px;float: left;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">City and Prov/Terr:</div>
+            <div style="float: left;">
+              <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236CityProv_3">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="width: 295px;float: left;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">Country:</div>
+            <div style="float: left;">
+              <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236Country_3">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 1000px;float: left;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          <div style="float: left;width: 500px;">
+            <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
+              Amount of non-cash gifts
+            </div>
+            <div style="float: left;width: 235px;">
+              <div style="float: left;margin-left: 10px;margin-top: 0px;">
+                <mat-form-field class="">
+                  <input matInput placeholder="$" value="" formControlName="t1236NonCashGifts_3">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="float: left;width: 490px;">
+            <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
+              Total amount of gifts
+            </div>
+            <div style="float: left;width: 235px;">
+              <div style="float: left;margin-left: 10px;margin-top: 0px;">
+                <mat-form-field class="">
+                  <input matInput placeholder="$" value="" formControlName="t1236TotalAmtGifts_3">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 1000px;float: left;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          &nbsp;</div>
+      </div>
+      <div
+        style="width: 1000px;float: left;margin-top: 1px;margin-bottom: 1px;height: 10px;background-color: gainsboro;">
+        &nbsp;
+      </div>
+      <div style="width: 1000px;float: left;font-size: 12px;">
+        <div style="float: left;width: 1000px;border: .5px solid black;">
+          <div style="float: left;width: 650px;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">Name of organization:</div>
+            <div style="float: left;">
+              <mat-form-field style="width: 350px;text-align: center;margin-left: 48px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236OrgName_4">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="float: left;width: 300px;margin-top: 19px;margin-left: 10px;">
+            <div style="float: left;margin-left: 10px;">Associated charity:</div>
+            <div style="float: left;">
+              <mat-radio-group aria-label="Select an option" color="primary" formControlName="t1236AssoCharity_4">
+                <div style="float: left;;margin-left: 40px;">
+                  <mat-radio-button value="1">Yes </mat-radio-button>
+                </div>
+                <div style="float: left; margin-left: 40px;">
+                  <mat-radio-button value="2">No </mat-radio-button>
+                </div>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+        <div
+          style="float: left;width: 1000px;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          <div style="float: left;width: 400px;">
+            <div style="float: left;margin-left: 6px;">
+              <div style="float: left;margin-top: 19px;margin-left: 5px;">BN/registration number:
+              </div>
+              <div style="float: left;margin-left: 5px;">
+                <div style="float: left;">
+                  <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                    <mat-label></mat-label>
+                    <input matInput placeholder="" formControlName="t1236Prefix_4" minlength="9" maxlength="9" style="text-align: center;">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 19px;">RR</div>
+                <div style="float: left;">
+                  <mat-form-field class="example-full-width" style="width: 70px;">
+                    <mat-label></mat-label>
+                    <input matInput placeholder="" formControlName="t1236Suffix_4" minlength="4" maxlength="4" style="text-align: center;">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="width: 300px;float: left;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">City and Prov/Terr:</div>
+            <div style="float: left;">
+              <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236CityProv_4">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="width: 295px;float: left;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">Country:</div>
+            <div style="float: left;">
+              <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236Country_4">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 1000px;float: left;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          <div style="float: left;width: 500px;">
+            <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
+              Amount of non-cash gifts
+            </div>
+            <div style="float: left;width: 235px;">
+              <div style="float: left;margin-left: 10px;margin-top: 0px;">
+                <mat-form-field class="">
+                  <input matInput placeholder="$" value="" formControlName="t1236NonCashGifts_4">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="float: left;width: 490px;">
+            <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
+              Total amount of gifts
+            </div>
+            <div style="float: left;width: 235px;">
+              <div style="float: left;margin-left: 10px;margin-top: 0px;">
+                <mat-form-field class="">
+                  <input matInput placeholder="$" value="" formControlName="t1236TotalAmtGifts_4">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 1000px;float: left;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          &nbsp;</div>
+      </div>
+      <div
+        style="width: 1000px;float: left;margin-top: 1px;margin-bottom: 1px;height: 10px;background-color: gainsboro;">
+        &nbsp;
+      </div>
+      <div style="width: 1000px;float: left;font-size: 12px;">
+        <div style="float: left;width: 1000px;border: .5px solid black;">
+          <div style="float: left;width: 650px;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">Name of organization:</div>
+            <div style="float: left;">
+              <mat-form-field style="width: 350px;text-align: center;margin-left: 48px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236OrgName_5">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="float: left;width: 300px;margin-top: 19px;margin-left: 10px;">
+            <div style="float: left;margin-left: 10px;">Associated charity:</div>
+            <div style="float: left;">
+              <mat-radio-group aria-label="Select an option" color="primary" formControlName="t1236AssoCharity_5">
+                <div style="float: left;;margin-left: 40px;">
+                  <mat-radio-button value="1">Yes </mat-radio-button>
+                </div>
+                <div style="float: left; margin-left: 40px;">
+                  <mat-radio-button value="2">No </mat-radio-button>
+                </div>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+        <div
+          style="float: left;width: 1000px;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          <div style="float: left;width: 400px;">
+            <div style="float: left;margin-left: 6px;">
+              <div style="float: left;margin-top: 19px;margin-left: 5px;">BN/registration number:
+              </div>
+              <div style="float: left;margin-left: 5px;">
+                <div style="float: left;">
+                  <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                    <mat-label></mat-label>
+                    <input matInput placeholder="" formControlName="t1236Prefix_5" minlength="9" maxlength="9" style="text-align: center;">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 19px;">RR</div>
+                <div style="float: left;">
+                  <mat-form-field class="example-full-width" style="width: 70px;">
+                    <mat-label></mat-label>
+                    <input matInput placeholder="" formControlName="t1236Suffix_5" minlength="4" maxlength="4" style="text-align: center;">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="width: 300px;float: left;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">City and Prov/Terr:</div>
+            <div style="float: left;">
+              <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236CityProv_5">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="width: 295px;float: left;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">Country:</div>
+            <div style="float: left;">
+              <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236Country_5">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 1000px;float: left;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          <div style="float: left;width: 500px;">
+            <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
+              Amount of non-cash gifts
+            </div>
+            <div style="float: left;width: 235px;">
+              <div style="float: left;margin-left: 10px;margin-top: 0px;">
+                <mat-form-field class="">
+                  <input matInput placeholder="$" value="" formControlName="t1236NonCashGifts_5">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="float: left;width: 490px;">
+            <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
+              Total amount of gifts
+            </div>
+            <div style="float: left;width: 235px;">
+              <div style="float: left;margin-left: 10px;margin-top: 0px;">
+                <mat-form-field class="">
+                  <input matInput placeholder="$" value="" formControlName="t1236TotalAmtGifts_5">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 1000px;float: left;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          &nbsp;</div>
+      </div>
+      <div
+        style="width: 1000px;float: left;margin-top: 1px;margin-bottom: 1px;height: 10px;background-color: gainsboro;">
+        &nbsp;
+      </div>
+      <div style="width: 1000px;float: left;font-size: 12px;">
+        <div style="float: left;width: 1000px;border: .5px solid black;">
+          <div style="float: left;width: 650px;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">Name of organization:</div>
+            <div style="float: left;">
+              <mat-form-field style="width: 350px;text-align: center;margin-left: 48px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236OrgName_6">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="float: left;width: 300px;margin-top: 19px;margin-left: 10px;">
+            <div style="float: left;margin-left: 10px;">Associated charity:</div>
+            <div style="float: left;">
+              <mat-radio-group aria-label="Select an option" color="primary" formControlName="t1236AssoCharity_6">
+                <div style="float: left;;margin-left: 40px;">
+                  <mat-radio-button value="1">Yes </mat-radio-button>
+                </div>
+                <div style="float: left; margin-left: 40px;">
+                  <mat-radio-button value="2">No </mat-radio-button>
+                </div>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+        <div
+          style="float: left;width: 1000px;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          <div style="float: left;width: 400px;">
+            <div style="float: left;margin-left: 6px;">
+              <div style="float: left;margin-top: 19px;margin-left: 5px;">BN/registration number:
+              </div>
+              <div style="float: left;margin-left: 5px;">
+                <div style="float: left;">
+                  <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                    <mat-label></mat-label>
+                    <input matInput placeholder="" formControlName="t1236Prefix_6" minlength="9" maxlength="9" style="text-align: center;">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 19px;">RR</div>
+                <div style="float: left;">
+                  <mat-form-field class="example-full-width" style="width: 70px;">
+                    <mat-label></mat-label>
+                    <input matInput placeholder="" formControlName="t1236Suffix_6" minlength="4" maxlength="4" style="text-align: center;">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="width: 300px;float: left;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">City and Prov/Terr:</div>
+            <div style="float: left;">
+              <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236CityProv_6">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="width: 295px;float: left;">
+            <div style="float: left;margin-top: 19px;margin-left: 10px;">Country:</div>
+            <div style="float: left;">
+              <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1236Country_6">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 1000px;float: left;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          <div style="float: left;width: 500px;">
+            <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
+              Amount of non-cash gifts
+            </div>
+            <div style="float: left;width: 235px;">
+              <div style="float: left;margin-left: 10px;margin-top: 0px;">
+                <mat-form-field class="">
+                  <input matInput placeholder="$" value="" formControlName="t1236NonCashGifts_6">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div style="float: left;">
+            <mat-divider [vertical]="true" style="height: 49px;background-color: black;"></mat-divider>
+          </div>
+          <div style="float: left;width: 490px;">
+            <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
+              Total amount of gifts
+            </div>
+            <div style="float: left;width: 235px;">
+              <div style="float: left;margin-left: 10px;margin-top: 0px;">
+                <mat-form-field class="">
+                  <input matInput placeholder="$" value="" formControlName="t1236TotalAmtGifts_6">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="width: 1000px;float: left;border-left: .5px solid black;border-bottom: .5px solid black;border-right: .5px solid black;">
+          &nbsp;</div>
+      </div>
+      <div
+        style="width: 1000px;float: left;margin-top: 1px;margin-bottom: 1px;height: 10px;background-color: gainsboro;">
+        &nbsp;
+      </div>
+      <div style="float: left;width: 1000px;text-align: center;margin-top: 25px;">
+        <b>Completing the Qualified donees worksheet / Amounts provided to other organizations</b>
+      </div>
+      <div style="float: left;width: 1000px;text-align: justify;font-size: 12px;margin-top: 20px;">
+        List the name of each organization that received a gift from the charity. Do not list the name of
+        an organization more than once. Do not enter names of persons who have received a benefit from the charity.
+        For example, do not list the names of students who received a scholarship from the charity.
+      </div>
+      <div style="float: left;width: 1000px;text-align: justify;font-size: 12px;margin-top: 20px;">
+        <b>Name of organization:</b> Enter the full name of the organization that received a gift from the charity.
+      </div>
+      <div style="float: left;width: 1000px;text-align: justify;font-size: 12px;margin-top: 20px;">
+        <b>Associated charity:</b> Tick <b>Yes</b> if the organization is associated with the charity. Associated
+        charities are
+        two or more registered charities that have applied for and received this designation from the Charities
+        Directorate.
+        For more information, go to <b>canada.ca/charities-giving</b>, select A to Z index of topics for charities,
+        then Glossary, and see Associated Charities
+      </div>
+      <div style="float: left;width: 1000px;text-align: justify;font-size: 12px;margin-top: 20px;">
+        <b>BN/registration number:</b> Give the organization’s complete business number (BN), if it has one. A BN is
+        assigned to
+        organizations that have accounts with the Canada Revenue Agency.
+      </div>
+      <div style="float: left;width: 1000px;text-align: justify;font-size: 12px;margin-top: 20px;">
+        <b>City and Province/Territory:</b> Enter the city, town, village, or other municipality and province or
+        territory of the
+        organization that received a gift from the charity. If the organization is outside the country, enter its full
+        mailing address, including the country.
+      </div>
+      <div style="float: left;width: 1000px;text-align: justify;font-size: 12px;margin-top: 20px;">
+        <b>Amount of non-cash gifts:</b> Enter the amount of all non-cash gifts the charity made to the organization.
+        Amounts must be the fair
+        market value of the gifts in Canadian dollars. Examples of non-cash gifts are property, such as land, artwork,
+        equipment,
+        securities, pharmaceuticals, and cultural and ecological property. For more information on fair market value, go
+        to <b>canada.ca/charities-giving</b>, select A to Z index, and see Determining fair market value of non-cash
+        gifts.
+      </div>
+      <div style="float: left;width: 1000px;text-align: justify;font-size: 12px;margin-top: 20px;">
+        <b>Total amount of gifts:</b> Enter the total amount of all gifts (including non-cash gifts) given to the
+        organization.
+        Amounts must be in Canadian dollars
+      </div>
+    </div>
+    </form>
+  </div>
+
+  <div style="float: left;width: 1000px;margin-top: 25px;background-color: gainsboro;margin-bottom: 15px;">
+    <a href="javascript:void();">
+      <div [ngClass]="{'disableDiv': isDownloadDisabled}" style="font-size: 13px;float: right;background-color:#00AFFF;
+      color: white;padding: 5px;width: 200px;margin-right: 0px;text-align: center;border: 2px solid #9e9e9e;"
+        (click)="downloadForm('T1236','fr')">DOWNLOAD - FRENCH</div>
+    </a>
+    <a href="javascript:void();">
+      <div [ngClass]="{'disableDiv': isDownloadDisabled}" style="float: right;background-color:#00AFFF;color: white;font-size: 13px;
+      padding: 5px;width: 200px;margin-right: 10px;text-align: center;border: 2px solid #9e9e9e;"
+        (click)="downloadForm('T1236','en')">DOWNLOAD - ENGLISH</div>
+    </a>
+    <a href="javascript:void();">
+      <div style="float: right;background-color:#00AFFF;color: white;padding: 5px;width: 110px;
+      font-size: 13px;margin-right: 10px;text-align: center;border: 2px solid #9e9e9e;"
+        (click)="submitFormT1236()">SAVE</div>
+    </a>
+    <div style="float: right;margin-right: 30px;" class="overlay" *ngIf="showSpinner">
+      <div class="center">
+          <div class="loading">
+            <mat-spinner diameter="30"></mat-spinner>
+          </div>
+      </div>
+    </div>
+  </div>

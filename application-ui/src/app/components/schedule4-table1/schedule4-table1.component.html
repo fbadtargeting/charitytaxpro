@@ -1,0 +1,77 @@
+<form [formGroup]="schedule4Table1Form" (ngSubmit)="saveSchedule4Table1()">
+<div style="float: left;width: 1000px;margin-top: 15px;font-size: 13px;">
+    <div style="width: 1000px;float: left;border: solid 1px black;background-color: #002952;">
+      <div style="padding: 5px;color: white;text-align: center;width: 750px;float: left;">
+        <b>Confidential data</b>
+      </div>
+      <div style="padding: 5px;color: white;text-align: center;width: 230px;float: left;"><b>
+          Schedule
+          4</b></div>
+    </div>
+    <div style="float: left;width: 1000px;">
+      <b>Important:</b> If you complete this section, you must answer yes to question C10.
+    </div>
+    <div style="float: left;width: 1000px;">
+      <b>The information in this schedule is for the CRA's use and may be shared as permitted
+        by law (for example, with certain other government departments and agencies).</b>
+    </div>
+    <div style="float: left;width: 1000px;">
+      <div style="float: left;width: 990px;">
+        1. Information about external fundraisers
+      </div>
+      <div style="float: left;width: 990px;">
+        Enter the name(s) and arm's length status of each external fundraiser.
+      </div>
+    </div>
+    <div style="float: left;width: 1000px;margin-top: 10px;">
+      <mat-card style="width: 1000px;height: 160px;background-color: whitesmoke;">
+        <div style="float: left;width: 1000px;">
+          <div style="float: left;width: 600px;">
+            <b> Name (confidential)</b>
+          </div>
+          <div style="float: left;width:400px;">
+            <b>At arm's length? Yes/No (confidential)</b>
+          </div>
+        </div>
+        <div style="float: left;width: 1000px;margin-top: 10px;">
+          <div style="float: left;width: 600px;">
+            <div style="float: left;margin-left: 10px;margin-top: -12px;">
+              <mat-form-field class="" style="width: 300px;text-align: center;" appearance="fill">
+                <input #S4T1 matInput placeholder="" value="" formControlName="schedule4_name_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width:400px;">
+            <div style="float: left;margin-left: 10px;margin-top: -12px;">
+              <mat-form-field class="" style="width: 300px;text-align: center;" appearance="fill">
+                <input matInput placeholder="" value="" formControlName="schedule4_atArms_1">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div style="float: left;width: 1000px;margin-top: 10px;">
+          <div style="float: left;width: 600px;">
+            <div style="float: left;margin-left: 10px;margin-top: -12px;">
+              <mat-form-field class="" style="width: 300px;text-align: center;" appearance="fill">
+                <input matInput placeholder="" value="" formControlName="schedule4_name_2">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width:400px;">
+            <div style="float: left;margin-left: 10px;margin-top: -12px;">
+              <mat-form-field class="" style="width: 300px;text-align: center;" appearance="fill">
+                <input matInput placeholder="" value="" formControlName="schedule4_atArms_2">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</form>
+<div style="float: left;width: 1000px;margin-top: 10px;background-color: gainsboro;">
+    <a href="javascript:void();">
+        <div style="float: right;background-color:#006ad1;color: white;padding: 5px;width: 200px;" (click)="saveSchedule4Table1()">
+            Save</div>
+    </a>
+</div>

@@ -1,0 +1,211 @@
+<form [formGroup]="schedule4Table2Form" (ngSubmit)="saveSchedule4Table2()">
+<div style="float: left;width: 1000px;margin-top: 15px;font-size: 13px;">
+    <div style="width: 1000px;float: left;border: solid 1px black;background-color: #002952;">
+      <div style="padding: 5px;color: white;text-align: center;width: 750px;float: left;">
+        <b>Confidential data</b>
+      </div>
+      <div style="padding: 5px;color: white;text-align: center;width: 230px;float: left;"><b>
+          Schedule
+          4</b></div>
+    </div>
+    
+    <div style="float: left;width: 1000px;margin-top: 10px;">
+      2. Information about donors not resident in Canada
+    </div>
+    <div style="float: left;width: 1000px;border: .5px solid black;">
+      <div style="float: left;width: 950px;padding-left: 10px;padding-top: 10px;">
+        Complete this schedule to report any gift of any kind valued at
+        $10,000 or more received from any donor that was not resident in Canada and was not any
+        of
+        the following
+      </div>
+      <div style="float: left;">
+        <ul>
+          <li> a Canadian citizen, nor</li>
+          <li> employed in Canada, nor</li>
+          <li> carrying on business in Canada, nor</li>
+          <li> a person having disposed of taxable Canadian property.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="float: left;width: 1000px;text-align: justify;margin-top: 5px;">
+      Enter the name of each donor and the value
+      of the gift in the table below. Select whether the donor was an organization
+      (for example a business, corporate entity, charity, non-profit organization), a government
+      or an
+      individual.
+    </div>
+    <div style="float: left;width: 1000px;">
+      <div style="float: left;background-color: gainsboro;">
+        <div style="float: left;width: 430px;">
+          &nbsp;
+        </div>
+        <div style="float: left;width: 350px;">
+          <b>Type of donor (confidential)</b>
+        </div>
+        <div style="float: left;width: 220px;">
+          &nbsp;
+        </div>
+      </div>
+      <div style="float: left;margin-top: 10px;background-color: whitesmoke;">
+        <div style="float: left;width: 415px;text-align: center;">
+          <div style="margin-right: 90px;">Name (confidential)</div>
+        </div>
+        <div style="float: left;width: 350px;">
+          <div style="float: left;width: 100px;">Organization</div>
+          <div style="float: left;width: 110px;">Government</div>
+          <div style="float: left;width: 100px;">Individual</div>
+        </div>
+        <div style="float: left;width: 235px;">
+          <div style="margin-left: 35px;">Value (CAN $)</div>
+        </div>
+      </div>
+      <div style="float: left;background-color: whitesmoke;">
+        <div style="float: left;margin-top: 10px;">
+          <div style="float: left;width: 400px;text-align: center;">
+            <div style="float: left;margin-left: 10px;margin-top: -12px;">
+              <mat-form-field class="" style="width: 300px;text-align: center;" appearance="fill">
+                <input #S4T2 matInput placeholder="" value="" formControlName="schedule4_donor_name_1">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 350px;">
+            <mat-radio-group aria-label="Select an option" color="primary" formControlName="schedule4_donor_type_1">
+              <div style="float: left;width: 100px;">
+                <div style="float: left;">
+                  <div style="float: left;;margin-left: 40px;">
+                    <mat-radio-button value="organization">
+                    </mat-radio-button>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 100px;">
+                <div style="float: left;">
+
+                  <div style="float: left;margin-left: 40px;">
+                    <mat-radio-button value="government">
+                    </mat-radio-button>
+                  </div>
+
+                </div>
+              </div>
+              <div style="float: left;width: 100px;">
+                <div style="float: left;">
+                  <div style="float: left;;margin-left: 40px;">
+                    <mat-radio-button value="individual">
+                    </mat-radio-button>
+                  </div>
+                </div>
+              </div>
+            </mat-radio-group>
+          </div>
+          <div style="float: left;width: 250px;">
+            <div style="float: left;margin-left: 10px;margin-top: -12px;">
+              <mat-form-field class="" style="width: 150px;text-align: center;" appearance="fill">
+                <input matInput placeholder="" value="" formControlName="schedule4_donor_value_1">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div style="float: left;margin-top: 10px;">
+          <div style="float: left;width: 400px;text-align: center;">
+            <div style="float: left;margin-left: 10px;margin-top: -12px;">
+              <mat-form-field class="" style="width: 300px;text-align: center;" appearance="fill">
+                <input matInput placeholder="" value="" formControlName="schedule4_donor_name_2">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 350px;">
+            <mat-radio-group aria-label="Select an option" color="primary" formControlName="schedule4_donor_type_2">
+              <div style="float: left;width: 100px;">
+                <div style="float: left;">
+                  <div style="float: left;;margin-left: 40px;">
+                    <mat-radio-button value="organization">
+                    </mat-radio-button>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 100px;">
+                <div style="float: left;">
+
+                  <div style="float: left;margin-left: 40px;">
+                    <mat-radio-button value="government">
+                    </mat-radio-button>
+                  </div>
+
+                </div>
+              </div>
+              <div style="float: left;width: 100px;">
+                <div style="float: left;">
+                  <div style="float: left;;margin-left: 40px;">
+                    <mat-radio-button value="individual">
+                    </mat-radio-button>
+                  </div>
+                </div>
+              </div>
+            </mat-radio-group>
+          </div>
+          <div style="float: left;width: 250px;">
+            <div style="float: left;margin-left: 10px;margin-top: -12px;">
+              <mat-form-field class="" style="width: 150px;text-align: center;" appearance="fill">
+                <input matInput placeholder="" value="" formControlName="schedule4_donor_value_2">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div style="float: left;margin-top: 10px;">
+          <div style="float: left;width: 400px;text-align: center;">
+            <div style="float: left;margin-left: 10px;margin-top: -12px;">
+              <mat-form-field class="" style="width: 300px;text-align: center;" appearance="fill">
+                <input matInput placeholder="" value="" formControlName="schedule4_donor_name_3">
+              </mat-form-field>
+            </div>
+          </div>
+          <div style="float: left;width: 350px;">
+            <mat-radio-group aria-label="Select an option" color="primary" formControlName="schedule4_donor_type_3">
+              <div style="float: left;width: 100px;">
+                <div style="float: left;">
+                  <div style="float: left;;margin-left: 40px;">
+                    <mat-radio-button value="organization">
+                    </mat-radio-button>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 100px;">
+                <div style="float: left;">
+
+                  <div style="float: left;margin-left: 40px;">
+                    <mat-radio-button value="government">
+                    </mat-radio-button>
+                  </div>
+
+                </div>
+              </div>
+              <div style="float: left;width: 100px;">
+                <div style="float: left;">
+                  <div style="float: left;;margin-left: 40px;">
+                    <mat-radio-button value="individual">
+                    </mat-radio-button>
+                  </div>
+                </div>
+              </div>
+            </mat-radio-group>
+          </div>
+          <div style="float: left;width: 250px;">
+            <div style="float: left;margin-left: 10px;margin-top: -12px;">
+              <mat-form-field class="" style="width: 150px;text-align: center;" appearance="fill">
+                <input matInput placeholder="" value="" formControlName="schedule4_donor_value_3">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+  <div style="float: left;width: 1000px;margin-top: 10px;background-color: gainsboro;">
+    <a href="javascript:void();">
+        <div style="float: right;background-color:#006ad1;color: white;padding: 5px;width: 200px;" (click)="saveSchedule4Table2()">
+            Save</div>
+    </a>
+</div>

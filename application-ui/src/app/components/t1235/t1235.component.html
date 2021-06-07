@@ -1,0 +1,1950 @@
+<style>
+  .disableDiv{
+  pointer-events:none;
+  background-color: gainsboro !important;
+  }
+  </style>
+<div style="float: left;width: 1000px;">
+  <div style="float: left;width: 510px;">
+    <div style="float: left;width: 510px;">
+      <div style="float: left;margin-top: 20px;">
+        <div> <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/logo_red.png" style="width: 80px;"> </div>
+      </div>
+      <div class="largeFontSize" style="float: left;margin-top: 25px;width: 110px;margin-left: 15px;">Canada Revenue
+        Agency</div>
+      <div class="largeFontSize" style="float: left;margin-top: 25px;width: 115px;margin-left: 15px;">Agence du revenu
+        du Canada</div>
+    </div>
+    <div style="float: left;width: 510px;">
+      <div style="float: left;width: 510px;color: #004385;">
+        <h2>Registered Charity Information Return</h2>
+      </div>
+    </div>
+  </div>
+  <div style="float: left;width: 490px;">
+    <div style="float: left;width: 300px;">
+      <div style="float: left;margin-top: 20px;margin-left: 10px;">
+        <a href="javascript:void();">
+          <div (click)="userInfo()" style="float: left;" *ngIf="showLogout">
+            <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/user.png" 
+            style="width: 65px;border-radius: 50%;margin-left: 200px;margin-top: 113px;">
+          </div>
+        </a>
+      </div>
+    </div>
+    <div style="float: left;width: 190px;">
+      <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/Charity_Tax_Pro_Logo_1.png" style="width: 180px;margin-top: 14px;margin-left: 0px;height: 140px;">
+      <div style="float: left;width: 240px;">
+        <div style="float: left;margin-top: 2px;color: #004385;"><b>Protected B</b> when completed</div>
+      </div>
+    </div>
+    
+    
+  </div>
+</div>
+
+
+<div style="width: 1000px;float: left;margin-top: 30px;" *ngIf="progressOfFrorm">
+    <mat-card style="width: 1000px;height: 186px;background-color: #e7e7e7;color: #004385;">
+      <div style="float: left;width: 960px;">
+        <div style="float: left;width: 380px;">
+          <div style="margin-left: 0px;"><b>Name of the form</b></div>
+        </div>
+        <div style="float: left;width: 200px;">
+          <div style="margin-left: 20px;"><b>Status</b></div>
+        </div>
+        <div style="float: left;width: 370px;">
+          <div style="margin-left: 20px;"><b>Percentage Completion</b></div>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T3010</div>
+        <div style="float: left;width: 200px;">{{t3010Status}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;" class="myclass">
+            <mat-progress-bar [color]="t3010color" [mode]="mode" [value]="t3010value" [bufferValue]="t3010bufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">RC232-18e</div>
+        <div style="float: left;width: 200px;">{{rc23218eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="rc23218ecolor" [mode]="mode" [value]="rc23218evalue"
+              [bufferValue]="rc23218ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T1235-20e</div>
+        <div style="float: left;width: 200px;">{{t123520eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="t123520ecolor" [mode]="mode" [value]="t123520evalue"
+              [bufferValue]="t123520ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T1236-19e</div>
+        <div style="float: left;width: 200px;">{{t123619eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="t123619ecolor" [mode]="mode" [value]="t123619evalue"
+              [bufferValue]="t123619ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;font-size: 12px;">
+        <div style="float: left;width: 400px;">T2081-10e</div>
+        <div style="float: left;width: 200px;">{{t208110eStatus}}</div>
+        <div style="float: left;width: 400px;">
+          <div style="float: left;width: 360px;">
+            <mat-progress-bar [color]="t208110ecolor" [mode]="mode" [value]="t208110evalue"
+              [bufferValue]="t208110ebufferValue">
+            </mat-progress-bar>
+          </div>
+  
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+  <div style="margin-top: 15px;float: left;width: 1000px;" *ngIf="showTabs">
+    <div style="float: left;">
+      <ul class="nav nav-tabs" style="margin-top: 50px;">
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionA" (click)="changeTabTot3010()">T3010</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionC" (click)="changeTabTorc232()">RC232-18e</a></li>
+        <li class="active" style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionD" (click)="changeTabTot1235()">T1235-20e</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionF" (click)="changeTabTot1236()">T1236-19e</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionE" (click)="changeTabTot2081()">T2081-10e</a></li>
+        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#Guide" (click)="changeTabToGuide()">Guide T4033</a></li>
+      </ul>
+    </div>
+  </div>
+
+<div id="SectionD" class="tab-pane fade">
+  <form [formGroup]="formT1235" (ngSubmit)="submitFormT1235()">
+    <div style="width: 1000px;float: left;text-align: justify;margin-top: 20px;font-size: 13px;">
+      You <b>must</b> give us complete information for each director/trustee
+      and like official who, at any time during the fiscal period of this return, was a member of the
+      charity's board of directors/trustees. Directors/trustees and like officials are persons who govern a
+      registered charity. See the reverse for information on filling out this form.
+    </div>
+    <div style="width: 1000px;float: left;margin-top: 15px;">
+      <div style="float: left;width: 1000px;font-size: 12px;">
+        <div style="width: 230px;float: left;"><b>Total number of directors/trustees <br>and like officials:</b></div>
+        <div style="width: 300px;float: left;"><b>Charity name:</b></div>
+        <div style="width: 260px;float: left;"><b>Business number:</b></div>
+        <div style="width: 210px;float: left;"><b>Return for fiscal period ending:</b></div>
+      </div>
+      <div style="float: left;width: 1000px;font-size: 12px;">
+        <div style="width: 225px;float: left;">
+          <div style="float: left;width: 150px;">
+            <mat-form-field style="margin-left: 8px; width: 140px;">
+              <input matInput style="text-align: center;" formControlName="t1235NumberOfDirectors"  maxlength="2">
+            </mat-form-field>
+          </div>
+        </div>
+        <div style="width: 300px;float: left;">
+          <div style="float: left;width: 250px;">
+            <mat-form-field style="margin-left: 8px; width: 250px;">
+              <input matInput style="text-align: center;" formControlName="t1235CharityName">
+            </mat-form-field>
+          </div>
+        </div>
+        <div style="width: 260px;float: left;">
+          <div style="float: left;margin-left: 5px;">
+            <div style="float: left;">
+              <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1235Prefix" minlength="9" maxlength="9" style="text-align: center;">
+              </mat-form-field>
+            </div>
+            <div style="float: left;margin-top: 19px;">RR</div>
+            <div style="float: left;">
+              <mat-form-field class="example-full-width" style="width: 70px;">
+                <mat-label></mat-label>
+                <input matInput placeholder="" formControlName="t1235Suffix" minlength="4" maxlength="4" style="text-align: center;">
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div style="width: 210px;float: left;">
+          <div style="float: left;margin-left: 10px;">
+            <mat-form-field style="width: 200px;">
+              <input matInput [matDatepicker]="t1235ReturnOfFiscalPeriod" formControlName="t1235ReturnOfFiscalPeriod"/>
+              <mat-datepicker-toggle matSuffix [for]="t1235ReturnOfFiscalPeriod">
+              </mat-datepicker-toggle>
+              <mat-datepicker #t1235ReturnOfFiscalPeriod></mat-datepicker>
+            </mat-form-field>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="float: left;width: 1000px;text-align: justify;font-size: 12px;margin-top: 20px;">
+      <b>Note:</b> If you would like these individuals to have the authority to communicate with the CRA on behalf of
+      your charity,
+      their name must also appear as an owner for your Business Number (BN). For more information, go to
+      <b>canada.ca/charities-giving</b>,
+      select "Operating a registered charity," then "Making a change to your organization" and see "Change director."
+    </div>
+    <div style="float: left;width: 1000px;margin-top: 20px;">
+      <div style="float: left;width: 1000px;background-color:#002952;margin-top: 20px;height: 30px;color: white;">
+        <div style="float: left;width: 500px;margin-top: 5px;"><b style="margin-left: 10px;">Public
+            information</b></div>
+        <div style="float: left;width: 500px;margin-top: 5px;"><b style="margin-left: 10px;">Confidential data</b>
+        </div>
+      </div>
+    </div>
+    <div style="float: left;width: 1000px;margin-top: 5px;">
+      <div style="width: 500px;float: left;">
+        <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;">
+          <div style="float: left;width: 480px;font-size: 12px;">
+            <div style="float: left;width: 195px;">
+              <div style="float: left;margin-top: 8px;">Last name:</div>
+              <div style="float: left;">
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <mat-form-field class="" style="width: 120px;">
+                      <input matInput placeholder="" value="" formControlName="t1235LastName_1">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 195px;">
+              <div style="float: left;margin-top: 8px;">First name:</div>
+              <div style="float: left;">
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <mat-form-field class="" style="width: 120px;">
+                      <input matInput placeholder="" value="" formControlName="t1235FirstName_1">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 75px;margin-left: 3px;">
+              <div style="float: left;margin-top: 8px;">Initials:</div>
+              <div style="float: left;">
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <mat-form-field class="" style="width: 25px;">
+                      <input matInput placeholder="" value="" formControlName="t1235Initials_1">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="float: left;width: 480px;font-size: 12px;">
+            <div style="float: left;margin-top: 12px;width: 68px;">Term:</div>
+            <div style="float: left;width: 217px;">
+              <div style="float: left;margin-top: 12px;">Start date:</div>
+              <div style="float: left;">
+                <div style="float: left;margin-left: 10px;">
+
+                  <mat-form-field style="width: 115px;">
+                    <input matInput [matDatepicker]="t1235sd1" formControlName="t1235sd1"/>
+                    <mat-datepicker-toggle matSuffix [for]="t1235sd1">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #t1235sd1></mat-datepicker>
+                  </mat-form-field>
+
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 194px;">
+              <div style="float: left;margin-top: 12px;">End date:</div>
+              <div style="float: left;">
+                <div style="float: left;margin-left: 10px;">
+
+                  <mat-form-field style="width: 121px;">
+                    <mat-label></mat-label>
+                    <input matInput [matDatepicker]="t1235ed1" formControlName="t1235ed1" />
+                    <mat-datepicker-toggle matSuffix [for]="t1235ed1">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #t1235ed1></mat-datepicker>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
+            <div style="float: left;width: 170px;">
+              <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+              <div style="float: left;">
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <mat-form-field class="" style="width: 85px;">
+                      <input matInput placeholder="" value="" formControlName="t1235Position_1">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 300px;">
+              <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
+              </div>
+              <div style="float: left;">
+                <div style="float: left;margin-top: 5px;">
+                  <div style="float: left;">
+                    <mat-radio-group aria-label="Select an option" color="primary" formControlName="t1235AtArms_1">
+                      <div style="float: left;margin-left: 8px;">
+                        <mat-radio-button value="1">Yes</mat-radio-button>
+                      </div>
+                      <div style="float: left; margin-left: 7px;">
+                        <mat-radio-button value="2">No</mat-radio-button>
+                      </div>
+                    </mat-radio-group>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+      <div style="width: 500px;float: left;">
+        <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;font-size: 12px;">
+          <div style="float: left;width: 480px;">
+            <div style="float: left;width: 230px;">Residential addrress - Street number and
+              name:</div>
+            <div style="width: 250px;float: left;">
+              <textarea style="width: 240px;height: 35px;" formControlName="t1235Street_1"></textarea>
+            </div>
+          </div>
+          <div style="float: left;width: 480px;margin-top: 12px;">
+            <div style="float: left;width: 152px;">
+              <div style="float: left;">City:</div>
+              <div style="float: left;">
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                    <mat-form-field class="" style="width: 110px;">
+                      <input matInput placeholder="" value="" formControlName="t1235City_1">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 182px;">
+              <div style="float: left;">Prov/Terr:</div>
+              <div style="float: left;">
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                    <mat-form-field class="" style="width: 120px;">
+                      <input matInput placeholder="" value="" formControlName="t1235Prov_1">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 135px;">
+              <div style="float: left;">Postal code:</div>
+              <div style="float: left;">
+                <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                  <mat-form-field class="" style="width: 60px;">
+                    <input matInput placeholder="" value="" formControlName="t1235Code_1">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="float: left;width: 480px;">
+            <div style="float: left;width: 242px;margin-top: 7px;">
+              <div style="float: left;margin-top: 5px;">Phone number:</div>
+              <div style="float: left;">
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <mat-form-field class="" style="width: 130px;">
+                      <input matInput placeholder="" value="" formControlName="t1235Phone_1">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 230px;">
+              <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+              <mat-form-field style="width: 126px;">
+                <mat-label></mat-label>
+                <input matInput [matDatepicker]="t1235dob1" formControlName="t1235dob1"/>
+                <mat-datepicker-toggle matSuffix [for]="t1235dob1"></mat-datepicker-toggle>
+                <mat-datepicker #t1235dob1></mat-datepicker>
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+
+    <div style="float: left;width: 1000px;margin-top: 5px;">
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;">
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">Last name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235LastName_2">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">First name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235FirstName_2">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 75px;margin-left: 3px;">
+                <div style="float: left;margin-top: 8px;">Initials:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 25px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Initials_2">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;margin-top: 12px;width: 68px;">Term:</div>
+              <div style="float: left;width: 217px;">
+                <div style="float: left;margin-top: 12px;">Start date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 115px;">
+                      <input matInput [matDatepicker]="t1235sd2" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235sd2">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235sd2></mat-datepicker>
+                    </mat-form-field>
+  
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 194px;">
+                <div style="float: left;margin-top: 12px;">End date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 121px;">
+                      <mat-label></mat-label>
+                      <input matInput [matDatepicker]="t1235ed2" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235ed2">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235ed2></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
+              <div style="float: left;width: 170px;">
+                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 85px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Position_2">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 300px;">
+                <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
+                </div>
+                <div style="float: left;">
+                  <div style="float: left;margin-top: 5px;">
+                    <div style="float: left;">
+                      <mat-radio-group aria-label="Select an option" color="primary" formControlName="t1235AtArms_2">
+                        <div style="float: left;margin-left: 8px;">
+                          <mat-radio-button value="1">Yes</mat-radio-button>
+                        </div>
+                        <div style="float: left; margin-left: 7px;">
+                          <mat-radio-button value="2">No</mat-radio-button>
+                        </div>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;font-size: 12px;">
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 230px;">Residential addrress - Street number and
+                name:</div>
+              <div style="width: 250px;float: left;">
+                <textarea style="width: 240px;height: 35px;" formControlName="t1235Street_2"></textarea>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;margin-top: 12px;">
+              <div style="float: left;width: 152px;">
+                <div style="float: left;">City:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 110px;">
+                        <input matInput placeholder="" value="" formControlName="t1235City_2">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 182px;">
+                <div style="float: left;">Prov/Terr:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Prov_2">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 135px;">
+                <div style="float: left;">Postal code:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <mat-form-field class="" style="width: 60px;">
+                      <input matInput placeholder="" value="" formControlName="t1235Code_2">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 242px;margin-top: 7px;">
+                <div style="float: left;margin-top: 5px;">Phone number:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 130px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Phone_2">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 230px;">
+                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+                <mat-form-field style="width: 126px;">
+                  <mat-label></mat-label>
+                  <input matInput [matDatepicker]="t1235dob2" />
+                  <mat-datepicker-toggle matSuffix [for]="t1235dob2"></mat-datepicker-toggle>
+                  <mat-datepicker #t1235dob2></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+
+      <div style="float: left;width: 1000px;margin-top: 5px;">
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;">
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">Last name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235LastName_3">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">First name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235FirstName_3">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 75px;margin-left: 3px;">
+                <div style="float: left;margin-top: 8px;">Initials:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 25px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Initials_3">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;margin-top: 12px;width: 68px;">Term:</div>
+              <div style="float: left;width: 217px;">
+                <div style="float: left;margin-top: 12px;">Start date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 115px;">
+                      <input matInput [matDatepicker]="t1235sd3" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235sd3">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235sd3></mat-datepicker>
+                    </mat-form-field>
+  
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 194px;">
+                <div style="float: left;margin-top: 12px;">End date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 121px;">
+                      <mat-label></mat-label>
+                      <input matInput [matDatepicker]="t1235ed3" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235ed3">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235ed3></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
+              <div style="float: left;width: 170px;">
+                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 85px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Position_3">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 300px;">
+                <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
+                </div>
+                <div style="float: left;">
+                  <div style="float: left;margin-top: 5px;">
+                    <div style="float: left;">
+                      <mat-radio-group aria-label="Select an option" color="primary" formControlName="t1235AtArms_3">
+                        <div style="float: left;margin-left: 8px;">
+                          <mat-radio-button value="1">Yes</mat-radio-button>
+                        </div>
+                        <div style="float: left; margin-left: 7px;">
+                          <mat-radio-button value="2">No</mat-radio-button>
+                        </div>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;font-size: 12px;">
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 230px;">Residential addrress - Street number and
+                name:</div>
+              <div style="width: 250px;float: left;">
+                <textarea style="width: 240px;height: 35px;" formControlName="t1235Street_3"></textarea>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;margin-top: 12px;">
+              <div style="float: left;width: 152px;">
+                <div style="float: left;">City:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 110px;">
+                        <input matInput placeholder="" value="" formControlName="t1235City_3">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 182px;">
+                <div style="float: left;">Prov/Terr:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Prov_3">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 135px;">
+                <div style="float: left;">Postal code:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <mat-form-field class="" style="width: 60px;">
+                      <input matInput placeholder="" value="" formControlName="t1235Code_3">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 242px;margin-top: 7px;">
+                <div style="float: left;margin-top: 5px;">Phone number:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 130px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Phone_3">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 230px;">
+                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+                <mat-form-field style="width: 126px;">
+                  <mat-label></mat-label>
+                  <input matInput [matDatepicker]="t1235dob3" />
+                  <mat-datepicker-toggle matSuffix [for]="t1235dob3"></mat-datepicker-toggle>
+                  <mat-datepicker #t1235dob3></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+
+      <div style="float: left;width: 1000px;margin-top: 5px;">
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;">
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">Last name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235LastName_4">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">First name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235FirstName_4">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 75px;margin-left: 3px;">
+                <div style="float: left;margin-top: 8px;">Initials:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 25px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Initials_4">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;margin-top: 12px;width: 68px;">Term:</div>
+              <div style="float: left;width: 217px;">
+                <div style="float: left;margin-top: 12px;">Start date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 115px;">
+                      <input matInput [matDatepicker]="t1235sd4" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235sd4">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235sd4></mat-datepicker>
+                    </mat-form-field>
+  
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 194px;">
+                <div style="float: left;margin-top: 12px;">End date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 121px;">
+                      <mat-label></mat-label>
+                      <input matInput [matDatepicker]="t1235ed4" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235ed4">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235ed4></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
+              <div style="float: left;width: 170px;">
+                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 85px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Position_4">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 300px;">
+                <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
+                </div>
+                <div style="float: left;">
+                  <div style="float: left;margin-top: 5px;">
+                    <div style="float: left;">
+                      <mat-radio-group aria-label="Select an option" color="primary" formControlName="t1235AtArms_4">
+                        <div style="float: left;margin-left: 8px;">
+                          <mat-radio-button value="1">Yes</mat-radio-button>
+                        </div>
+                        <div style="float: left; margin-left: 7px;">
+                          <mat-radio-button value="2">No</mat-radio-button>
+                        </div>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;font-size: 12px;">
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 230px;">Residential addrress - Street number and
+                name:</div>
+              <div style="width: 250px;float: left;">
+                <textarea style="width: 240px;height: 35px;" formControlName="t1235Street_4"></textarea>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;margin-top: 12px;">
+              <div style="float: left;width: 152px;">
+                <div style="float: left;">City:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 110px;">
+                        <input matInput placeholder="" value="" formControlName="t1235City_4">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 182px;">
+                <div style="float: left;">Prov/Terr:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Prov_4">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 135px;">
+                <div style="float: left;">Postal code:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <mat-form-field class="" style="width: 60px;">
+                      <input matInput placeholder="" value="" formControlName="t1235Code_4">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 242px;margin-top: 7px;">
+                <div style="float: left;margin-top: 5px;">Phone number:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 130px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Phone_4">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 230px;">
+                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+                <mat-form-field style="width: 126px;">
+                  <mat-label></mat-label>
+                  <input matInput [matDatepicker]="t1235dob4" />
+                  <mat-datepicker-toggle matSuffix [for]="t1235dob4"></mat-datepicker-toggle>
+                  <mat-datepicker #t1235dob4></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+
+      <div style="float: left;width: 1000px;margin-top: 5px;">
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;">
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">Last name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235LastName_5">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">First name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235FirstName_5">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 75px;margin-left: 3px;">
+                <div style="float: left;margin-top: 8px;">Initials:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 25px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Initials_5">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;margin-top: 12px;width: 68px;">Term:</div>
+              <div style="float: left;width: 217px;">
+                <div style="float: left;margin-top: 12px;">Start date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 115px;">
+                      <input matInput [matDatepicker]="t1235sd5" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235sd5">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235sd5></mat-datepicker>
+                    </mat-form-field>
+  
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 194px;">
+                <div style="float: left;margin-top: 12px;">End date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 121px;">
+                      <mat-label></mat-label>
+                      <input matInput [matDatepicker]="t1235ed5" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235ed5">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235ed5></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
+              <div style="float: left;width: 170px;">
+                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 85px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Position_5">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 300px;">
+                <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
+                </div>
+                <div style="float: left;">
+                  <div style="float: left;margin-top: 5px;">
+                    <div style="float: left;">
+                      <mat-radio-group aria-label="Select an option" color="primary" formControlName="t1235AtArms_5">
+                        <div style="float: left;margin-left: 8px;">
+                          <mat-radio-button value="1">Yes</mat-radio-button>
+                        </div>
+                        <div style="float: left; margin-left: 7px;">
+                          <mat-radio-button value="2">No</mat-radio-button>
+                        </div>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;font-size: 12px;">
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 230px;">Residential addrress - Street number and
+                name:</div>
+              <div style="width: 250px;float: left;">
+                <textarea style="width: 240px;height: 35px;" formControlName="t1235Street_5"></textarea>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;margin-top: 12px;">
+              <div style="float: left;width: 152px;">
+                <div style="float: left;">City:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 110px;">
+                        <input matInput placeholder="" value="" formControlName="t1235City_5">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 182px;">
+                <div style="float: left;">Prov/Terr:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Prov_5">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 135px;">
+                <div style="float: left;">Postal code:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <mat-form-field class="" style="width: 60px;">
+                      <input matInput placeholder="" value="" formControlName="t1235Code_5">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 242px;margin-top: 7px;">
+                <div style="float: left;margin-top: 5px;">Phone number:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 130px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Phone_5">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 230px;">
+                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+                <mat-form-field style="width: 126px;">
+                  <mat-label></mat-label>
+                  <input matInput [matDatepicker]="t1235dob5" />
+                  <mat-datepicker-toggle matSuffix [for]="t1235dob5"></mat-datepicker-toggle>
+                  <mat-datepicker #t1235dob5></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+
+      <div style="float: left;width: 1000px;margin-top: 5px;">
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;">
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">Last name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235LastName_6">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">First name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235FirstName_6">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 75px;margin-left: 3px;">
+                <div style="float: left;margin-top: 8px;">Initials:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 25px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Initials_6">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;margin-top: 12px;width: 68px;">Term:</div>
+              <div style="float: left;width: 217px;">
+                <div style="float: left;margin-top: 12px;">Start date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 115px;">
+                      <input matInput [matDatepicker]="t1235sd6" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235sd6">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235sd6></mat-datepicker>
+                    </mat-form-field>
+  
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 194px;">
+                <div style="float: left;margin-top: 12px;">End date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 121px;">
+                      <mat-label></mat-label>
+                      <input matInput [matDatepicker]="t1235ed6" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235ed6">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235ed6></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
+              <div style="float: left;width: 170px;">
+                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 85px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Position_6">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 300px;">
+                <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
+                </div>
+                <div style="float: left;">
+                  <div style="float: left;margin-top: 5px;">
+                    <div style="float: left;">
+                      <mat-radio-group aria-label="Select an option" color="primary" formControlName="t1235AtArms_6">
+                        <div style="float: left;margin-left: 8px;">
+                          <mat-radio-button value="1">Yes</mat-radio-button>
+                        </div>
+                        <div style="float: left; margin-left: 7px;">
+                          <mat-radio-button value="2">No</mat-radio-button>
+                        </div>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;font-size: 12px;">
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 230px;">Residential addrress - Street number and
+                name:</div>
+              <div style="width: 250px;float: left;">
+                <textarea style="width: 240px;height: 35px;" formControlName="t1235Street_6"></textarea>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;margin-top: 12px;">
+              <div style="float: left;width: 152px;">
+                <div style="float: left;">City:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 110px;">
+                        <input matInput placeholder="" value="" formControlName="t1235City_6">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 182px;">
+                <div style="float: left;">Prov/Terr:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Prov_6">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 135px;">
+                <div style="float: left;">Postal code:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <mat-form-field class="" style="width: 60px;">
+                      <input matInput placeholder="" value="" formControlName="t1235Code_6">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 242px;margin-top: 7px;">
+                <div style="float: left;margin-top: 5px;">Phone number:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 130px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Phone_6">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 230px;">
+                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+                <mat-form-field style="width: 126px;">
+                  <mat-label></mat-label>
+                  <input matInput [matDatepicker]="t1235dob6" />
+                  <mat-datepicker-toggle matSuffix [for]="t1235dob6"></mat-datepicker-toggle>
+                  <mat-datepicker #t1235dob6></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+
+      <div style="float: left;width: 1000px;margin-top: 5px;">
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;">
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">Last name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235LastName_7">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">First name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235FirstName_7">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 75px;margin-left: 3px;">
+                <div style="float: left;margin-top: 8px;">Initials:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 25px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Initials_7">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;margin-top: 12px;width: 68px;">Term:</div>
+              <div style="float: left;width: 217px;">
+                <div style="float: left;margin-top: 12px;">Start date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 115px;">
+                      <input matInput [matDatepicker]="t1235sd7" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235sd7">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235sd7></mat-datepicker>
+                    </mat-form-field>
+  
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 194px;">
+                <div style="float: left;margin-top: 12px;">End date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 121px;">
+                      <mat-label></mat-label>
+                      <input matInput [matDatepicker]="t1235ed7" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235ed7">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235ed7></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
+              <div style="float: left;width: 170px;">
+                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 85px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Position_7">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 300px;">
+                <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
+                </div>
+                <div style="float: left;">
+                  <div style="float: left;margin-top: 5px;">
+                    <div style="float: left;">
+                      <mat-radio-group aria-label="Select an option" color="primary" formControlName="t1235AtArms_7">
+                        <div style="float: left;margin-left: 8px;">
+                          <mat-radio-button value="1">Yes</mat-radio-button>
+                        </div>
+                        <div style="float: left; margin-left: 7px;">
+                          <mat-radio-button value="2">No</mat-radio-button>
+                        </div>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;font-size: 12px;">
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 230px;">Residential addrress - Street number and
+                name:</div>
+              <div style="width: 250px;float: left;">
+                <textarea style="width: 240px;height: 35px;" formControlName="t1235Street_7"></textarea>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;margin-top: 12px;">
+              <div style="float: left;width: 152px;">
+                <div style="float: left;">City:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 110px;">
+                        <input matInput placeholder="" value="" formControlName="t1235City_7">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 182px;">
+                <div style="float: left;">Prov/Terr:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Prov_7">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 135px;">
+                <div style="float: left;">Postal code:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <mat-form-field class="" style="width: 60px;">
+                      <input matInput placeholder="" value="" formControlName="t1235Code_7">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 242px;margin-top: 7px;">
+                <div style="float: left;margin-top: 5px;">Phone number:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 130px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Phone_7">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 230px;">
+                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+                <mat-form-field style="width: 126px;">
+                  <mat-label></mat-label>
+                  <input matInput [matDatepicker]="t1235dob7" />
+                  <mat-datepicker-toggle matSuffix [for]="t1235dob7"></mat-datepicker-toggle>
+                  <mat-datepicker #t1235dob7></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 5px;">
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;">
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">Last name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235LastName_8">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">First name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235FirstName_8">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 75px;margin-left: 3px;">
+                <div style="float: left;margin-top: 8px;">Initials:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 25px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Initials_8">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;margin-top: 12px;width: 68px;">Term:</div>
+              <div style="float: left;width: 217px;">
+                <div style="float: left;margin-top: 12px;">Start date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 115px;">
+                      <input matInput [matDatepicker]="t1235sd8" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235sd8">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235sd8></mat-datepicker>
+                    </mat-form-field>
+  
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 194px;">
+                <div style="float: left;margin-top: 12px;">End date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 121px;">
+                      <mat-label></mat-label>
+                      <input matInput [matDatepicker]="t1235ed8" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235ed8">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235ed8></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
+              <div style="float: left;width: 170px;">
+                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 85px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Position_8">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 300px;">
+                <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
+                </div>
+                <div style="float: left;">
+                  <div style="float: left;margin-top: 5px;">
+                    <div style="float: left;">
+                      <mat-radio-group aria-label="Select an option" color="primary" formControlName="t1235AtArms_8">
+                        <div style="float: left;margin-left: 8px;">
+                          <mat-radio-button value="1">Yes</mat-radio-button>
+                        </div>
+                        <div style="float: left; margin-left: 7px;">
+                          <mat-radio-button value="2">No</mat-radio-button>
+                        </div>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;font-size: 12px;">
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 230px;">Residential addrress - Street number and
+                name:</div>
+              <div style="width: 250px;float: left;">
+                <textarea style="width: 240px;height: 35px;" formControlName="t1235Street_8"></textarea>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;margin-top: 12px;">
+              <div style="float: left;width: 152px;">
+                <div style="float: left;">City:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 110px;">
+                        <input matInput placeholder="" value="" formControlName="t1235City_8">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 182px;">
+                <div style="float: left;">Prov/Terr:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Prov_8">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 135px;">
+                <div style="float: left;">Postal code:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <mat-form-field class="" style="width: 60px;">
+                      <input matInput placeholder="" value="" formControlName="t1235Code_8">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 242px;margin-top: 7px;">
+                <div style="float: left;margin-top: 5px;">Phone number:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 130px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Phone_1">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 230px;">
+                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+                <mat-form-field style="width: 126px;">
+                  <mat-label></mat-label>
+                  <input matInput [matDatepicker]="t1235dob8" />
+                  <mat-datepicker-toggle matSuffix [for]="t1235dob8"></mat-datepicker-toggle>
+                  <mat-datepicker #t1235dob8></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+
+      <div style="float: left;width: 1000px;margin-top: 5px;">
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;">
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">Last name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235LastName_9">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 195px;">
+                <div style="float: left;margin-top: 8px;">First name:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235FirstName_9">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 75px;margin-left: 3px;">
+                <div style="float: left;margin-top: 8px;">Initials:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 25px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Initials_9">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;">
+              <div style="float: left;margin-top: 12px;width: 68px;">Term:</div>
+              <div style="float: left;width: 217px;">
+                <div style="float: left;margin-top: 12px;">Start date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 115px;">
+                      <input matInput [matDatepicker]="t1235sd9" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235sd9">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235sd9></mat-datepicker>
+                    </mat-form-field>
+  
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 194px;">
+                <div style="float: left;margin-top: 12px;">End date:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;">
+  
+                    <mat-form-field style="width: 121px;">
+                      <mat-label></mat-label>
+                      <input matInput [matDatepicker]="t1235ed9" />
+                      <mat-datepicker-toggle matSuffix [for]="t1235ed9">
+                      </mat-datepicker-toggle>
+                      <mat-datepicker #t1235ed9></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
+              <div style="float: left;width: 170px;">
+                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 85px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Position_9">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 300px;">
+                <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
+                </div>
+                <div style="float: left;">
+                  <div style="float: left;margin-top: 5px;">
+                    <div style="float: left;">
+                      <mat-radio-group aria-label="Select an option" color="primary" formControlName="t1235AtArms_9">
+                        <div style="float: left;margin-left: 8px;">
+                          <mat-radio-button value="1">Yes</mat-radio-button>
+                        </div>
+                        <div style="float: left; margin-left: 7px;">
+                          <mat-radio-button value="2">No</mat-radio-button>
+                        </div>
+                      </mat-radio-group>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div style="width: 500px;float: left;">
+          <mat-card style="width: 500px;background-color: whitesmoke;height: 150px;font-size: 12px;">
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 230px;">Residential addrress - Street number and
+                name:</div>
+              <div style="width: 250px;float: left;">
+                <textarea style="width: 240px;height: 35px;" formControlName="t1235Street_9"></textarea>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;margin-top: 12px;">
+              <div style="float: left;width: 152px;">
+                <div style="float: left;">City:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 110px;">
+                        <input matInput placeholder="" value="" formControlName="t1235City_9">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 182px;">
+                <div style="float: left;">Prov/Terr:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 120px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Prov_9">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 135px;">
+                <div style="float: left;">Postal code:</div>
+                <div style="float: left;">
+                  <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <mat-form-field class="" style="width: 60px;">
+                      <input matInput placeholder="" value="" formControlName="t1235Code_9">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="float: left;width: 480px;">
+              <div style="float: left;width: 242px;margin-top: 7px;">
+                <div style="float: left;margin-top: 5px;">Phone number:</div>
+                <div style="float: left;">
+                  <div style="float: left;">
+                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                      <mat-form-field class="" style="width: 130px;">
+                        <input matInput placeholder="" value="" formControlName="t1235Phone_9">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="float: left;width: 230px;">
+                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+                <mat-form-field style="width: 126px;">
+                  <mat-label></mat-label>
+                  <input matInput [matDatepicker]="t1235dob9" />
+                  <mat-datepicker-toggle matSuffix [for]="t1235dob9"></mat-datepicker-toggle>
+                  <mat-datepicker #t1235dob9></mat-datepicker>
+                </mat-form-field>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+
+
+    <div style="float: left;width: 1000px;margin-top: 25px;">
+      <div style="width: 1000px;text-align: center;font-size: 13px;">
+        <b>Completing the Directors/Trustees and Like Officials Worksheet</b>
+      </div>
+      <div style="width: 1000px;float: left;margin-top: 25px;">
+        <div style="float: left;width: 500px;text-align: justify;">
+          <div style="float: left;width: 450px;font-size: 13px;"><b>Public information</b></div>
+          <div style="float: left;width: 450px;font-size: 12px;margin-top: 15px;">Information from this column is
+            available to the public.</div>
+          <div style="float: left;width: 450px;font-size: 12px;margin-top: 15px;">Enter the last name, first name, and
+            initial of the director/trustee or like official.</div>
+          <div style="float: left;width: 450px;font-size: 13px;margin-top: 15px;"><b>Term</b></div>
+          <div style="float: left;width: 430px;font-size: 12px;margin-top: 15px;margin-left: 30px;"><b>Start date:</b>
+            Enter the date the person started in the position.</div>
+          <div style="float: left;width: 430px;font-size: 12px;margin-top: 15px;margin-left: 30px;"><b>End date:</b>
+            Enter the date the person left the position. If the person has not left the position, leave this field
+            blank.</div>
+          <div style="float: left;width: 450px;font-size: 12px;margin-top: 15px;">
+            <b>Position:</b> Enter the title of the position being held. Each position is generally identified in an
+            organization's governing
+            documents (for example, president, treasurer, secretary). A registered charity may have other officials
+            that have governing
+            powers similar to those of a director or trustee. For example, a religious leader with some governing
+            authority would be
+            considered a like official.
+          </div>
+          <div style="float: left;width: 450px;font-size: 12px;margin-top: 15px;">
+            <b>At arm's length with other directors:</b> Tick Yes if the person is at arm's length with all other
+            directors/trustees or like officials.
+          </div>
+          <div style="float: left;width: 450px;font-size: 12px;margin-top: 15px;">
+            At arm's length is a concept that describes a relationship in which two persons act independently of each
+            other and are
+            not related. Related persons are individuals who are related to each other by blood, marriage or
+            common-law partnership,
+            or adoption. It is also possible that individuals not related by a family connection, but by close
+            business relations, may
+            still be considered not at arm's length. For more information on arm's length, go to
+            <b>canada.ca/charities-giving</b>,
+            select "A to Z index of topics for charities," search for "Charities and giving glossary" and see "arm's
+            length."
+          </div>
+        </div>
+
+        <div style="float: left;width: 500px;text-align: justify;">
+          <div style="float: left;width: 500px;"><b>Confidential data</b></div>
+          <div style="float: left;width: 500px;font-size: 12px;margin-top: 15px;">
+            Information from this column will stay confidential and will not be made available to the public except in
+            circumstances in which the release of any or all of the information is required by law or, in certain
+            circumstances, permitted by law.
+          </div>
+          <div style="float: left;width: 500px;font-size: 12px;margin-top: 15px;">
+            According to the Income Tax Act, circumstances in which the law requires or permits such information to be
+            disclosed include a
+            court order, warrant, or subpoena issued for a criminal proceeding under an act of Parliament or a legal
+            proceeding relating to
+            the administration or enforcement of the Income Tax Act, the Canada Pension Plan, the Unemployment
+            Insurance Act, or the
+            Employment Insurance Act, or any other act of Parliament or law of a province that allows a tax or duty to
+            be imposed or collected
+          </div>
+          <div style="float: left;width: 500px;font-size: 12px;margin-top: 15px;">
+            Other circumstances in which we are required or permitted by law to disclose certain records include a
+            request made under the
+            authority of the Auditor General Act, a warrant issued by the Canadian Security Intelligence Service Act,
+            and enquiries from
+            the Department of Finance Canada for information to form or evaluate fiscal policy.
+          </div>
+          <div style="float: left;width: 480px;margin-top: 20px;">
+            <mat-divider style="background-color: black;width: 480px;"></mat-divider>
+          </div>
+          <div style="float: left;width: 500px;font-size: 12px;margin-top: 15px;">
+            <b>Residential address:</b> In the proper spaces, enter the full home address, including the street
+            number, street name,
+            city (which could be a town, village, or other municipality), province or territory, and postal code of
+            each director/trustee
+            or like official.
+          </div>
+          <div style="float: left;width: 500px;font-size: 12px;margin-top: 15px;">
+            <b>Phone number:</b> Enter the telephone number at which the person can be reached during the day.
+          </div>
+          <div style="float: left;width: 500px;font-size: 12px;margin-top: 15px;">
+            <b>Date of birth:</b> Enter the person's date of birth so that the CRA is better able to identify the
+            individuals who are responsible
+            for managing the charity.
+          </div>
+          <div style="float: left;width: 500px;font-size: 12px;margin-top: 15px;">
+            If the director/trustee or like official lives outside the country, enter the person's full mailing
+            address, including the country.
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </form>
+  </div>
+  <div style="float: left;width: 1000px;margin-top: 25px;background-color: gainsboro;margin-bottom: 15px;">
+    <a href="javascript:void();">
+      <div [ngClass]="{'disableDiv': isDownloadDisabled}" style="font-size: 13px;float: right;background-color:#00AFFF;
+      color: white;padding: 5px;width: 200px;margin-right: 0px;text-align: center;border: 2px solid #9e9e9e;"
+        (click)="downloadForm('T1235','fr')">DOWNLOAD - FRENCH</div>
+    </a>
+    <a href="javascript:void();">
+      <div [ngClass]="{'disableDiv': isDownloadDisabled}" style="float: right;background-color:#00AFFF;color: white;font-size: 13px;
+      padding: 5px;width: 200px;margin-right: 10px;text-align: center;border: 2px solid #9e9e9e;"
+        (click)="downloadForm('T1235','en')">DOWNLOAD - ENGLISH</div>
+    </a>
+    <a href="javascript:void();">
+      <div style="float: right;background-color:#00AFFF;color: white;padding: 5px;width: 110px;
+      margin-right: 10px;font-size: 13px;text-align: center;border: 2px solid #9e9e9e;"
+        (click)="submitFormT1235()">SAVE</div>
+    </a>
+    <div style="float: right;margin-right: 30px;" class="overlay" *ngIf="showSpinner">
+      <div class="center">
+          <div class="loading">
+            <mat-spinner diameter="30"></mat-spinner>
+          </div>
+      </div>
+    </div>
+  </div>

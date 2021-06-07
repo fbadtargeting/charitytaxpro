@@ -1,0 +1,596 @@
+<form [formGroup]="schedule2Form" (ngSubmit)="saveSchedule2()">
+    <div style="float: left;width: 1000px;margin-top: 10px;font-size: 14px;">
+        <div style="width: 1000px;float: left;border: solid 1px black;background-color: #002952;">
+            <div style="padding: 5px;color: white;text-align: center;width: 750px;float: left;">
+                <b>Activities outside Canada</b>
+            </div>
+            <div style="padding: 5px;color: white;text-align: center;width: 230px;float: left;"><b>
+                    Schedule
+                    2</b></div>
+        </div>
+        <div style="float: left;width: 1000px;">
+            <b>Important:</b> If you complete this section, you must answer yes to question C4.
+        </div>
+        <div style="width: 1000px;float: left;margin-top: 10px;height: 50px;border: solid black 1px;">
+            <div style="float: left;padding-left: 5px;padding-top: 5px;">
+                <b>For more information go to canada.ca/charities-giving and see Guidance CG-002,
+                    Canadian registered charities carrying out activities outside Canada.</b>
+            </div>
+        </div>
+        <div style="float: left;width: 1000px;margin-top: 20px;">
+            <div style="margin-top: 5px;float: left;">
+                <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+                    <div style="padding-left: 6px;padding-top: 1.5px;">1</div>
+                </div>
+                <div style="float: left;margin-top: 0px;margin-left: 5px;width: 740px;text-align: justify;">
+                    Total expenditures on activities/programs/projects carried on outside Canada,
+                    excluding
+                    gifts to qualified donees
+                </div>
+                <div style="float: left;margin-left: 10px;">
+                    <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+                        <div style="padding-left: 7px;padding-top: 1.5px;">200</div>
+                    </div>
+                </div>
+                <div style="float: left;">
+                    <div style="float: left;margin-top: 6px;margin-left: 5px;">$</div>
+                    <div style="float: left;margin-left: 5px;margin-top: -12px;">
+                        <mat-form-field class="" style="width: 160px;" appearance="fill">
+                            <input #col200 matInput placeholder="" value="" formControlName="col_200">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="float: left;width: 1000px;margin-top: 10px;">
+            <div style="margin-top: 5px;float: left;">
+                <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+                    <div style="padding-left: 6px;padding-top: 1.5px;">2</div>
+                </div>
+                <div style="float: left;margin-top: 0px;margin-left: 5px;width: 740px;text-align: justify;">
+                    Were any of the charity’s financial resources spent on programs outside of Canada
+                    under
+                    any
+                    kind of an arrangement including a contract, agency agreement, or joint venture to
+                    any
+                    other individual or
+                    organization (excluding gifts to qualified donees)?
+                </div>
+                <div style="float: left;margin-left: 10px;">
+                    <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+                        <div style="padding-left: 7px;padding-top: 1.5px;">210</div>
+                    </div>
+                </div>
+                <div style="float: left;">
+                    <div #tooltip="matTooltip"
+            matTooltip="Select YES if any financial resources were used for activities
+            OUTSIDE Canada under any kind of an arrangement, contract,
+            or joint venture with any other individual or entity (EXCLUDING
+            gifts to qualified donees OR amounts gifted to other
+            organizations reported on Form T1236, Qualified donees
+            worksheet / Amounts provided to other organizations).
+            
+            If you selected YES, enter in the table the total reported on
+            LINE 200 that was transferred to individuals and
+            organizations.
+            
+            Use the country codes to identify the countries where
+            the charity carried on activities OR gave any of its resources." matTooltipPosition="above"
+            matTooltipClass="tooltip-blue"
+            class="largeFontSize" style="float: left;margin-left: 4px;border: 1px solid black;border-radius: 50%;
+              width: 15px;height: 15px;">
+              <div style="margin-top: -3px;"><i style="margin-left: 5px;font-size: 12px;"><b >i</b></i></div>
+            </div>
+                    <mat-radio-group aria-label="Select an option" color="primary" formControlName="col_210">
+                        <div style="float: left;margin-left: 15px;">
+                            <mat-radio-button value="1" (change)="schedule2_2($event)">Yes
+                            </mat-radio-button>
+                        </div>
+                        <div style="float: left; margin-left: 20px;">
+                            <mat-radio-button value="2" (change)="schedule2_2($event)">No
+                            </mat-radio-button>
+                        </div>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="shwoSchedule2_2" style="float: left;width: 1000px;margin-top: 10px;">
+            <div style="float: left;margin-top: 5px;margin-left: 30px;width: 840px;text-align: justify;">
+                <b>If yes</b>, provide details of the amount reported in question 1 on line 200, that the
+                charity
+                transferred to these individuals or organizations in the following table:
+            </div>
+            <mat-card style="width: 1000px;background-color: whitesmoke;height: 310px;float: left;">
+                <div style="float: left;">
+                    <div style="float: left;width: 500px;"><b>Name of individual/organization</b></div>
+                    <div style="float: left;width: 220px;"><b>Country code where the activities were
+                            carried
+                            out</b></div>
+                    <div style="float: left;width: 220px;margin-left: 10px;"><b>Amount ($) Show amounts
+                            to
+                            the nearest Canadian dollar</b></div>
+                </div>
+                <div style="float: left;margin-top: 15px;">
+                    <div style="float: left;width: 500px;">
+                        <mat-form-field class="" style="width: 400px;" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_name_1">
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 220px;">
+                        <mat-form-field appearance="fill">
+                            <mat-select formControlName="schedule2_cc_1" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 220px;margin-left: 10px;">
+                        <mat-form-field class="" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_amount_1">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div style="float: left;margin-top: 15px;">
+                    <div style="float: left;width: 500px;">
+                        <mat-form-field class="" style="width: 400px;" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_name_2">
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 220px;">
+                        <mat-form-field appearance="fill">
+                            <mat-select formControlName="schedule2_cc_2" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 220px;margin-left: 10px;">
+                        <mat-form-field class="" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_amount_2">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div style="float: left;margin-top: 15px;">
+                    <div style="float: left;width: 500px;">
+                        <mat-form-field class="" style="width: 400px;" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_name_3">
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 220px;">
+                        <mat-form-field appearance="fill">
+                            <mat-select formControlName="schedule2_cc_3" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 220px;margin-left: 10px;">
+                        <mat-form-field class="" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_amount_3">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card>
+            <div style="float: left;margin-top: 5px;"><b>Important:</b> If you entered information in the table above,
+                you
+                <b>must</b> answer <b>yes</b> in line 210.
+            </div>
+        </div>
+        <div style="float: left;width: 1000px;margin-top: 10px;">
+            <div style="margin-top: 5px;float: left;">
+                <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+                    <div style="padding-left: 6px;padding-top: 1.5px;">3</div>
+                </div>
+                <div style="float: left;margin-top: px;margin-left: 5px;width: 740px;text-align: justify;">
+                    Using the table below, enter the countries outside Canada where the charity itself
+                    carried
+                    on programs or devoted any of its resources.
+                </div>
+            </div>
+            <div style="float: left;width: 990px;">
+                <div style="float: left;margin-left: 30px;width: 940px;">
+                    <div style="float: left;width: 180px;">
+
+                        <mat-form-field appearance="fill" style="width: 180px;">
+                            <mat-select formControlName="schedule2_3_1" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+                    <div style="float: left;width: 180px; margin-left: 10px;">
+                        <mat-form-field appearance="fill" style="width: 180px;">
+                            <mat-select formControlName="schedule2_3_2" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+
+                    <div style="float: left;width: 180px; margin-left: 10px;">
+                        <mat-form-field appearance="fill" style="width: 180px;">
+                            <mat-select formControlName="schedule2_3_3" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+                    <div style="float: left;width: 180px; margin-left: 10px;">
+                        <mat-form-field appearance="fill" style="width: 180px;">
+                            <mat-select formControlName="schedule2_3_4" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+                    <div style="float: left;width: 180px; margin-left: 10px;">
+                        <mat-form-field appearance="fill" style="width: 180px;">
+                            <mat-select formControlName="schedule2_3_5" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+                </div>
+                <div style="float: left;margin-left: 30px;width: 940px;">
+                    <div style="float: left;width: 180px;">
+                        <mat-form-field appearance="fill" style="width: 180px;">
+                            <mat-select formControlName="schedule2_3_6" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+                    <div style="float: left;width: 180px; margin-left: 10px;">
+                        <mat-form-field appearance="fill" style="width: 180px;">
+                            <mat-select formControlName="schedule2_3_7" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+                    <div style="float: left;width: 180px; margin-left: 10px;">
+                        <mat-form-field appearance="fill" style="width: 180px;">
+                            <mat-select formControlName="schedule2_3_8" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+                    <div style="float: left;width: 180px; margin-left: 10px;">
+                        <mat-form-field appearance="fill" style="width: 180px;">
+                            <mat-select formControlName="schedule2_3_9" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+                    <div style="float: left;width: 180px; margin-left: 10px;">
+                        <mat-form-field appearance="fill" style="width: 180px;">
+                            <mat-select formControlName="schedule2_3_10" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="float: left;width: 1000px;margin-top: 10px;">
+            <div style="margin-top: 5px;float: left;">
+                <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+                    <div style="padding-left: 6px;padding-top: 1.5px;">4</div>
+                </div>
+                <div style="float: left;margin-top: px;margin-left: 5px;width: 740px;text-align: justify;">
+                    Were any projects undertaken outside Canada funded by Global Affairs Canada
+                </div>
+                <div style="float: left;margin-left: 10px;">
+                    <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+                        <div style="padding-left: 7px;padding-top: 1.5px;">220</div>
+                    </div>
+                </div>
+                <div style="float: left;">
+                    <div #tooltip="matTooltip"
+            matTooltip="Select YES if Global Affairs funded any of your activities outside Canada, and enter the amount in Canadian dollars.
+            of funds spent in Canadian dollars." matTooltipPosition="above"
+            matTooltipClass="tooltip-blue"
+            class="largeFontSize" style="float: left;margin-left: 4px;border: 1px solid black;border-radius: 50%;
+              width: 15px;height: 15px;">
+              <div style="margin-top: -3px;"><i style="margin-left: 5px;font-size: 12px;"><b >i</b></i></div>
+            </div>
+                    <mat-radio-group aria-label="Select an option" color="primary" formControlName="col_220">
+                        <div style="float: left;;margin-left: 15px;">
+                            <mat-radio-button value="1" (change)="shcedule2_4($event)">Yes
+                            </mat-radio-button>
+                        </div>
+                        <div style="float: left; margin-left: 20px;">
+                            <mat-radio-button value="2" (change)="shcedule2_4($event)">No
+                            </mat-radio-button>
+                        </div>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div>
+        <div style="float: left;width: 1000px;margin-top: 10px;">
+            <div style="margin-top: 5px;float: left;">
+                <div style="float: left;margin-top: 5px;margin-left: 30px;width: 740px;text-align: justify;">
+                    If yes, what was the total amount the charity spent under this arrangement?
+                </div>
+                <div *ngIf="showSchedule2_4" style="float: left;">
+                    <div style="float: left;margin-left: 10px;">
+                        <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+                            <div style="padding-left: 7px;padding-top: 1.5px;">230</div>
+                        </div>
+                    </div>
+                    <div #tooltip="matTooltip"
+            matTooltip="Select YES if Global Affairs funded any of your activities outside Canada, and enter the amount in Canadian dollars." matTooltipPosition="above"
+            matTooltipClass="tooltip-blue"
+            class="largeFontSize" style="float: left;margin-left: 4px;border: 1px solid black;border-radius: 50%;
+              width: 15px;height: 15px;">
+              <div style="margin-top: -3px;"><i style="margin-left: 5px;font-size: 12px;"><b >i</b></i></div>
+            </div>
+                    <div style="float: left;width: 160px;">
+                        <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                            <mat-form-field class="" style="width: 160px;">
+                                <input matInput placeholder="$" value="" formControlName="col_230">
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="float: left;width: 1000px;margin-top: 10px;">
+            <div style="margin-top: 5px;float: left;">
+                <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+                    <div style="padding-left: 6px;padding-top: 1.5px;">5</div>
+                </div>
+                <div style="float: left;margin-top: 0px;margin-left: 5px;width: 740px;text-align: justify;">
+                    Were any of the charity's activities outside of Canada carried out by employees of
+                    the
+                    charity?
+                </div>
+                <div style="float: left;margin-left: 10px;">
+                    <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+                        <div style="padding-left: 7px;padding-top: 1.5px;">240</div>
+                    </div>
+                </div>
+                <div style="float: left;">
+                    <div #tooltip="matTooltip"
+            matTooltip="Select YES if any of your EMPLOYEES conducted the charity’s activities outside Canada." matTooltipPosition="above"
+            matTooltipClass="tooltip-blue"
+            class="largeFontSize" style="float: left;margin-left: 4px;border: 1px solid black;border-radius: 50%;
+              width: 15px;height: 15px;">
+              <div style="margin-top: -3px;"><i style="margin-left: 5px;font-size: 12px;"><b >i</b></i></div>
+            </div>
+                    <mat-radio-group aria-label="Select an option" color="primary" formControlName="col_240">
+                        <div style="float: left;;margin-left: 15px;">
+                            <mat-radio-button value="1">Yes</mat-radio-button>
+                        </div>
+                        <div style="float: left; margin-left: 20px;">
+                            <mat-radio-button value="2">No</mat-radio-button>
+                        </div>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div>
+        <div style="float: left;width: 1000px;margin-top: 10px;">
+            <div style="margin-top: 5px;float: left;">
+                <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+                    <div style="padding-left: 6px;padding-top: 1.5px;">6</div>
+                </div>
+                <div style="float: left;margin-top: 0px;margin-left: 5px;width: 740px;text-align: justify;">
+                    Were any of the charity's activities outside of Canada carried out by volunteers of
+                    the
+                    charity?
+                </div>
+                <div style="float: left;margin-left: 10px;">
+                    <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+                        <div style="padding-left: 7px;padding-top: 1.5px;">250</div>
+                    </div>
+                </div>
+                <div style="float: left;">
+                    <div #tooltip="matTooltip"
+            matTooltip="Select YES if any of your VOLUNTEERS conducted the charity’s activities outside Canada, select YES." matTooltipPosition="above"
+            matTooltipClass="tooltip-blue"
+            class="largeFontSize" style="float: left;margin-left: 4px;border: 1px solid black;border-radius: 50%;
+              width: 15px;height: 15px;">
+              <div style="margin-top: -3px;"><i style="margin-left: 5px;font-size: 12px;"><b >i</b></i></div>
+            </div>
+                    <mat-radio-group aria-label="Select an option" color="primary" formControlName="col_250">
+                        <div style="float: left;margin-left: 15px;">
+                            <mat-radio-button value="1">Yes</mat-radio-button>
+                        </div>
+                        <div style="float: left; margin-left: 20px;">
+                            <mat-radio-button value="2">No</mat-radio-button>
+                        </div>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div>
+        <div style="float: left;width: 1000px;margin-top: 10px;">
+            <div style="margin-top: 5px;float: left;">
+                <div style="float: left;width: 25px;height: 20px;background-color: black;color: white;">
+                    <div style="padding-left: 6px;padding-top: 1.5px;">7</div>
+                </div>
+                <div style="float: left;margin-top: 0px;margin-left: 5px;width: 740px;text-align: justify;">
+                    Did the charity export goods as part of its charitable activities?
+                </div>
+                <div style="float: left;margin-left: 10px;">
+                    <div style="float: left;width: 40px;height: 20px;background-color: black;color: white;">
+                        <div style="padding-left: 7px;padding-top: 1.5px;">260</div>
+                    </div>
+                </div>
+                <div style="float: left;">
+                    <div #tooltip="matTooltip"
+            matTooltip="Select YES if you exported exported goods outside Canada. Enter what you exported, their value,destination (city/region), and country codes." matTooltipPosition="above"
+            matTooltipClass="tooltip-blue"
+            class="largeFontSize" style="float: left;margin-left: 4px;border: 1px solid black;border-radius: 50%;
+              width: 15px;height: 15px;">
+              <div style="margin-top: -3px;"><i style="margin-left: 5px;font-size: 12px;"><b >i</b></i></div>
+            </div>
+                    <mat-radio-group aria-label="Select an option" color="primary" formControlName="col_260">
+                        <div style="float: left;;margin-left: 15px;">
+                            <mat-radio-button value="1" (change)="schedule2_7($event)">Yes
+                            </mat-radio-button>
+                        </div>
+                        <div style="float: left; margin-left: 20px;">
+                            <mat-radio-button value="2" (change)="schedule2_7($event)">No
+                            </mat-radio-button>
+                        </div>
+                    </mat-radio-group>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="showSchedule2_7" style="float: left;width: 1000px;margin-top: 10px;text-align: center;">
+            <div style="float: left;margin-left: 30px;">
+                <b>If yes</b>, list the items exported, their destination, the country code, and their value
+            </div>
+            <mat-card style="width: 1000px;background-color: whitesmoke;height: 378px;float: left;">
+                <div style="float: left;">
+                    <div style="float: left;width: 300px;"><b>Item exported</b></div>
+                    <div style="float: left;width: 220px;"><b>Destination (city/region)</b></div>
+                    <div style="float: left;width: 200px;margin-left: 0px;"><b>Country code</b></div>
+                    <div style="float: left;width: 200px;margin-left: 0px;"><b>Value (CAN $)</b></div>
+                </div>
+                <div style="float: left;margin-top: 15px;">
+                    <div style="float: left;width: 300px;">
+                        <mat-form-field class="" style="width: 280px;text-align: center;" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_7_item_1">
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 220px;">
+                        <mat-form-field class="" style="text-align: center;" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_7_dest_1">
+                        </mat-form-field>
+                    </div>
+
+                    <div style="float: left;width: 200px;margin-left: 10px;">
+                        <mat-form-field appearance="fill">
+                            <mat-select formControlName="schedule2_7_countryCode_1" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div style="float: left;width: 200px;margin-left: 10px;">
+                        <mat-form-field class="" style="text-align: center;" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_7_value_1">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div style="float: left;margin-top: 15px;">
+                    <div style="float: left;width: 300px;">
+                        <mat-form-field class="" style="width: 280px;text-align: center;" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_7_item_2">
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 220px;">
+                        <mat-form-field class="" style="text-align: center;" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_7_dest_2">
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 200px;margin-left: 10px;">
+                        <mat-form-field appearance="fill">
+                            <mat-select formControlName="schedule2_7_countryCode_2" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 200px;margin-left: 10px;">
+                        <mat-form-field class="" style="text-align: center;" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_7_value_2">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div style="float: left;margin-top: 15px;">
+                    <div style="float: left;width: 300px;">
+                        <mat-form-field class="" style="width: 280px;text-align: center;" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_7_item_3">
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 220px;">
+                        <mat-form-field class="" style="text-align: center;" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_7_dest_3">
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 200px;margin-left: 10px;">
+                        <mat-form-field appearance="fill">
+                            <mat-select formControlName="schedule2_7_countryCode_3" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 200px;margin-left: 10px;">
+                        <mat-form-field class="" style="text-align: center;" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_7_value_3">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div style="float: left;margin-top: 15px;">
+                    <div style="float: left;width: 300px;">
+                        <mat-form-field class="" style="width: 280px;text-align: center;" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_7_item_4">
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 220px;">
+                        <mat-form-field class="" style="text-align: center;" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_7_dest_4">
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 200px;margin-left: 10px;">
+                        <mat-form-field appearance="fill">
+                            <mat-select formControlName="schedule2_7_countryCode_4" placeholder="Select counrty code">
+                                <mat-option *ngFor="let cc of CountryCodes" [value]="cc.code">
+                                    {{cc.country}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div style="float: left;width: 200px;margin-left: 10px;">
+                        <mat-form-field class="" style="text-align: center;" appearance="fill">
+                            <input matInput placeholder="" value="" formControlName="schedule2_7_value_4">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</form>
+
+<div style="float: left;width: 1000px;margin-top: 10px;background-color: gainsboro;">
+    <a href="javascript:void();">
+        <div style="float: right;background-color:#006ad1;color: white;padding: 5px;width: 200px;" (click)="saveSchedule2()">
+            Save</div>
+    </a>
+</div>

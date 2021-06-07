@@ -1,0 +1,51 @@
+server:
+  port: 7070
+
+spring:
+  application:
+    name: Charity-Sector
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/charitable_sector
+    username: 
+    password: postgres
+#  data:
+#    mongodb:
+      #authentication-database: admin
+      #username: root
+      #password: root
+#      database: charitable_sector
+      #port: 27017
+      #host: localhost
+      #uri: mongodb://root:root@127.0.0.1/charity_sector
+      #uri: mongodb://root:root@localhost:27017/?authSource=admin&authMechanism=SCRAM-SHA-1
+#      uri: mongodb://127.0.0.1:27017/
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        
+charitable:
+  csv:
+    path: /Users/geeta/Documents/workspace/CharitySector/
+    #path: /home/ubuntu/scripts/python/output/
+    filename: charity_data_dict.csv
+  python:
+    path-with-filename: /home/ubuntu/scripts/python/mail_merge_all_forms.py
+
+logging:
+  file: ./logs/charity-sector.log
+  max-size: 10MB
+  pattern:
+    console: "%black(%d{ISO8601}) %highlight(%-5level) [%blue(%t)] %yellow(%C{1.}): %msg%n%throwable"
+    file: "%d %p %C{1.} [%t] %m%n"
+  level:      
+    root: INFO
+    com.project.be.charitable: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: DEBUG

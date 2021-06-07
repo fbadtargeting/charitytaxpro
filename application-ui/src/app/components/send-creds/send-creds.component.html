@@ -1,0 +1,42 @@
+
+    <div style="float: left;width: 450px;font-size: 14px;margin-top: 0px;">{{message}}</div>
+
+    <div style="float: left;width: 450px;">
+        <div style="float: left;font-size: 13px;margin-top: 49px;">
+            Enter Registered BN :
+            </div>
+        <div style="float: left;">
+            <div style="float: left;width: 260px;margin-top: 30px;margin-left: 30px;">
+                <div style="float: left;">
+                  <mat-form-field class="example-full-width" style="width: 145px;" appearance="fill">
+                    <mat-label></mat-label>
+                    <input matInput placeholder="" minlength="9" maxlength="9" id="bnPrefix"
+                      style="text-align: center;">
+                  </mat-form-field>
+                </div>
+                <div style="float: left;margin-top: 19px;">RR</div>
+                <div style="float: left;">
+                  <mat-form-field class="example-full-width" style="width: 87px;" appearance="fill">
+                    <mat-label></mat-label>
+                    <input matInput placeholder="" minlength="4" maxlength="4" id="bnSuffix"
+                      style="text-align: center;">
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+        </div>
+
+  <div mat-dialog-actions>
+    <div style="float: left;margin-top: 20px;">
+       <a href="javascript:void();">
+       <div style="float: left;padding-top: 2px;height: 25px;width: 80px;text-align: center;border-radius: 5%;
+        background-color: #00ace6;;color: white;" (click)="submitReq()">Submit</div>
+        </a>
+    </div>
+    <div style="float: left;margin-top: 20px;margin-left: 10px;">
+      <a href="javascript:void();">
+          <div style="float: left;padding-top: 2px;height: 25px;width: 80px;text-align: center;border-radius: 5%;
+           background-color: #cc0000;color: white;" (click)="cancel()">Cancel</div>
+           </a>
+    </div>
+  </div>
