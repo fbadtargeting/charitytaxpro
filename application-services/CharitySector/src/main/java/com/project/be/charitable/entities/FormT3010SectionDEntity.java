@@ -25,32 +25,32 @@ public class FormT3010SectionDEntity implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private String col_4020;
+	private String col_4020_secD;
 	private String col_4050;
-	private String col_4200;
-	private String col_4350;
+	private String col_4200_secD;
+	private String col_4350_secD;
 	private String col_4400;
 	private String col_4490;
-	private String col_4500;
-	private String col_4505;
-	private String col_4510;
-	private String col_4530;
+	private String col_4500_secD;
+	private String col_4505_secD;
+	private String col_4510_secD;
+	private String col_4530_secD;
 	private String col_4565;
-	private String col_4571;
-	private String col_4575;
-	private String col_4630;
-	private String col_4640;
-	private String col_4650;
-	private String col_4860;
-	private String col_4810;
-	private String col_4920;
-	private String col_4950;
-	private String col_5000;
-	private String col_5010;
-	private String col_5050;
-	private String col_5100;
-	private String col_4570;
-	private String col_4700;
+	private String col_4571_secD;
+	private String col_4575_secD;
+	private String col_4630_secD;
+	private String col_4640_secD;
+	private String col_4650_secD;
+	private String col_4860_secD;
+	private String col_4810_secD;
+	private String col_4920_secD;
+	private String col_4950_secD;
+	private String col_5000_secD;
+	private String col_5010_secD;
+	private String col_5050_secD;
+	private String col_5100_secD;
+	private String col_4570_secD;
+	private String col_4700_secD;
 	
 	private Long user_id;
 	
@@ -65,12 +65,12 @@ public class FormT3010SectionDEntity implements Serializable{
 		this.id = id;
 	}
 
-	public String getCol_4020() {
-		return col_4020;
+	public String getCol_4020_secD() {
+		return col_4020_secD;
 	}
 
-	public void setCol_4020(String col_4020) {
-		this.col_4020 = col_4020;
+	public void setCol_4020_secD(String col_4020_secD) {
+		this.col_4020_secD = col_4020_secD;
 	}
 
 	public String getCol_4050() {
@@ -81,20 +81,20 @@ public class FormT3010SectionDEntity implements Serializable{
 		this.col_4050 = col_4050;
 	}
 
-	public String getCol_4200() {
-		return col_4200;
+	public String getCol_4200_secD() {
+		return col_4200_secD;
 	}
 
-	public void setCol_4200(String col_4200) {
-		this.col_4200 = col_4200;
+	public void setCol_4200_secD(String col_4200_secD) {
+		this.col_4200_secD = col_4200_secD;
 	}
 
-	public String getCol_4350() {
-		return col_4350;
+	public String getCol_4350_secD() {
+		return col_4350_secD;
 	}
 
-	public void setCol_4350(String col_4350) {
-		this.col_4350 = col_4350;
+	public void setCol_4350_secD(String col_4350_secD) {
+		this.col_4350_secD = col_4350_secD;
 	}
 
 	public String getCol_4400() {
@@ -113,36 +113,36 @@ public class FormT3010SectionDEntity implements Serializable{
 		this.col_4490 = col_4490;
 	}
 
-	public String getCol_4500() {
-		return col_4500;
+	public String getCol_4500_secD() {
+		return col_4500_secD;
 	}
 
-	public void setCol_4500(String col_4500) {
-		this.col_4500 = col_4500;
+	public void setCol_4500_secD(String col_4500_secD) {
+		this.col_4500_secD = col_4500_secD;
 	}
 
-	public String getCol_4505() {
-		return col_4505;
+	public String getCol_4505_secD() {
+		return col_4505_secD;
 	}
 
-	public void setCol_4505(String col_4505) {
-		this.col_4505 = col_4505;
+	public void setCol_4505_secD(String col_4505_secD) {
+		this.col_4505_secD = col_4505_secD;
 	}
 
-	public String getCol_4510() {
-		return col_4510;
+	public String getCol_4510_secD() {
+		return col_4510_secD;
 	}
 
-	public void setCol_4510(String col_4510) {
-		this.col_4510 = col_4510;
+	public void setCol_4510_secD(String col_4510_secD) {
+		this.col_4510_secD = col_4510_secD;
 	}
 
-	public String getCol_4530() {
-		return col_4530;
+	public String getCol_4530_secD() {
+		return col_4530_secD;
 	}
 
-	public void setCol_4530(String col_4530) {
-		this.col_4530 = col_4530;
+	public void setCol_4530_secD(String col_4530_secD) {
+		this.col_4530_secD = col_4530_secD;
 	}
 
 	public String getCol_4565() {
@@ -153,124 +153,124 @@ public class FormT3010SectionDEntity implements Serializable{
 		this.col_4565 = col_4565;
 	}
 
-	public String getCol_4571() {
-		return col_4571;
+	public String getCol_4571_secD() {
+		return col_4571_secD;
 	}
 
-	public void setCol_4571(String col_4571) {
-		this.col_4571 = col_4571;
+	public void setCol_4571_secD(String col_4571_secD) {
+		this.col_4571_secD = col_4571_secD;
 	}
 
-	public String getCol_4575() {
-		return col_4575;
+	public String getCol_4575_secD() {
+		return col_4575_secD;
 	}
 
-	public void setCol_4575(String col_4575) {
-		this.col_4575 = col_4575;
+	public void setCol_4575_secD(String col_4575_secD) {
+		this.col_4575_secD = col_4575_secD;
 	}
 
-	public String getCol_4630() {
-		return col_4630;
+	public String getCol_4630_secD() {
+		return col_4630_secD;
 	}
 
-	public void setCol_4630(String col_4630) {
-		this.col_4630 = col_4630;
+	public void setCol_4630_secD(String col_4630_secD) {
+		this.col_4630_secD = col_4630_secD;
 	}
 
-	public String getCol_4640() {
-		return col_4640;
+	public String getCol_4640_secD() {
+		return col_4640_secD;
 	}
 
-	public void setCol_4640(String col_4640) {
-		this.col_4640 = col_4640;
+	public void setCol_4640_secD(String col_4640_secD) {
+		this.col_4640_secD = col_4640_secD;
 	}
 
-	public String getCol_4650() {
-		return col_4650;
+	public String getCol_4650_secD() {
+		return col_4650_secD;
 	}
 
-	public void setCol_4650(String col_4650) {
-		this.col_4650 = col_4650;
+	public void setCol_4650_secD(String col_4650_secD) {
+		this.col_4650_secD = col_4650_secD;
 	}
 
-	public String getCol_4860() {
-		return col_4860;
+	public String getCol_4860_secD() {
+		return col_4860_secD;
 	}
 
-	public void setCol_4860(String col_4860) {
-		this.col_4860 = col_4860;
+	public void setCol_4860_secD(String col_4860_secD) {
+		this.col_4860_secD = col_4860_secD;
 	}
 
-	public String getCol_4810() {
-		return col_4810;
+	public String getCol_4810_secD() {
+		return col_4810_secD;
 	}
 
-	public void setCol_4810(String col_4810) {
-		this.col_4810 = col_4810;
+	public void setCol_4810_secD(String col_4810_secD) {
+		this.col_4810_secD = col_4810_secD;
 	}
 
-	public String getCol_4920() {
-		return col_4920;
+	public String getCol_4920_secD() {
+		return col_4920_secD;
 	}
 
-	public void setCol_4920(String col_4920) {
-		this.col_4920 = col_4920;
+	public void setCol_4920_secD(String col_4920_secD) {
+		this.col_4920_secD = col_4920_secD;
 	}
 
-	public String getCol_4950() {
-		return col_4950;
+	public String getCol_4950_secD() {
+		return col_4950_secD;
 	}
 
-	public void setCol_4950(String col_4950) {
-		this.col_4950 = col_4950;
+	public void setCol_4950_secD(String col_4950_secD) {
+		this.col_4950_secD = col_4950_secD;
 	}
 
-	public String getCol_5000() {
-		return col_5000;
+	public String getCol_5000_secD() {
+		return col_5000_secD;
 	}
 
-	public void setCol_5000(String col_5000) {
-		this.col_5000 = col_5000;
+	public void setCol_5000_secD(String col_5000_secD) {
+		this.col_5000_secD = col_5000_secD;
 	}
 
-	public String getCol_5010() {
-		return col_5010;
+	public String getCol_5010_secD() {
+		return col_5010_secD;
 	}
 
-	public void setCol_5010(String col_5010) {
-		this.col_5010 = col_5010;
+	public void setCol_5010_secD(String col_5010_secD) {
+		this.col_5010_secD = col_5010_secD;
 	}
 
-	public String getCol_5050() {
-		return col_5050;
+	public String getCol_5050_secD() {
+		return col_5050_secD;
 	}
 
-	public void setCol_5050(String col_5050) {
-		this.col_5050 = col_5050;
+	public void setCol_5050_secD(String col_5050_secD) {
+		this.col_5050_secD = col_5050_secD;
 	}
 
-	public String getCol_5100() {
-		return col_5100;
+	public String getCol_5100_secD() {
+		return col_5100_secD;
 	}
 
-	public void setCol_5100(String col_5100) {
-		this.col_5100 = col_5100;
+	public void setCol_5100_secD(String col_5100_secD) {
+		this.col_5100_secD = col_5100_secD;
 	}
 
-	public String getCol_4570() {
-		return col_4570;
+	public String getCol_4570_secD() {
+		return col_4570_secD;
 	}
 
-	public void setCol_4570(String col_4570) {
-		this.col_4570 = col_4570;
+	public void setCol_4570_secD(String col_4570_secD) {
+		this.col_4570_secD = col_4570_secD;
 	}
 
-	public String getCol_4700() {
-		return col_4700;
+	public String getCol_4700_secD() {
+		return col_4700_secD;
 	}
 
-	public void setCol_4700(String col_4700) {
-		this.col_4700 = col_4700;
+	public void setCol_4700_secD(String col_4700_secD) {
+		this.col_4700_secD = col_4700_secD;
 	}
 
 	public Long getUser_id() {

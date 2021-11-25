@@ -16,10 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.be.charitable.dto.FormT1235Dto;
-import com.project.be.charitable.dto.FormT1236Dto;
-import com.project.be.charitable.dto.FormT3010Dto;
 import com.project.be.charitable.dto.GenericRespDTO;
+import com.project.be.charitable.dto.MasterDtoT1235;
+import com.project.be.charitable.dto.MasterDtoT1236;
+import com.project.be.charitable.dto.MasterDtoT3010;
+import com.project.be.charitable.dto.UserAcceptDto;
 import com.project.be.charitable.service.CharityFormService;
 import com.project.be.charitable.service.FormT1235Service;
 import com.project.be.charitable.service.FormT1236Service;
@@ -67,10 +68,12 @@ public class CharityFormDataController {
 	 * This will save FormT3010 with given section
 	 */
 	@PostMapping(path = "saveFormT3010", produces = MediaType.APPLICATION_JSON_VALUE )
-	public ResponseEntity<GenericRespDTO> saveFormT3010(@RequestBody FormT3010Dto formT3010){
+	public ResponseEntity<GenericRespDTO> saveFormT3010(@RequestBody MasterDtoT3010 masterT3010){
 		try{
-			logger.info("Request recieved to save Form T3010");
-			return new ResponseEntity<>(formT3010Service.saveT3010Form(formT3010), HttpStatus.OK);
+			logger.info("Request recieved to save Form T3010 for user : {} ",masterT3010.getUserId());
+			Boolean status = charityFormService.saveUserAcceptanceData(masterT3010.getUserId(), masterT3010.getUserAccept());
+			logger.info("Status of saving user acceptance is : {}  and now going to save form data ..",status);
+			return new ResponseEntity<>(formT3010Service.saveT3010Form(masterT3010.getT3010()), HttpStatus.OK);
 		}catch(Exception e){
 			logger.error("Error while saving Form T3010");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -78,7 +81,7 @@ public class CharityFormDataController {
 	}
 
 	@GetMapping(path = "getFormT3010/{userId}", produces = MediaType.APPLICATION_JSON_VALUE )
-	public ResponseEntity<FormT3010Dto> getFormT3010(@PathVariable("userId") Long userId){
+	public ResponseEntity<MasterDtoT3010> getFormT3010(@PathVariable("userId") Long userId){
 		try{
 			logger.info("Request recieved to get Form T3010");
 			return new ResponseEntity<>(formT3010Service.getT3010Form(userId), HttpStatus.OK);
@@ -95,10 +98,12 @@ public class CharityFormDataController {
 	 * This will save FormT1235
 	 */
 	@PostMapping(path = "saveFormT1235", produces = MediaType.APPLICATION_JSON_VALUE )
-	public ResponseEntity<GenericRespDTO> saveFormT1235(@RequestBody FormT1235Dto formT1235){
+	public ResponseEntity<GenericRespDTO> saveFormT1235(@RequestBody MasterDtoT1235 masterT1235){
 		try{
-			logger.info("Request recieved to save Form T1235");
-			return new ResponseEntity<>(formT1235Service.saveT1235Data(formT1235), HttpStatus.OK);
+			logger.info("Request recieved to save Form T1235 for user : {} ",masterT1235.getUserId());
+			Boolean status = charityFormService.saveUserAcceptanceData(masterT1235.getUserId(), masterT1235.getUserAccept());
+			logger.info("Status of saving user acceptance is : {}  and now going to save form data ..",status);
+			return new ResponseEntity<>(formT1235Service.saveT1235Data(masterT1235.getT1235()), HttpStatus.OK);
 		}catch(Exception e){
 			logger.error("Error while saving Form T1235");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -106,7 +111,7 @@ public class CharityFormDataController {
 	}
 
 	@GetMapping(path = "getFormT1235/{userId}", produces = MediaType.APPLICATION_JSON_VALUE )
-	public ResponseEntity<FormT1235Dto> getFormT1235(@PathVariable("userId") Long userId){
+	public ResponseEntity<MasterDtoT1235> getFormT1235(@PathVariable("userId") Long userId){
 		try{
 			logger.info("Request recieved to get Form T1235");
 			return new ResponseEntity<>(formT1235Service.getFormT1235Data(userId), HttpStatus.OK);
@@ -123,10 +128,12 @@ public class CharityFormDataController {
 	 * This will save FormT1236
 	 */
 	@PostMapping(path = "saveFormT1236", produces = MediaType.APPLICATION_JSON_VALUE )
-	public ResponseEntity<GenericRespDTO> saveFormT1236(@RequestBody FormT1236Dto formT1236){
+	public ResponseEntity<GenericRespDTO> saveFormT1236(@RequestBody MasterDtoT1236 masterT1236){
 		try{
-			logger.info("Request recieved to save Form T1236");
-			return new ResponseEntity<>(formT1236Service.saveT1236Data(formT1236), HttpStatus.OK);
+			logger.info("Request recieved to save Form T1236 for user : {} ",masterT1236.getUserId());
+			Boolean status = charityFormService.saveUserAcceptanceData(masterT1236.getUserId(), masterT1236.getUserAccept());
+			logger.info("Status of saving user acceptance is : {}  and now going to save form data ..",status);
+			return new ResponseEntity<>(formT1236Service.saveT1236Data(masterT1236.getT1236()), HttpStatus.OK);
 		}catch(Exception e){
 			logger.error("Error while saving Form T1236");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -134,7 +141,7 @@ public class CharityFormDataController {
 	}
 
 	@GetMapping(path = "getFormT1236/{userId}", produces = MediaType.APPLICATION_JSON_VALUE )
-	public ResponseEntity<FormT1236Dto> getFormT1236(@PathVariable("userId") Long userId){
+	public ResponseEntity<MasterDtoT1236> getFormT1236(@PathVariable("userId") Long userId){
 		try{
 			logger.info("Request recieved to get Form T1236");
 			return new ResponseEntity<>(formT1236Service.getFormT1236Data(userId), HttpStatus.OK);
@@ -151,11 +158,13 @@ public class CharityFormDataController {
 	 * @return
 	 * This will be to submit complete form
 	 */
-	@GetMapping(path = "submitTaxForm/{userId}", produces = MediaType.APPLICATION_JSON_VALUE )
-	public ResponseEntity<GenericRespDTO> submitTaxForm(@PathVariable("userId") Long userId){
+	@PostMapping(path = "submitTaxForm", produces = MediaType.APPLICATION_JSON_VALUE )
+	public ResponseEntity<GenericRespDTO> submitTaxForm(@RequestBody UserAcceptDto userAcceptDto){
 		try{
 			logger.info("Request recieved to Submit Complete Form ");
-			return new ResponseEntity<>(charityFormService.submitTaxForm(userId), HttpStatus.OK);
+			Boolean status = charityFormService.saveUserAcceptanceData(userAcceptDto.getUserId(), userAcceptDto);
+			logger.info("Status of saving user acceptance is : {}  and now going to save form data ..",status);
+			return new ResponseEntity<>(charityFormService.submitTaxForm(userAcceptDto.getUserId()), HttpStatus.OK);
 		}catch(Exception e){
 			logger.error("Error while getting Form T3010");
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

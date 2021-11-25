@@ -10,10 +10,13 @@ import org.springframework.stereotype.Service;
 
 import com.project.be.charitable.dto.FormT1236Dto;
 import com.project.be.charitable.dto.GenericRespDTO;
+import com.project.be.charitable.dto.MasterDtoT1236;
 import com.project.be.charitable.entities.FormT1236Entity;
 import com.project.be.charitable.repository.CharitableUserRepository;
 import com.project.be.charitable.repository.FormT1236Repository;
 import com.project.be.charitable.utility.CharitableUtilities;
+
+import static com.project.be.charitable.utility.CharitableConstants.*;
 
 /**
  * @author geeta
@@ -29,6 +32,9 @@ public class FormT1236Service {
 	
 	@Autowired
 	CharitableUserRepository charitableUserRepository;
+	
+	@Autowired
+	CharityUserService charityUserService;
 	
 	public GenericRespDTO saveT1236Data(FormT1236Dto formT1236Dto){
 
@@ -46,11 +52,11 @@ public class FormT1236Service {
 				entity.setId(rowId);
 			}
 			formT1236Repository.save(entity);
-			respDto.setStatus("SUCCESS");
-			respDto.setMessage("Form saved successfully.");
+			respDto.setStatus(SUCCESS);
+			respDto.setMessage(SUCCESS_SAVE_DOWNLOAD_MSG);
 		}catch(Exception e){
-			respDto.setStatus("FAIL");
-			respDto.setMessage("Error while saving form.");
+			respDto.setStatus(FAIL);
+			respDto.setMessage(SAVE_FAIL_MSG);
 			logger.error("Error while saving data : {} ",e);
 		}
 		return respDto;
@@ -71,8 +77,9 @@ public class FormT1236Service {
 		return null;
 	}
 	
-	public FormT1236Dto getFormT1236Data(Long userId){
+	public MasterDtoT1236 getFormT1236Data(Long userId){
 		
+		MasterDtoT1236 masterDto = new MasterDtoT1236();
 		FormT1236Dto formT1236Dto = null;
 		FormT1236Entity formT1236Entity = formT1236Repository.findByUserId(userId);
 		 
@@ -80,9 +87,13 @@ public class FormT1236Service {
 			logger.debug("Form T1236 data is present!");
 			formT1236Dto = new FormT1236Dto();
 			BeanUtils.copyProperties(formT1236Entity, formT1236Dto);
+			
+			masterDto.setUserId(userId);
+			masterDto.setT1236(formT1236Dto);
+			masterDto.setUserAccept(charityUserService.getUserAcceptanceData(userId));
 		}else
 			logger.info("Form T1236 data is not present for user id : {} ",userId);
-		return formT1236Dto;
+		return masterDto;
 	}
 
 }

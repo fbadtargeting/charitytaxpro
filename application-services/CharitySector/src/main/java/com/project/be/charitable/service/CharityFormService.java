@@ -1,8 +1,8 @@
 package com.project.be.charitable.service;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,8 +13,12 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 
 import com.project.be.charitable.dto.GenericRespDTO;
+import com.project.be.charitable.dto.UserAcceptDto;
+import com.project.be.charitable.entities.CharitableUserEntity;
 import com.project.be.charitable.repository.CharitableUserRepository;
 import com.project.be.charitable.utility.CharitableUtilities;
+
+import static com.project.be.charitable.utility.CharitableConstants.*;
 
 /**
  * @author geeta
@@ -49,6 +53,9 @@ public class CharityFormService {
 	@Value("${charitable.python.path-with-filename}")
 	private String pythonPathWithFileName;
 	
+	@Value("${charitable.python.output-filename-suffix}")
+	private String outputFilenameSuffix;
+	
 	public GenericRespDTO submitTaxForm(Long userId){
 
 		logger.info("Submitting Charity Tax Form data for user id : {} ",userId);
@@ -70,9 +77,13 @@ public class CharityFormService {
 			if(null != t1236 && !t1236.isEmpty())
 				completeFormData.putAll(t1236);
 			
-			
-			//other forms TODO
-			
+			Optional<CharitableUserEntity> optUserEntityt = charitableUserRepository.findById(userId);
+			if(optUserEntityt.isPresent()){
+				logger.debug("User Entity found.");
+				CharitableUserEntity existingUser = optUserEntityt.get();
+				completeFormData.putAll(createUserAccMap(existingUser));
+			}
+		
 			CharitableUtilities.convertKeyValPairToCsv(completeFormData, csvPath+userId+"/", csvFileName);
 			
 			//logger.debug("All sections of form t3010 save, now starting to create CSV file!");
@@ -80,11 +91,11 @@ public class CharityFormService {
 			
 			//Calling python script - Not Required here. This will be required while download form
 			//CharitableUtilities.executePythonToCreateDoc(pythonPathWithFileName, formT3010.getUser_id());
-			respDto.setStatus("SUCCESS");
-			respDto.setMessage("Form submitted successfully.");
+			respDto.setStatus(SUCCESS);
+			respDto.setMessage(SUCCESS_SUBMIT_DOWNLOAD_MSG);
 		}catch(Exception e){
-			respDto.setStatus("FAIL");
-			respDto.setMessage("Error while submitting form.");
+			respDto.setStatus(FAIL);
+			respDto.setMessage(SUBMIT_FAIL_MSG);
 			logger.error("Error while submitting data : {} ",e);
 		}
 		return respDto;
@@ -93,36 +104,47 @@ public class CharityFormService {
 
 	public Resource prepareAndDownloadForm(Long userId, String formType, String lang){
 		try{
-			String completePathAndFile = csvPath+userId+"/"+csvFileName;
-			File file = new File(completePathAndFile);
-			logger.info("If CSV present or not for user id : {} path : {} exists is : {} ",userId,completePathAndFile,file.exists());
+			logger.info("In the prepareAndDownloadForm for user : {} form type : {} and lang : {} ",userId,formType,lang);
+			//String completePathAndFile = csvPath+userId+"/"+csvFileName;
+			//File file = new File(completePathAndFile);
+			//logger.info("If CSV present or not for user id : {} path : {} exists is : {} ",userId,completePathAndFile,file.exists());
+			//logger.info("Form Type is : {} ",formType);
+			logger.debug("Calling method to create complete CSV......");
+			Boolean csvCreated = createCsvFor(userId);
+			logger.info("Status of CSV creation is : {} ",csvCreated);
 			
-			String formTypePy = "t3010-20e";
-			String langPy = "eng";
-			if(formType.equals("T3010")){
+			if(csvCreated){
+				//String formTypePy = "t3010-20e";
+				String langPy = "eng";
+				/*if(formType.equals("T3010")){
 				formTypePy = "t3010-20e";
 			}else if(formType.equals("T1235")){
 				formTypePy = "t1235-20e";
 			}else if(formType.equals("T1236")){
 				formTypePy = "t1236-19e";
-			}
-			
-			if(lang.equals("en")){
-				langPy = "eng";
-			}else if(lang.equals("fr")){
-				langPy = "french";
-			} 
-			
-			CharitableUtilities.executePythonToCreateDoc(pythonPathWithFileName, userId, langPy, formTypePy);
-			
-			//String fileName = csvPath+userId+"/t3010-20e_auto_out.docx";
-			String fileName = csvPath+userId+"/"+formTypePy+"_"+langPy+"_out.docx";
-			logger.debug("File name to be downloaded is : {} ",fileName);
-			Resource resource = resourceLoader.getResource("file:"+fileName);
-			if(resource.exists())
-				return resource;
-			else
+			}*/
+
+				if(lang.equals("en")){
+					langPy = "eng";
+				}else if(lang.equals("fr")){
+					langPy = "french";
+				} 
+
+				CharitableUtilities.executePythonToCreateDoc(pythonPathWithFileName, userId, langPy, formType);
+
+				//String fileName = csvPath+userId+"/t3010-20e_auto_out.docx";
+				//String fileName = csvPath+userId+"/"+formType+"_"+langPy+"_out.docx";
+				String fileName = csvPath+userId+"/"+formType+"_"+outputFilenameSuffix;
+				logger.debug("File name to be downloaded is : {} ",fileName);
+				Resource resource = resourceLoader.getResource("file:"+fileName);
+				if(resource.exists())
+					return resource;
+				else
+					return null;
+			}else{
+				logger.error("Error while creating CSV..");
 				return null;
+			}
 		}catch(Exception e){
 			logger.error("Error while fetching form : {} ",e);
 			return null;
@@ -276,4 +298,75 @@ public class CharityFormService {
 		
 	}
 	*/
+	
+	public Boolean createCsvFor(Long userId){
+		logger.info("Creating CSV for user id : {} ",userId);
+		try{
+			Map<String, String> completeFormData = new HashMap<>();
+			completeFormData.putAll(formT3010Service.createKeyValPairForT3010(userId));
+			Map<String, String> t1235 = formT1235Service.getT1235DataInKeyValPair(userId);
+			if(null != t1235 && !t1235.isEmpty())
+				completeFormData.putAll(t1235);
+
+			Map<String, String> t1236 = formT1236Service.getT1236DataInKeyValPair(userId);
+			if(null != t1236 && !t1236.isEmpty())
+				completeFormData.putAll(t1236);
+			
+			Optional<CharitableUserEntity> optUserEntityt = charitableUserRepository.findById(userId);
+			if(optUserEntityt.isPresent()){
+				logger.debug("User Entity found.");
+				CharitableUserEntity existingUser = optUserEntityt.get();
+				completeFormData.putAll(createUserAccMap(existingUser));
+			}
+
+			logger.debug("Size of Complete Form Data for creating CSV is : {} ",completeFormData.size());
+			CharitableUtilities.convertKeyValPairToCsv(completeFormData, csvPath+userId+"/", csvFileName);
+			logger.debug("CSV file created successfully for user : {} ",userId);
+			
+		}catch(Exception e){
+			logger.error("Error while submitting data : {} ",e);
+			return false;
+		}
+		return true;
+	}
+	
+	public Boolean saveUserAcceptanceData(Long userId, UserAcceptDto userAccept){
+		try{
+			logger.info("User Acceptance Data Save start for user : {} ",userId);
+			Optional<CharitableUserEntity> optUserEntityt = charitableUserRepository.findById(userId);
+			if(optUserEntityt.isPresent()){
+				logger.debug("User Entity found and start saving the parameters..");
+				CharitableUserEntity existingUser = optUserEntityt.get();
+				existingUser.setPrivacyStatement(userAccept.isPrivacyStatement());
+				existingUser.setCopyOfFinancialStatements(userAccept.isCopyOfFinancialStatements());
+				existingUser.setFilledFormT3010(userAccept.isFilledFormT3010());
+				existingUser.setFilledFormT1235(userAccept.isFilledFormT1235());
+				existingUser.setFilledFormT1236(userAccept.isFilledFormT1236());
+				existingUser.setFilledFormT2081(userAccept.isFilledFormT2081());
+				existingUser.setFilledFormRC232(userAccept.isFilledFormRC232());
+				logger.info("Now saving user acceptance data ..");
+				charitableUserRepository.save(existingUser);
+			}
+		}catch(Exception e){
+			logger.error("Error while saving user acceptance data : {} ",e);
+			return false;
+		}
+		return true;
+	}
+	
+	public Map<String,String> createUserAccMap(CharitableUserEntity user){
+		Map<String, String> userAccMap = new HashMap<>();
+		try{
+			userAccMap.put("privacyStatement",user.getPrivacyStatement().toString());
+			userAccMap.put("copyOfFinancialStatements",user.getCopyOfFinancialStatements().toString());
+			userAccMap.put("filledFormT3010",user.getFilledFormT3010().toString());
+			userAccMap.put("filledFormT1235",user.getFilledFormT1235().toString());
+			userAccMap.put("filledFormT1236",user.getFilledFormT1236().toString());
+			userAccMap.put("filledFormT2081",user.getFilledFormT2081().toString());
+			userAccMap.put("filledFormRC232",user.getFilledFormRC232().toString());	
+		}catch(Exception e){
+			logger.error("Error While creating map for user acceptance : {} ",e);
+		}
+		return userAccMap;
+	}
 }

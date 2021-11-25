@@ -48,6 +48,27 @@ public class CharitableUserEntity implements Serializable{
 	
 	@OneToOne(mappedBy = "charitableUserEntity")
 	private FormT3010SectionFEntity formT3010SectionFEntity;**/
+	
+	@Column(name="is_ps_marked", columnDefinition = "boolean default false")
+	private Boolean privacyStatement = false;
+	
+	@Column(name="is_fs_copy_marked", columnDefinition = "boolean default false")
+	private Boolean copyOfFinancialStatements = false;
+	
+	@Column(name="is_t3010_filled", columnDefinition = "boolean default false")
+	private Boolean filledFormT3010 = false;
+	
+	@Column(name="is_t1235_filled", columnDefinition = "boolean default false")
+	private Boolean filledFormT1235 = false;
+	
+	@Column(name="is_t1236_filled", columnDefinition = "boolean default false")
+	private Boolean filledFormT1236 = false;
+	
+	@Column(name="is_t2081_filled", columnDefinition = "boolean default false")
+	private Boolean filledFormT2081 = false;
+	
+	@Column(name="is_rc232_filled", columnDefinition = "boolean default false")
+	private Boolean filledFormRC232 = false;
 
 	public Long getUserId() {
 		return userId;
@@ -103,5 +124,61 @@ public class CharitableUserEntity implements Serializable{
 
 	public void setIsSubmitted(Boolean isSubmitted) {
 		this.isSubmitted = isSubmitted;
+	}
+
+	public Boolean getPrivacyStatement() {
+		return privacyStatement;
+	}
+
+	public void setPrivacyStatement(Boolean privacyStatement) {
+		this.privacyStatement = privacyStatement;
+	}
+
+	public Boolean getCopyOfFinancialStatements() {
+		return copyOfFinancialStatements;
+	}
+
+	public void setCopyOfFinancialStatements(Boolean copyOfFinancialStatements) {
+		this.copyOfFinancialStatements = copyOfFinancialStatements;
+	}
+
+	public Boolean getFilledFormT3010() {
+		return filledFormT3010;
+	}
+
+	public void setFilledFormT3010(Boolean filledFormT3010) {
+		this.filledFormT3010 = filledFormT3010;
+	}
+
+	public Boolean getFilledFormT1235() {
+		return filledFormT1235;
+	}
+
+	public void setFilledFormT1235(Boolean filledFormT1235) {
+		this.filledFormT1235 = filledFormT1235;
+	}
+
+	public Boolean getFilledFormT1236() {
+		return filledFormT1236;
+	}
+
+	public void setFilledFormT1236(Boolean filledFormT1236) {
+		this.filledFormT1236 = filledFormT1236;
+	}
+
+	public Boolean getFilledFormT2081() {
+		return filledFormT2081;
+	}
+
+	public void setFilledFormT2081(Boolean filledFormT2081) {
+		this.filledFormT2081 = filledFormT2081;
+	}
+
+	public Boolean getFilledFormRC232() {
+		return filledFormRC232;
+	}
+
+	public void setFilledFormRC232(Boolean filledFormRC232) {
+		this.filledFormRC232 = filledFormRC232;
 	}
 }

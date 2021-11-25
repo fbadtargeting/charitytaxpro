@@ -25,7 +25,7 @@ public class FormT1236Entity implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private String t1236ChanrityName;
+	private String t1236CharityName;
 	private String fiscalPeriodEnding_1236;
 	private String t1236NumberOfDonees;
 	private String t1236bn_registration;
@@ -85,12 +85,12 @@ public class FormT1236Entity implements Serializable{
 		this.id = id;
 	}
 
-	public String getT1236ChanrityName() {
-		return t1236ChanrityName;
+	public String getT1236CharityName() {
+		return t1236CharityName;
 	}
 
-	public void setT1236ChanrityName(String t1236ChanrityName) {
-		this.t1236ChanrityName = t1236ChanrityName;
+	public void setT1236CharityName(String t1236CharityName) {
+		this.t1236CharityName = t1236CharityName;
 	}
 
 	public String getFiscalPeriodEnding_1236() {

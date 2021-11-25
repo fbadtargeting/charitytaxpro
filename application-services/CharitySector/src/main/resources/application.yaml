@@ -37,6 +37,7 @@ charitable:
     filename: charity_data_dict.csv
   python:
     path-with-filename: /home/ubuntu/scripts/python/mail_merge_all_forms.py
+    output-filename-suffix: output.pdf 
 
 logging:
   file: ./logs/charity-sector.log

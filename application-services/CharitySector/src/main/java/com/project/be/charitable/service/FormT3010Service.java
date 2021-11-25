@@ -18,7 +18,10 @@ import com.project.be.charitable.dto.FormT3010SectionDDto;
 import com.project.be.charitable.dto.FormT3010SectionEDto;
 import com.project.be.charitable.dto.FormT3010SectionFDto;
 import com.project.be.charitable.dto.GenericRespDTO;
+import com.project.be.charitable.dto.MasterDtoT3010;
 import com.project.be.charitable.utility.CharitableUtilities;
+
+import static com.project.be.charitable.utility.CharitableConstants.*;
 
 /**
  * @author geeta
@@ -46,6 +49,9 @@ public class FormT3010Service {
 	
 	@Autowired
 	FormT3010SectionFService formT3010SectionFService;
+	
+	@Autowired
+	CharityUserService charityUserService;
 	
 	@Value("${charitable.csv.path}")
 	private String csvPath;
@@ -78,19 +84,20 @@ public class FormT3010Service {
 			
 			//Calling python script - Not Required here. This will be required while download form
 			//CharitableUtilities.executePythonToCreateDoc(pythonPathWithFileName, formT3010.getUser_id());
-			respDto.setStatus("SUCCESS");
-			respDto.setMessage("Form saved successfully.");
+			respDto.setStatus(SUCCESS);
+			respDto.setMessage(SUCCESS_SAVE_MSG);
 		}catch(Exception e){
-			respDto.setStatus("FAIL");
-			respDto.setMessage("Error while saving form.");
+			respDto.setStatus(FAIL);
+			respDto.setMessage(SAVE_FAIL_MSG);
 			logger.error("Error while saving data : {} ",e);
 		}
 		return respDto;
 	}
 	
-	public FormT3010Dto getT3010Form(Long userId){
+	public MasterDtoT3010 getT3010Form(Long userId){
 		
 		logger.info("Starting to Get all the form data for T3010..");
+		MasterDtoT3010 masterDto = new MasterDtoT3010();
 		FormT3010Dto dto = new FormT3010Dto();
 		try{
 			FormT3010SectionADto formT3010SectionADto = formT3010SectionAService.getSectionAData(userId);
@@ -113,10 +120,15 @@ public class FormT3010Service {
 			if(null != formT3010SectionFDto)
 				dto.setT3010SecF(formT3010SectionFDto);
 			
+			masterDto.setUserId(userId);
+			masterDto.setT3010(dto);
+			masterDto.setUserAccept(charityUserService.getUserAcceptanceData(userId));
+			
+			
 		}catch(Exception e){
 			logger.error("Error while fetching T3010 data : {} ",e);
 		}
-		return dto;
+		return masterDto;
 	}
 	
 	
