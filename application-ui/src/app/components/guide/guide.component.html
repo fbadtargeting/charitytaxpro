@@ -18,12 +18,12 @@
   <div style="float: left;width: 490px;">
     <div style="float: left;width: 300px;">
       <div style="float: left;margin-top: 20px;margin-left: 10px;">
-        <a href="javascript:void();">
+        <!--<a href="javascript:void();">
           <div (click)="userInfo()" style="float: left;" *ngIf="showLogout">
             <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/user.png" 
             style="width: 65px;border-radius: 50%;margin-left: 200px;margin-top: 113px;">
           </div>
-        </a>
+        </a>-->
       </div>
     </div>
     <div style="float: left;width: 190px;">
@@ -36,8 +36,15 @@
     
   </div>
 </div>
+<div style="float: left;width: 94.5%;height: 36px;">
+  <div style="float: left;margin-top: 10px;color: #004385;width: 100%;">
+    <a href="javascript:void();" style="float: right;">
+      <b (click)="logout()" style="text-decoration: none;color: #004385;">Logout</b>
+  </a>
+  </div>
+</div>
 
-  <div style="width: 1000px;float: left;margin-top: 30px;" *ngIf="progressOfFrorm">
+  <!--<div style="width: 1000px;float: left;margin-top: 30px;" *ngIf="progressOfFrorm">
     <mat-card style="width: 1000px;height: 186px;background-color: #e7e7e7;color: #004385;">
       <div style="float: left;width: 960px;">
         <div style="float: left;width: 380px;">
@@ -110,22 +117,22 @@
         </div>
       </div>
     </mat-card>
-  </div>
+  </div>-->
   
   <div style="margin-top: 15px;float: left;width: 1000px;" *ngIf="showTabs">
     <div style="float: left;">
-      <ul class="nav nav-tabs" style="margin-top: 50px;">
-        <li  style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionA"
+      <ul class="nav nav-tabs" style="margin-top: 0px;">
+        <li  style="width: 250px;text-align: center;"><a data-toggle="tab" href="#SectionA"
             (click)="changeTabTot3010()">T3010</a></li>
-        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionC"
-            (click)="changeTabTorc232()">RC232-18e</a></li>
-        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionD"
+        <!--<li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionC"
+            (click)="changeTabTorc232()">RC232-18e</a></li>-->
+        <li style="width: 250px;text-align: center;"><a data-toggle="tab" href="#SectionD"
             (click)="changeTabTot1235()">T1235-20e</a></li>
-        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionF"
+        <li style="width: 250px;text-align: center;"><a data-toggle="tab" href="#SectionF"
             (click)="changeTabTot1236()">T1236-19e</a></li>
-        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionE"
-            (click)="changeTabTot2081()">T2081-10e</a></li>
-            <li class="active" style="width: 166px;text-align: center;"><a data-toggle="tab" href="#Guide" (click)="changeTabToGuide()">Guide T4033</a></li>
+        <!--<li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionE"
+            (click)="changeTabTot2081()">T2081-10e</a></li>-->
+            <li class="active" style="width: 250px;text-align: center;"><a data-toggle="tab" href="#Guide" (click)="changeTabToGuide()">Guide T4033</a></li>
       </ul>
     </div>
   </div>

@@ -25,15 +25,15 @@ export class T1236PopUpComponent implements OnInit {
   ngOnInit(): void {
     this.t1236PopupForm = this.t1236PopupFormBuilder.group({
       t1236PopUpChanrityName: new FormControl(),
-      t1236PopUpbn_prefix_1: new FormControl(),
-      t1236PopUpbn_suffix_1: new FormControl(),
+      t1236PopUpbn_prefix_1: new FormControl(''),
+      t1236PopUpbn_suffix_1: new FormControl(''),
       PopUpfiscalPeriodEnding_1236: new FormControl(),
       t1236PopUpNumberOfDonees: new FormControl(),
 
       Popupt1236OrgName_1:new FormControl(),
       Popupt1236AssoCharity_1:new FormControl(),
-      Popupt1236Prefix_1:new FormControl(),
-      Popupt1236Suffix_1:new FormControl(),
+      Popupt1236Prefix_1:new FormControl(''),
+      Popupt1236Suffix_1:new FormControl(''),
       Popupt1236CityProv_1:new FormControl(),
       Popupt1236Country_1:new FormControl(),
       Popupt1236NonCashGifts_1:new FormControl(),
@@ -41,8 +41,8 @@ export class T1236PopUpComponent implements OnInit {
 
       Popupt1236OrgName_2:new FormControl(),
       Popupt1236AssoCharity_2:new FormControl(),
-      Popupt1236Prefix_2:new FormControl(),
-      Popupt1236Suffix_2:new FormControl(),
+      Popupt1236Prefix_2:new FormControl(''),
+      Popupt1236Suffix_2:new FormControl(''),
       Popupt1236CityProv_2:new FormControl(),
       Popupt1236Country_2:new FormControl(),
       Popupt1236NonCashGifts_2:new FormControl(),
@@ -50,8 +50,8 @@ export class T1236PopUpComponent implements OnInit {
 
       Popupt1236OrgName_3:new FormControl(),
       Popupt1236AssoCharity_3:new FormControl(),
-      Popupt1236Prefix_3:new FormControl(),
-      Popupt1236Suffix_3:new FormControl(),
+      Popupt1236Prefix_3:new FormControl(''),
+      Popupt1236Suffix_3:new FormControl(''),
       Popupt1236CityProv_3:new FormControl(),
       Popupt1236Country_3:new FormControl(),
       Popupt1236NonCashGifts_3:new FormControl(),
@@ -59,8 +59,8 @@ export class T1236PopUpComponent implements OnInit {
 
       Popupt1236OrgName_4:new FormControl(),
       Popupt1236AssoCharity_4:new FormControl(),
-      Popupt1236Prefix_4:new FormControl(),
-      Popupt1236Suffix_4:new FormControl(),
+      Popupt1236Prefix_4:new FormControl(''),
+      Popupt1236Suffix_4:new FormControl(''),
       Popupt1236CityProv_4:new FormControl(),
       Popupt1236Country_4:new FormControl(),
       Popupt1236NonCashGifts_4:new FormControl(),
@@ -68,8 +68,8 @@ export class T1236PopUpComponent implements OnInit {
 
       Popupt1236OrgName_5:new FormControl(),
       Popupt1236AssoCharity_5:new FormControl(),
-      Popupt1236Prefix_5:new FormControl(),
-      Popupt1236Suffix_5:new FormControl(),
+      Popupt1236Prefix_5:new FormControl(''),
+      Popupt1236Suffix_5:new FormControl(''),
       Popupt1236CityProv_5:new FormControl(),
       Popupt1236Country_5:new FormControl(),
       Popupt1236NonCashGifts_5:new FormControl(),
@@ -77,8 +77,8 @@ export class T1236PopUpComponent implements OnInit {
 
       Popupt1236OrgName_6:new FormControl(),
       Popupt1236AssoCharity_6:new FormControl(),
-      Popupt1236Prefix_6:new FormControl(),
-      Popupt1236Suffix_6:new FormControl(),
+      Popupt1236Prefix_6:new FormControl(''),
+      Popupt1236Suffix_6:new FormControl(''),
       Popupt1236CityProv_6:new FormControl(),
       Popupt1236Country_6:new FormControl(),
       Popupt1236NonCashGifts_6:new FormControl(),
@@ -89,7 +89,7 @@ export class T1236PopUpComponent implements OnInit {
   submitFormT1236PopUp(){
 
     let t1236Dto = new T1236DTO()
-    t1236Dto.t1236ChanrityName = this.t1236PopupForm.getRawValue().t1236PopUpChanrityName
+    t1236Dto.t1236CharityName = this.t1236PopupForm.getRawValue().t1236PopUpChanrityName
 t1236Dto.fiscalPeriodEnding_1236 = this.t1236PopupForm.getRawValue(). PopUpfiscalPeriodEnding_1236
 t1236Dto.t1236NumberOfDonees = this.t1236PopupForm.getRawValue().t1236PopUpNumberOfDonees
 t1236Dto.t1236bn_registration = this.t1236PopupForm.getRawValue().t1236PopUpbn_prefix_1 + "RR"+this.t1236PopupForm.getRawValue().t1236PopUpbn_suffix_1

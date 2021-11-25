@@ -66,7 +66,7 @@ export class T1236Component implements OnInit {
 
     let t1236 = this.csService.getFormT1236()
     t1236.subscribe(item=>{
-      let t1236Dto = item
+      let t1236Dto = item.t1236
       if (t1236Dto) {
         if(t1236Dto.percentCompleted == 100){
           this.t123619ecolor='primary'
@@ -93,11 +93,11 @@ export class T1236Component implements OnInit {
       let tempValD=0
       let tempValE=0
       let tempValF=0
-      let t3010secAdto = item.t3010SecA
-      let t3010seCdto = item.t3010SecC
-      let t3010secDdto = item.t3010SecD
-      let t3010secEDto = item.t3010SecE
-      let t3010secFdto = item.t3010SecF
+      let t3010secAdto = item.t3010.t3010SecA
+      let t3010seCdto = item.t3010.t3010SecC
+      let t3010secDdto = item.t3010.t3010SecD
+      let t3010secEDto = item.t3010.t3010SecE
+      let t3010secFdto = item.t3010.t3010SecF
      
         if(t3010secAdto){
           tempValA = t3010secAdto.percentCompleted
@@ -135,7 +135,7 @@ export class T1236Component implements OnInit {
     })
     let t1235Resp = this.csService.getFormT1235()
     t1235Resp.subscribe(item=>{
-      let t1235dto = item
+      let t1235dto = item.t1235
       if(t1235dto){
         if(t1235dto.percentCompleted == 100){
           this.t123520evalue = t1235dto.percentCompleted
@@ -190,8 +190,8 @@ export class T1236Component implements OnInit {
   submitFormT1236() {
     let t1236Dto = new T1236DTO()
     this.showSpinner = true
-    t1236Dto.t1236ChanrityName = this.formT1236.getRawValue().t1236ChanrityName
-    t1236Dto.fiscalPeriodEnding_1236 = this.formT1236.getRawValue().fiscalPeriodEnding_1236
+    t1236Dto.t1236CharityName = this.formT1236.getRawValue().t1236CharityName
+    t1236Dto.fiscalPeriodEnding_1236 = this.datePipe.transform(this.formT1236.getRawValue().fiscalPeriodEnding_1236,"yyyy-MM-dd")
     t1236Dto.t1236NumberOfDonees = this.formT1236.getRawValue().t1236NumberOfDonees
     t1236Dto.t1236bn_registration = this.formT1236.getRawValue().t1236bn_prefix_1 + "RR" + this.formT1236.getRawValue().t1236bn_suffix_1
     t1236Dto.t1236OrgName_1 = this.formT1236.getRawValue().t1236OrgName_1
@@ -253,16 +253,16 @@ export class T1236Component implements OnInit {
   createFormT1236() {
     this.formT1236 = this.formT1236Builder.group(
       {
-        t1236ChanrityName: new FormControl(),
-        t1236bn_prefix_1: new FormControl(),
-        t1236bn_suffix_1: new FormControl(),
+        t1236CharityName: new FormControl(),
+        t1236bn_prefix_1: new FormControl(''),
+        t1236bn_suffix_1: new FormControl(''),
         fiscalPeriodEnding_1236: new FormControl(),
         t1236NumberOfDonees: new FormControl(),
 
         t1236OrgName_1: new FormControl(),
         t1236AssoCharity_1: new FormControl(),
-        t1236Prefix_1: new FormControl(),
-        t1236Suffix_1: new FormControl(),
+        t1236Prefix_1: new FormControl(''),
+        t1236Suffix_1: new FormControl(''),
         t1236CityProv_1: new FormControl(),
         t1236Country_1: new FormControl(),
         t1236NonCashGifts_1: new FormControl(),
@@ -270,8 +270,8 @@ export class T1236Component implements OnInit {
 
         t1236OrgName_2: new FormControl(),
         t1236AssoCharity_2: new FormControl(),
-        t1236Prefix_2: new FormControl(),
-        t1236Suffix_2: new FormControl(),
+        t1236Prefix_2: new FormControl(''),
+        t1236Suffix_2: new FormControl(''),
         t1236CityProv_2: new FormControl(),
         t1236Country_2: new FormControl(),
         t1236NonCashGifts_2: new FormControl(),
@@ -279,8 +279,8 @@ export class T1236Component implements OnInit {
 
         t1236OrgName_3: new FormControl(),
         t1236AssoCharity_3: new FormControl(),
-        t1236Prefix_3: new FormControl(),
-        t1236Suffix_3: new FormControl(),
+        t1236Prefix_3: new FormControl(''),
+        t1236Suffix_3: new FormControl(''),
         t1236CityProv_3: new FormControl(),
         t1236Country_3: new FormControl(),
         t1236NonCashGifts_3: new FormControl(),
@@ -288,8 +288,8 @@ export class T1236Component implements OnInit {
 
         t1236OrgName_4: new FormControl(),
         t1236AssoCharity_4: new FormControl(),
-        t1236Prefix_4: new FormControl(),
-        t1236Suffix_4: new FormControl(),
+        t1236Prefix_4: new FormControl(''),
+        t1236Suffix_4: new FormControl(''),
         t1236CityProv_4: new FormControl(),
         t1236Country_4: new FormControl(),
         t1236NonCashGifts_4: new FormControl(),
@@ -297,8 +297,8 @@ export class T1236Component implements OnInit {
 
         t1236OrgName_5: new FormControl(),
         t1236AssoCharity_5: new FormControl(),
-        t1236Prefix_5: new FormControl(),
-        t1236Suffix_5: new FormControl(),
+        t1236Prefix_5: new FormControl(''),
+        t1236Suffix_5: new FormControl(''),
         t1236CityProv_5: new FormControl(),
         t1236Country_5: new FormControl(),
         t1236NonCashGifts_5: new FormControl(),
@@ -306,8 +306,8 @@ export class T1236Component implements OnInit {
 
         t1236OrgName_6: new FormControl(),
         t1236AssoCharity_6: new FormControl(),
-        t1236Prefix_6: new FormControl(),
-        t1236Suffix_6: new FormControl(),
+        t1236Prefix_6: new FormControl(''),
+        t1236Suffix_6: new FormControl(''),
         t1236CityProv_6: new FormControl(),
         t1236Country_6: new FormControl(),
         t1236NonCashGifts_6: new FormControl(),
@@ -317,7 +317,7 @@ export class T1236Component implements OnInit {
   }
 
   fillFormValues(t1236Dto: T1236DTO) {
-    this.formT1236.controls.t1236ChanrityName.patchValue(t1236Dto.t1236ChanrityName)
+    this.formT1236.controls.t1236CharityName.patchValue(t1236Dto.t1236CharityName)
     this.formT1236.controls.fiscalPeriodEnding_1236.patchValue(t1236Dto.fiscalPeriodEnding_1236)
     this.formT1236.controls.t1236NumberOfDonees.patchValue(t1236Dto.t1236NumberOfDonees)
 

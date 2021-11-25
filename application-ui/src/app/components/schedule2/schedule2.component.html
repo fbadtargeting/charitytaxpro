@@ -36,7 +36,7 @@
                     <div style="float: left;margin-top: 6px;margin-left: 5px;">$</div>
                     <div style="float: left;margin-left: 5px;margin-top: -12px;">
                         <mat-form-field class="" style="width: 160px;" appearance="fill">
-                            <input #col200 matInput placeholder="" value="" formControlName="col_200">
+                            <input #col200 matInput placeholder="" value="" formControlName="col_200" style="text-align: right;">
                         </mat-form-field>
                     </div>
                 </div>
@@ -128,7 +128,7 @@
                     </div>
                     <div style="float: left;width: 220px;margin-left: 10px;">
                         <mat-form-field class="" appearance="fill">
-                            <input matInput placeholder="" value="" formControlName="schedule2_amount_1">
+                            <input matInput placeholder="" value="" formControlName="schedule2_amount_1" style="text-align: right;">
                         </mat-form-field>
                     </div>
                 </div>
@@ -149,7 +149,7 @@
                     </div>
                     <div style="float: left;width: 220px;margin-left: 10px;">
                         <mat-form-field class="" appearance="fill">
-                            <input matInput placeholder="" value="" formControlName="schedule2_amount_2">
+                            <input matInput placeholder="" value="" formControlName="schedule2_amount_2" style="text-align: right;">
                         </mat-form-field>
                     </div>
                 </div>
@@ -170,7 +170,7 @@
                     </div>
                     <div style="float: left;width: 220px;margin-left: 10px;">
                         <mat-form-field class="" appearance="fill">
-                            <input matInput placeholder="" value="" formControlName="schedule2_amount_3">
+                            <input matInput placeholder="" value="" formControlName="schedule2_amount_3" style="text-align: right;">
                         </mat-form-field>
                     </div>
                 </div>
@@ -356,7 +356,7 @@
                     <div style="float: left;width: 160px;">
                         <div style="float: left;margin-left: 10px;margin-top: -12px;">
                             <mat-form-field class="" style="width: 160px;">
-                                <input matInput placeholder="$" value="" formControlName="col_230">
+                                <input matInput placeholder="$" value="" formControlName="col_230" style="text-align: right;">
                             </mat-form-field>
                         </div>
                     </div>
@@ -500,7 +500,7 @@
                     </div>
 
                     <div style="float: left;width: 200px;margin-left: 10px;">
-                        <mat-form-field class="" style="text-align: center;" appearance="fill">
+                        <mat-form-field class="" style="text-align: right;" appearance="fill">
                             <input matInput placeholder="" value="" formControlName="schedule2_7_value_1">
                         </mat-form-field>
                     </div>
@@ -526,7 +526,7 @@
                         </mat-form-field>
                     </div>
                     <div style="float: left;width: 200px;margin-left: 10px;">
-                        <mat-form-field class="" style="text-align: center;" appearance="fill">
+                        <mat-form-field class="" style="text-align: right;" appearance="fill">
                             <input matInput placeholder="" value="" formControlName="schedule2_7_value_2">
                         </mat-form-field>
                     </div>
@@ -552,7 +552,7 @@
                         </mat-form-field>
                     </div>
                     <div style="float: left;width: 200px;margin-left: 10px;">
-                        <mat-form-field class="" style="text-align: center;" appearance="fill">
+                        <mat-form-field class="" style="text-align: right;" appearance="fill">
                             <input matInput placeholder="" value="" formControlName="schedule2_7_value_3">
                         </mat-form-field>
                     </div>
@@ -578,7 +578,7 @@
                         </mat-form-field>
                     </div>
                     <div style="float: left;width: 200px;margin-left: 10px;">
-                        <mat-form-field class="" style="text-align: center;" appearance="fill">
+                        <mat-form-field class="" style="text-align: right;" appearance="fill">
                             <input matInput placeholder="" value="" formControlName="schedule2_7_value_4">
                         </mat-form-field>
                     </div>
@@ -588,9 +588,12 @@
     </div>
 </form>
 
-<div style="float: left;width: 1000px;margin-top: 10px;background-color: gainsboro;">
+<div style="float: left;width: 1000px;margin-top: 10px;background-color: gainsboro;margin-bottom: 10px;">
     <a href="javascript:void();">
         <div style="float: right;background-color:#006ad1;color: white;padding: 5px;width: 200px;" (click)="saveSchedule2()">
             Save</div>
     </a>
 </div>
+<div style="float: left;width: 1000px;height: 10px;">
+    &nbsp;
+    </div>

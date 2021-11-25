@@ -51,17 +51,17 @@ font-size: 20px !important;
   <div style="float: left;width: 490px;">
     <div style="float: left;width: 300px;">
       <div style="float: left;margin-top: 20px;margin-left: 10px;">
-        <a href="javascript:void();">
+        <!--<a href="javascript:void();">
           <div (click)="userInfo()" style="float: left;" *ngIf="showLogout">
             <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/user.png" 
             style="width: 65px;border-radius: 50%;margin-left: 200px;margin-top: 113px;">
           </div>
-        </a>
+        </a>-->
       </div>
     </div>
     <div style="float: left;width: 190px;">
       <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/Charity_Tax_Pro_Logo_1.png" style="width: 180px;margin-top: 14px;margin-left: 0px;height: 140px;">
-      <div style="float: left;width: 240px;">
+      <div style="float: left;width: 190px;">
         <div style="float: left;margin-top: 2px;color: #004385;"><b>Protected B</b> when completed</div>
       </div>
     </div>
@@ -70,9 +70,17 @@ font-size: 20px !important;
   </div>
 </div>
 
+<div style="float: left;width: 94.5%;height: 36px;">
+  <div style="float: left;margin-top: 10px;color: #004385;width: 100%;">
+    <a href="javascript:void();" style="float: right;">
+      <b (click)="logout()" style="text-decoration: none;color: #004385;">Logout</b>
+  </a>
+  </div>
+</div>
 
 
-<div style="width: 1000px;float: left;margin-top: 30px;" *ngIf="progressOfFrorm">
+
+<!--<div style="width: 1000px;float: left;margin-top: 30px;" *ngIf="progressOfFrorm">
   <mat-card style="width: 1000px;height: 200px;background-color: #E5E7E9;color: #004385;">
     <div style="float: left;width: 960px;">
       <div style="float: left;width: 380px;">
@@ -145,22 +153,22 @@ font-size: 20px !important;
       </div>
     </div>
   </mat-card>
-</div>
+</div>-->
 
 <div style="margin-top: 15px;float: left;width: 1000px;" *ngIf="showTabs">
   <div style="float: left;">
-    <ul class="nav nav-tabs" style="margin-top: 40px;">
-      <li class="active" style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionA"
+    <ul class="nav nav-tabs" style="margin-top: 0px;">
+      <li class="active" style="width: 250px;text-align: center;"><a data-toggle="tab" href="#SectionA"
           (click)="changeTabTot3010()">T3010</a></li>
-      <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionC"
-          (click)="changeTabTorc232()">RC232-18e</a></li>
-      <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionD"
+      <!--<li style="width: 250px;text-align: center;"><a data-toggle="tab" href="#SectionC"
+          (click)="changeTabTorc232()">RC232-18e</a></li>-->
+      <li style="width: 250px;text-align: center;"><a data-toggle="tab" href="#SectionD"
           (click)="changeTabTot1235()">T1235-20e</a></li>
-      <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionF"
+      <li style="width: 250px;text-align: center;"><a data-toggle="tab" href="#SectionF"
           (click)="changeTabTot1236()">T1236-19e</a></li>
-      <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionE"
-          (click)="changeTabTot2081()">T2081-10e</a></li>
-      <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#Guide" (click)="changeTabToGuide()">Guide T4033</a></li>
+      <!--<li style="width: 250px;text-align: center;"><a data-toggle="tab" href="#SectionE"
+          (click)="changeTabTot2081()">T2081-10e</a></li>-->
+      <li style="width: 250px;text-align: center;"><a data-toggle="tab" href="#Guide" (click)="changeTabToGuide()">Guide T4033</a></li>
     </ul>
   </div>
 </div>
@@ -992,7 +1000,7 @@ font-size: 20px !important;
 
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
                   <mat-form-field class="" appearance="fill" style="width: 176px;">
-                    <input matInput placeholder="$" value="" formControlName="col_5450">
+                    <input matInput placeholder="$" value="" formControlName="col_5450" style="text-align: right;">
                   </mat-form-field>
                 </div>
               </div>
@@ -1018,7 +1026,7 @@ font-size: 20px !important;
             </div>
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
                   <mat-form-field class="" appearance="fill" style="width: 176px;">
-                    <input matInput placeholder="$" value="" formControlName="col_5460">
+                    <input matInput placeholder="$" value="" formControlName="col_5460" style="text-align: right;">
                   </mat-form-field>
                 </div>
               </div>
@@ -1563,7 +1571,7 @@ font-size: 20px !important;
             </div>
           </div>
           <div style="float: left;">
-            <mat-radio-group aria-label="Select an option" color="primary" formControlName="col_4020">
+            <mat-radio-group aria-label="Select an option" color="primary" formControlName="col_4020_secD">
               <div style="float: left;;margin-left: 40px;">
                 <mat-radio-button value="1">Accrual</mat-radio-button>
               </div>
@@ -1618,7 +1626,7 @@ font-size: 20px !important;
           <div style="float: left;">
             <div style="float: left;margin-left: 10px;margin-top: -12px;">
               <mat-form-field class="" appearance="fill">
-                <input matInput placeholder="$" value="" formControlName="col_4200">
+                <input matInput placeholder="$" value="" formControlName="col_4200_secD" style="text-align: right;">
               </mat-form-field>
             </div>
           </div>
@@ -1635,7 +1643,7 @@ font-size: 20px !important;
           <div style="float: left;">
             <div style="float: left;margin-left: 10px;margin-top: -12px;">
               <mat-form-field class="" appearance="fill">
-                <input matInput placeholder="$" value="" formControlName="col_4350">
+                <input matInput placeholder="$" value="" formControlName="col_4350_secD" style="text-align: right;">
               </mat-form-field>
             </div>
           </div>
@@ -1718,7 +1726,8 @@ font-size: 20px !important;
             <div style="float: left;">
               <div style="float: left;margin-left: 10px;margin-top: -12px;">
                 <mat-form-field class="" style="width: 165px;">
-                  <input matInput placeholder="$" value="" formControlName="col_4500" (change)="calculate4700SecD(0)" id="SecD4500">
+                  <input matInput placeholder="$" value="" 
+                  formControlName="col_4500_secD" (change)="calculate4700SecD(0)" id="SecD4500" style="text-align: right;">
                 </mat-form-field>
               </div>
             </div>
@@ -1743,7 +1752,7 @@ font-size: 20px !important;
           <div style="float: left;width: 176px;">
             <div style="float: left;margin-left: 10px;margin-top: -12px;">
               <mat-form-field class="" appearance="fill" style="width: 176px;">
-                <input matInput placeholder="$" value="" formControlName="col_4505">
+                <input matInput placeholder="$" value="" formControlName="col_4505_secD" style="text-align: right;">
               </mat-form-field>
             </div>
           </div>
@@ -1761,7 +1770,8 @@ font-size: 20px !important;
             <div style="float: left;">
               <div style="float: left;margin-left: 10px;margin-top: -12px;">
                 <mat-form-field class="" appearance="fill" style="width: 176px;">
-                  <input id="SecD4510" matInput placeholder="$" value="" formControlName="col_4510" (change)="calculate4700SecD(0)">
+                  <input id="SecD4510" matInput placeholder="$" value="" 
+                  formControlName="col_4510_secD" (change)="calculate4700SecD(0)" style="text-align: right;">
                 </mat-form-field>
               </div>
             </div>
@@ -1795,7 +1805,8 @@ font-size: 20px !important;
             <div style="float: left;">
               <div style="float: left;margin-left: 10px;margin-top: -12px;">
                 <mat-form-field class="" appearance="fill" style="width: 176px;">
-                  <input id="SecD4530" matInput placeholder="$" value="" formControlName="col_4530" (change)="calculate4700SecD(1)">
+                  <input id="SecD4530" matInput placeholder="$" value="" formControlName="col_4530_secD" 
+                  (change)="calculate4700SecD(1)" style="text-align: right;">
                 </mat-form-field>
               </div>
             </div>
@@ -1803,7 +1814,7 @@ font-size: 20px !important;
         </div>
         <div style="margin-top: 0px;float: left;margin-left: 27px;">
           <div style="float: left;margin-top: 5px;margin-left: 5px;width: 710px;text-align: justify;">
-            Did the charity receive any revenue from any level of government in Canada?
+            Did the charity receive any revenue from any level of government in Canada? ......................................................
           </div>
           <div style="float: left;margin-left: 0px;">
             <div style="float: left;width: 40px;height: 20px;background-color: #004667;color: white;">
@@ -1843,7 +1854,7 @@ font-size: 20px !important;
                     <div style="float: left;">
                       <div style="float: left;margin-left: 10px;margin-top: -12px;">
                         <mat-form-field class="" appearance="fill" style="width: 168px;">
-                          <input id="SecD4570" matInput placeholder="$" value="" formControlName="col_4570" (change)="calculate4700SecD(0)">
+                          <input id="SecD4570" matInput placeholder="$" value="" formControlName="col_4570_secD" (change)="calculate4700SecD(0)" style="text-align: right;">
                         </mat-form-field>
                       </div>
                     </div>
@@ -1862,7 +1873,7 @@ font-size: 20px !important;
           <div style="float: left;">
             <div style="float: left;margin-left: 10px;margin-top: -12px;">
               <mat-form-field class="" appearance="fill">
-                <input matInput placeholder="$" value="" formControlName="col_4571">
+                <input matInput placeholder="$" value="" formControlName="col_4571_secD" style="text-align: right;">
               </mat-form-field>
             </div>
           </div>
@@ -1880,7 +1891,7 @@ font-size: 20px !important;
           <div style="float: left;">
             <div style="float: left;margin-left: 10px;margin-top: -12px;">
               <mat-form-field class="" appearance="fill">
-                <input id="SecD4575" matInput placeholder="$" value="" formControlName="col_4575" (change)="calculate4700SecD(0)">
+                <input id="SecD4575" matInput placeholder="$" value="" formControlName="col_4575_secD" (change)="calculate4700SecD(0)" style="text-align: right;">
               </mat-form-field>
             </div>
           </div>
@@ -1897,7 +1908,7 @@ font-size: 20px !important;
           <div style="float: left;">
             <div style="float: left;margin-left: 10px;margin-top: -12px;">
               <mat-form-field class="" appearance="fill">
-                <input id="SecD4630" matInput placeholder="$" value="" formControlName="col_4630" (change)="calculate4700SecD(0)">
+                <input id="SecD4630" matInput placeholder="$" value="" formControlName="col_4630_secD" (change)="calculate4700SecD(0)" style="text-align: right;">
               </mat-form-field>
             </div>
           </div>
@@ -1915,7 +1926,7 @@ font-size: 20px !important;
           <div style="float: left;">
             <div style="float: left;margin-left: 10px;margin-top: -12px;">
               <mat-form-field class="" appearance="fill">
-                <input id="SecD4640" matInput placeholder="$" value="" formControlName="col_4640" (change)="calculate4700SecD(0)">
+                <input id="SecD4640" matInput placeholder="$" value="" formControlName="col_4640_secD" (change)="calculate4700SecD(0)" style="text-align: right;">
               </mat-form-field>
             </div>
           </div>
@@ -1932,7 +1943,7 @@ font-size: 20px !important;
           <div style="float: left;">
             <div style="float: left;margin-left: 10px;margin-top: -12px;">
               <mat-form-field class="" appearance="fill">
-                <input id="SecD4650" matInput placeholder="$" value="" formControlName="col_4650" (change)="calculate4700SecD(0)">
+                <input id="SecD4650" matInput placeholder="$" value="" formControlName="col_4650_secD" (change)="calculate4700SecD(0)" style="text-align: right;">
               </mat-form-field>
             </div>
           </div>
@@ -1949,7 +1960,7 @@ font-size: 20px !important;
           <div style="float: left;">
             <div style="float: left;margin-left: 10px;margin-top: -12px;">
               <mat-form-field class="" appearance="fill">
-                <input matInput placeholder="$" value="" formControlName="col_4700" readonly>
+                <input matInput placeholder="$" value="" formControlName="col_4700_secD" readonly style="text-align: right;">
               </mat-form-field>
             </div>
           </div>
@@ -1978,7 +1989,7 @@ font-size: 20px !important;
             <div style="float: left;">
               <div style="float: left;margin-left: 10px;margin-top: -12px;">
                 <mat-form-field class="" appearance="fill">
-                  <input matInput placeholder="$" value="" formControlName="col_4860" (change)="calculate4950SecD()">
+                  <input matInput placeholder="$" value="" formControlName="col_4860_secD" (change)="calculate4950SecD()" style="text-align: right;">
                 </mat-form-field>
               </div>
             </div>
@@ -1998,7 +2009,7 @@ font-size: 20px !important;
           <div style="float: left;">
             <div style="float: left;margin-left: 10px;margin-top: -12px;">
               <mat-form-field class="" appearance="fill">
-                <input matInput placeholder="$" value="" formControlName="col_4810" (change)="calculate4950SecD()">
+                <input matInput placeholder="$" value="" formControlName="col_4810_secD" (change)="calculate4950SecD()" style="text-align: right;">
               </mat-form-field>
             </div>
           </div>
@@ -2017,7 +2028,7 @@ font-size: 20px !important;
             <div style="float: left;">
               <div style="float: left;margin-left: 10px;margin-top: -12px;">
                 <mat-form-field class="" appearance="fill">
-                  <input matInput placeholder="$" value="" formControlName="col_4920" (change)="calculate4950SecD()">
+                  <input matInput placeholder="$" value="" formControlName="col_4920_secD" (change)="calculate4950SecD()" style="text-align: right;">
                 </mat-form-field>
               </div>
             </div>
@@ -2038,7 +2049,7 @@ font-size: 20px !important;
               <div style="float: left;margin-left: 10px;margin-top: -12px;">
                 <mat-form-field class="" appearance="fill">
                   <input id="4950" matInput placeholder="$" value="" readonly
-                     formControlName="col_4950">
+                     formControlName="col_4950_secD" style="text-align: right;">
                 </mat-form-field>
               </div>
             </div>
@@ -2078,7 +2089,7 @@ font-size: 20px !important;
             </div>
                 <div style="float: left;margin-left: 10px;margin-top: -12px;width: 176px;">
                   <mat-form-field class="" appearance="fill" style="width: 176px;">
-                    <input matInput placeholder="$" value="" formControlName="col_5000">
+                    <input matInput placeholder="$" value="" formControlName="col_5000_secD" style="text-align: right;">
                   </mat-form-field>
                 </div>
               </div>
@@ -2117,7 +2128,7 @@ font-size: 20px !important;
             </div>
                 <div style="float: left;margin-left: 10px;margin-top: -12px;width: 176px;">
                   <mat-form-field class="" appearance="fill" style="width: 176px;">
-                    <input matInput placeholder="$" value="" formControlName="col_5010">
+                    <input matInput placeholder="$" value="" formControlName="col_5010_secD" style="text-align: right;">
                   </mat-form-field>
                 </div>
               </div>
@@ -2138,7 +2149,7 @@ font-size: 20px !important;
               <div style="float: left;margin-left: 10px;margin-top: -12px;">
                 <mat-form-field class="" appearance="fill">
                   <input id="5050" matInput placeholder="$" value="" (change)="calculate5100SecD()"
-                     formControlName="col_5050">
+                     formControlName="col_5050_secD" style="text-align: right;">
                 </mat-form-field>
               </div>
             </div>
@@ -2156,7 +2167,7 @@ font-size: 20px !important;
           <div style="float: left;">
             <div style="float: left;margin-left: 10px;margin-top: -12px;">
               <mat-form-field class="" appearance="fill">
-                <input matInput placeholder="$" value="" formControlName="col_5100">
+                <input matInput placeholder="$" value="" formControlName="col_5100_secD" style="text-align: right;" readonly>
               </mat-form-field>
             </div>
           </div>
@@ -2380,6 +2391,12 @@ font-size: 20px !important;
             </div>
           </mat-card>
         </div>
+      </div>
+      <div style="float: left;width: 1000px;margin-top: 10px;background-color: gainsboro;">
+        <a href="javascript:void();">
+          <div style="float: right;background-color:#00AFFF;color: white;padding: 5px;width: 200px;border: 2px solid #9e9e9e;"
+            (click)="savet3010FormSectionF()">Save</div>
+        </a>
       </div>
       <!--<div style="float: left;width: 1000px;margin-top: 10px;">
         <div style="width: 1000px;float: left;border: solid 1px black;background-color: #002952;">
@@ -2697,7 +2714,7 @@ font-size: 20px !important;
               <div style="float: left;margin-top: 6px;margin-left: 5px;">$</div>
               <div style="float: left;margin-left: 5px;margin-top: -12px;">
                 <mat-form-field class="" style="width: 160px;" appearance="fill">
-                  <input #col200 matInput placeholder="" value="" formControlName="col_200">
+                  <input #col200 matInput placeholder="" value="" formControlName="col_200" style="text-align: right;">
                 </mat-form-field>
               </div>
             </div>
@@ -2743,7 +2760,7 @@ font-size: 20px !important;
             charity
             transferred to these individuals or organizations in the following table:
           </div>
-          <mat-card style="width: 1000px;background-color: whitesmoke;height: 280px;float: left;">
+          <mat-card style="width: 1000px;background-color: whitesmoke;height: 312px;float: left;">
             <div style="float: left;">
               <div style="float: left;width: 500px;"><b>Name of individual/organization</b></div>
               <div style="float: left;width: 220px;"><b>Country code where the activities were
@@ -2817,7 +2834,7 @@ font-size: 20px !important;
               </div>
             </div>
           </mat-card>
-          <div style="float: left;"><b>Important:</b> If you entered information in the table above,
+          <div style="float: left;margin-top: 5px;"><b>Important:</b> If you entered information in the table above,
             you
             <b>must</b> answer <b>yes</b> in line 210.
           </div>
@@ -3076,7 +3093,7 @@ font-size: 20px !important;
           <div style="float: left;margin-left: 30px;">
             <b>If yes</b>, list the items exported, their destination, the country code, and their value
           </div>
-          <mat-card style="width: 1000px;background-color: whitesmoke;height: 340px;float: left;">
+          <mat-card style="width: 1000px;background-color: whitesmoke;height: 385px;float: left;">
             <div style="float: left;">
               <div style="float: left;width: 300px;"><b>Item exported</b></div>
               <div style="float: left;width: 220px;"><b>Destination (city/region)</b></div>
@@ -3106,7 +3123,7 @@ font-size: 20px !important;
               </div>
 
               <div style="float: left;width: 200px;margin-left: 10px;">
-                <mat-form-field class="" style="text-align: center;" appearance="fill">
+                <mat-form-field class="" style="text-align: right;" appearance="fill">
                   <input matInput placeholder="" value="" formControlName="schedule2_7_value_1">
                 </mat-form-field>
               </div>
@@ -3132,7 +3149,7 @@ font-size: 20px !important;
                 </mat-form-field>
               </div>
               <div style="float: left;width: 200px;margin-left: 10px;">
-                <mat-form-field class="" style="text-align: center;" appearance="fill">
+                <mat-form-field class="" style="text-align: right;" appearance="fill">
                   <input matInput placeholder="" value="" formControlName="schedule2_7_value_2">
                 </mat-form-field>
               </div>
@@ -3158,7 +3175,7 @@ font-size: 20px !important;
                 </mat-form-field>
               </div>
               <div style="float: left;width: 200px;margin-left: 10px;">
-                <mat-form-field class="" style="text-align: center;" appearance="fill">
+                <mat-form-field class="" style="text-align: right;" appearance="fill">
                   <input matInput placeholder="" value="" formControlName="schedule2_7_value_3">
                 </mat-form-field>
               </div>
@@ -3184,7 +3201,7 @@ font-size: 20px !important;
                 </mat-form-field>
               </div>
               <div style="float: left;width: 200px;margin-left: 10px;">
-                <mat-form-field class="" style="text-align: center;" appearance="fill">
+                <mat-form-field class="" style="text-align: right;" appearance="fill">
                   <input matInput placeholder="" value="" formControlName="schedule2_7_value_4">
                 </mat-form-field>
               </div>
@@ -3403,7 +3420,8 @@ font-size: 20px !important;
               <div style="float: left;">
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
                   <mat-form-field class="" style="width: 160px;" appearance="fill">
-                    <input matInput placeholder="$" value="" formControlName="col_370" (change)="confirmValueForField370()">
+                    <input matInput placeholder="" value="" formControlName="col_370" 
+                    (change)="confirmValueForField370()" style="text-align: right;">
                   </mat-form-field>
                 </div>
               </div>
@@ -3425,7 +3443,8 @@ font-size: 20px !important;
               <div style="float: left;">
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
                   <mat-form-field class="" style="width: 160px;" appearance="fill">
-                    <input matInput placeholder="$" value="" formControlName="col_380" (change)="confirmValueForField380()">
+                    <input matInput placeholder="$" value="" formControlName="col_380" 
+                    (change)="confirmValueForField380()" style="text-align: right;">
                   </mat-form-field>
                 </div>
               </div>
@@ -3448,7 +3467,7 @@ font-size: 20px !important;
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
                   <mat-form-field style="width: 160px;" [ngClass]="{'redClass':alertClass}" appearance="fill">
                     <input id="390" matInput placeholder="$" value="" (change)="calculate4880()"
-                      style="text-align: center;" formControlName="col_390">
+                      style="text-align: center;" formControlName="col_390" style="text-align: right;">
                   </mat-form-field>
                 </div>
               </div>
@@ -3485,10 +3504,10 @@ font-size: 20px !important;
           <mat-card style="width: 1000px;height: 170px;background-color: whitesmoke;">
             <div style="float: left;width: 1000px;">
               <div style="float: left;width: 600px;">
-                <b style="margin-left:88px"> Name (confidential)</b>
+                <span style="margin-left:88px"> Name (confidential)</span>
               </div>
               <div style="float: left;width:400px;">
-                <b style="margin-left:38px">At arm's length? Yes/No (confidential)</b>
+                <span style="margin-left:38px">At arm's length? Yes/No (confidential)</span>
               </div>
             </div>
             <div style="float: left;width: 1000px;margin-top: 10px;">
@@ -3617,7 +3636,7 @@ font-size: 20px !important;
               </div>
               <div style="float: left;width: 250px;">
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
-                  <mat-form-field class="" style="width: 150px;text-align: center;" appearance="fill">
+                  <mat-form-field class="" style="width: 150px;text-align: right;" appearance="fill">
                     <input matInput placeholder="" value="" formControlName="schedule4_donor_value_1">
                   </mat-form-field>
                 </div>
@@ -3663,7 +3682,7 @@ font-size: 20px !important;
               </div>
               <div style="float: left;width: 250px;">
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
-                  <mat-form-field class="" style="width: 150px;text-align: center;" appearance="fill">
+                  <mat-form-field class="" style="width: 150px;text-align: right;" appearance="fill">
                     <input matInput placeholder="" value="" formControlName="schedule4_donor_value_2">
                   </mat-form-field>
                 </div>
@@ -3709,7 +3728,7 @@ font-size: 20px !important;
               </div>
               <div style="float: left;width: 250px;">
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
-                  <mat-form-field class="" style="width: 150px;text-align: center;" appearance="fill">
+                  <mat-form-field class="" style="width: 150px;text-align: right;" appearance="fill">
                     <input matInput placeholder="" value="" formControlName="schedule4_donor_value_3">
                   </mat-form-field>
                 </div>
@@ -3947,7 +3966,7 @@ font-size: 20px !important;
           </div>
           <div style="float: left;margin-left: 10px;margin-top: -12px;">
             <mat-form-field class="" appearance="fill">
-              <input matInput placeholder="$" value="" formControlName="col_580">
+              <input matInput placeholder="$" value="" formControlName="col_580" style="text-align: right;">
             </mat-form-field>
           </div>
         </div>
@@ -4036,7 +4055,7 @@ font-size: 20px !important;
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 120px;" appearance="fill">
                         <input id="4100" matInput placeholder="$" value="" (change)="calculate4200(0)"
-                          style="text-align: center;" formControlName="col_4100">
+                        style="text-align: right;" formControlName="col_4100">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4058,7 +4077,7 @@ font-size: 20px !important;
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 120px;" appearance="fill">
                         <input id="4110" matInput placeholder="$" value="" (change)="calculate4200(0)"
-                          style="text-align: center;" formControlName="col_4110">
+                        style="text-align: right;" formControlName="col_4110">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4080,7 +4099,7 @@ font-size: 20px !important;
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 120px;" appearance="fill">
                         <input id="4120" matInput placeholder="$" value="" (change)="calculate4200(0)"
-                          style="text-align: center;" formControlName="col_4120">
+                        style="text-align: right;" formControlName="col_4120">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4102,7 +4121,7 @@ font-size: 20px !important;
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 120px;" appearance="fill">
                         <input id="4130" matInput placeholder="$" value="" (change)="calculate4200(0)"
-                          style="text-align: center;" formControlName="col_4130">
+                        style="text-align: right;" formControlName="col_4130">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4124,7 +4143,7 @@ font-size: 20px !important;
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 120px;" appearance="fill">
                         <input id="4140" matInput placeholder="$" value="" (change)="calculate4200(0)"
-                          style="text-align: center;" formControlName="col_4140">
+                        style="text-align: right;" formControlName="col_4140">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4146,7 +4165,7 @@ font-size: 20px !important;
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 120px;" appearance="fill">
                         <input id="4150" matInput placeholder="$" value="" (change)="calculate4200(0)"
-                          style="text-align: center;" formControlName="col_4150">
+                        style="text-align: right;" formControlName="col_4150">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4168,7 +4187,7 @@ font-size: 20px !important;
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 120px;" appearance="fill">
                         <input id="4155" matInput placeholder="$" value="" (change)="calculate4200(0)"
-                          style="text-align: center;" formControlName="col_4155">
+                        style="text-align: right;" formControlName="col_4155">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4190,7 +4209,7 @@ font-size: 20px !important;
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 120px;" appearance="fill">
                         <input id="4160" matInput placeholder="$" value="" (change)="calculate4200(0)"
-                          style="text-align: center;" formControlName="col_4160">
+                        style="text-align: right;" formControlName="col_4160">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4212,7 +4231,7 @@ font-size: 20px !important;
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 120px;" appearance="fill">
                         <input id="4165" matInput placeholder="$" value="" (change)="calculate4200(0)"
-                          style="text-align: center;" formControlName="col_4165">
+                        style="text-align: right;" formControlName="col_4165">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4245,7 +4264,7 @@ font-size: 20px !important;
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 101px;" appearance="fill">
                         <input id="4166" matInput placeholder="$" value="" (change)="calculate4200(0)"
-                          style="text-align: center;" formControlName="col_4166">
+                        style="text-align: right;" formControlName="col_4166">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4278,7 +4297,7 @@ font-size: 20px !important;
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 101px;" appearance="fill">
                         <input id="4170" matInput placeholder="$" value="" (change)="calculate4200(0)"
-                          style="text-align: center;" formControlName="col_4170">
+                        style="text-align: right;" formControlName="col_4170">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4306,7 +4325,7 @@ font-size: 20px !important;
                   <div style="float: left;">
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 101px;" appearance="fill">
-                        <input matInput placeholder="$" value="" formControlName="col_4180">
+                        <input matInput placeholder="$" value="" formControlName="col_4180" style="text-align: right;">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4328,7 +4347,7 @@ font-size: 20px !important;
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <div style="float: left;">
                         <mat-form-field class="" style="width: 120px;" appearance="fill">
-                          <input matInput placeholder="$" value="" formControlName="col_4200" readonly>
+                          <input matInput placeholder="$" value="" formControlName="col_4200" readonly style="text-align: right;">
                         </mat-form-field>
                         <!--<div style="float: left;margin-left: 0px;margin-top: 11px;">
                           <button mat-stroked-button disabled style="width: 120px;">$
@@ -4372,7 +4391,8 @@ font-size: 20px !important;
                   <div style="float: left;">
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 101px;" appearance="fill">
-                        <input id="4300" matInput placeholder="$" value="" formControlName="col_4300" (change)="calculate4350()">
+                        <input id="4300" matInput placeholder="$" value="" formControlName="col_4300" 
+                        (change)="calculate4350()" style="text-align: right;">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4402,7 +4422,8 @@ font-size: 20px !important;
                   <div style="float: left;">
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 101px;" appearance="fill">
-                        <input id="4310" matInput placeholder="$" value="" formControlName="col_4310" (change)="calculate4350()">
+                        <input id="4310" matInput placeholder="$" value="" formControlName="col_4310" 
+                        (change)="calculate4350()" style="text-align: right;">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4439,7 +4460,8 @@ font-size: 20px !important;
                   <div style="float: left;">
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 101px;" appearance="fill">
-                        <input id="4320" matInput placeholder="$" value="" formControlName="col_4320" (change)="calculate4350()">
+                        <input id="4320" matInput placeholder="$" value="" formControlName="col_4320" 
+                        (change)="calculate4350()" style="text-align: right;">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4470,7 +4492,8 @@ font-size: 20px !important;
                   <div style="float: left;">
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 101px;" appearance="fill">
-                        <input id="4330" matInput placeholder="$" value="" formControlName="col_4330" (change)="calculate4350()">
+                        <input id="4330" matInput placeholder="$" value="" formControlName="col_4330" 
+                        (change)="calculate4350()" style="text-align: right;">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4500,7 +4523,7 @@ font-size: 20px !important;
                   <div style="float: left;">
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 101px;" appearance="fill">
-                        <input matInput placeholder="$" value="" formControlName="col_4350" readonly>
+                        <input matInput placeholder="$" value="" formControlName="col_4350" readonly style="text-align: right;">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4522,7 +4545,7 @@ font-size: 20px !important;
                   <div style="float: left;">
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
                       <mat-form-field class="" appearance="fill" style="width: 120px;">
-                        <input matInput placeholder="$" value="" formControlName="col_4250" (change)="process4250()">
+                        <input matInput placeholder="$" value="" formControlName="col_4250" (change)="process4250()" style="text-align: right;">
                       </mat-form-field>
                     </div>
                   </div>
@@ -4554,7 +4577,7 @@ font-size: 20px !important;
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
                       <input id="4500_F" matInput placeholder="$" value="" (change)="calculate4700(0)"
-                         formControlName="col_4500">
+                         formControlName="col_4500" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4575,7 +4598,7 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
-                      <input matInput placeholder="$" value="" formControlName="col_5610">
+                      <input matInput placeholder="$" value="" formControlName="col_5610" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4603,7 +4626,7 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 140px;" appearance="fill">
-                      <input matInput placeholder="$" value="" formControlName="col_4505">
+                      <input matInput placeholder="$" value="" formControlName="col_4505" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4625,7 +4648,7 @@ font-size: 20px !important;
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
                       <input id="4510_F" matInput placeholder="$" value="" (change)="calculate4700(0)"
-                         formControlName="col_4510">
+                         formControlName="col_4510" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4649,7 +4672,7 @@ font-size: 20px !important;
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
                       <input id="4530_F" matInput placeholder="$" value="" (change)="calculate4700(1)"
-                         formControlName="col_4530">
+                         formControlName="col_4530" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4671,7 +4694,7 @@ font-size: 20px !important;
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
                       <input id="4540_F" matInput placeholder="$" value="" (change)="calculate4700(0)"
-                         formControlName="col_4540">
+                         formControlName="col_4540" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4693,7 +4716,7 @@ font-size: 20px !important;
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
                       <input id="4550_F" matInput placeholder="$" value="" (change)="calculate4700(0)"
-                         formControlName="col_4550">
+                         formControlName="col_4550" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4715,7 +4738,7 @@ font-size: 20px !important;
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
                       <input id="4560_F" matInput placeholder="$" value="" (change)="calculate4700(0)"
-                         formControlName="col_4560">
+                         formControlName="col_4560" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4738,7 +4761,7 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
-                      <input matInput placeholder="$" value="" formControlName="col_4571">
+                      <input matInput placeholder="$" value="" formControlName="col_4571" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4762,7 +4785,7 @@ font-size: 20px !important;
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
                       <input id="4575_F" matInput placeholder="$" value="" (change)="calculate4700(0)"
-                         formControlName="col_4575">
+                         formControlName="col_4575" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4799,7 +4822,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field style="width: 140px;" appearance="fill">
-                      <input id="4580_F" matInput placeholder="$" value="" formControlName="col_4580" (change)="calculate4700(0)">
+                      <input id="4580_F" matInput placeholder="$" value="" formControlName="col_4580" 
+                      (change)="calculate4700(0)" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4827,7 +4851,7 @@ font-size: 20px !important;
               <div style="float: left;">
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
                   <mat-form-field style="width: 140px;" appearance="fill">
-                    <input matInput placeholder="$" value="" formControlName="col_4590">
+                    <input matInput placeholder="$" value="" formControlName="col_4590" style="text-align: right;">
                   </mat-form-field>
                 </div>
               </div>
@@ -4849,7 +4873,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field style="width: 160px;" appearance="fill">
-                      <input id="4600_F" matInput placeholder="$" value="" formControlName="col_4600" (change)="calculate4700(0)">
+                      <input id="4600_F" matInput placeholder="$" value="" formControlName="col_4600" 
+                      (change)="calculate4700(0)" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4888,7 +4913,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field style="width: 140px;" appearance="fill">
-                      <input id="4610_F" matInput placeholder="$" value="" formControlName="col_4610" (change)="calculate4700(0)">
+                      <input id="4610_F" matInput placeholder="$" value="" formControlName="col_4610" 
+                      (change)="calculate4700(0)" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4910,7 +4936,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field style="width: 160px;" appearance="fill">
-                      <input id="4620_F" matInput placeholder="$" value="" formControlName="col_4620" (change)="calculate4700(0)">
+                      <input id="4620_F" matInput placeholder="$" value="" formControlName="col_4620" 
+                      (change)="calculate4700(0)" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4931,7 +4958,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field style="width: 160px;" appearance="fill">
-                      <input id="4630_F" matInput placeholder="$" value="" formControlName="col_4630" (change)="calculate4700(0)">
+                      <input id="4630_F" matInput placeholder="$" value="" formControlName="col_4630" 
+                      (change)="calculate4700(0)" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4953,7 +4981,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field style="width: 160px;" appearance="fill">
-                      <input id="4640_F" matInput placeholder="$" value="" formControlName="col_4640" (change)="calculate4700(0)">
+                      <input id="4640_F" matInput placeholder="$" value="" formControlName="col_4640" 
+                      (change)="calculate4700(0)" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -4992,7 +5021,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field style="width: 140px;" appearance="fill">
-                      <input id="4650_F" matInput placeholder="$" value="" formControlName="col_4650" (change)="calculate4700(0)">
+                      <input id="4650_F" matInput placeholder="$" value="" formControlName="col_4650" 
+                      (change)="calculate4700(0)" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5044,7 +5074,7 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field style="width: 160px;" appearance="fill">
-                      <input matInput placeholder="$" value="" formControlName="col_4700" readonly>
+                      <input matInput placeholder="$" value="" formControlName="col_4700" readonly style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5070,7 +5100,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
-                      <input id="4800_F" matInput placeholder="$" value="" formControlName="col_4800" (change)="calculate4950()">
+                      <input id="4800_F" matInput placeholder="$" value="" formControlName="col_4800" 
+                      (change)="calculate4950()" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5091,7 +5122,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
-                      <input id="4810_F" matInput placeholder="$" value="" formControlName="col_4810" (change)="calculate4950()">
+                      <input id="4810_F" matInput placeholder="$" value="" formControlName="col_4810" 
+                      (change)="calculate4950()" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5112,7 +5144,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
-                      <input id="4820_F" matInput placeholder="$" value="" formControlName="col_4820" (change)="calculate4950()">
+                      <input id="4820_F" matInput placeholder="$" value="" formControlName="col_4820" 
+                      (change)="calculate4950()" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5133,7 +5166,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
-                      <input id="4830_F" matInput placeholder="$" value="" formControlName="col_4830" (change)="calculate4950()">
+                      <input id="4830_F" matInput placeholder="$" value="" formControlName="col_4830" 
+                      (change)="calculate4950()" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5154,7 +5188,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
-                      <input id="4840_F" matInput placeholder="$" value="" formControlName="col_4840" (change)="calculate4950()">
+                      <input id="4840_F" matInput placeholder="$" value="" formControlName="col_4840" 
+                      (change)="calculate4950()" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5175,7 +5210,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
-                      <input id="4850_F" matInput placeholder="$" value="" formControlName="col_4850" (change)="calculate4950()">
+                      <input id="4850_F" matInput placeholder="$" value="" formControlName="col_4850" 
+                      (change)="calculate4950()" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5196,7 +5232,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
-                      <input id="4860_F" matInput placeholder="$" value="" formControlName="col_4860" (change)="calculate4950()">
+                      <input id="4860_F" matInput placeholder="$" value="" formControlName="col_4860" 
+                      (change)="calculate4950()" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5217,7 +5254,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
-                      <input id="4870_F" matInput placeholder="$" value="" formControlName="col_4870" (change)="calculate4950()">
+                      <input id="4870_F" matInput placeholder="$" value="" formControlName="col_4870" 
+                      (change)="calculate4950()" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5248,7 +5286,7 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 140px;" appearance="fill">
-                      <input id="4880" matInput placeholder="$" value="" formControlName="col_4880">
+                      <input id="4880" matInput placeholder="$" value="" formControlName="col_4880" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5269,7 +5307,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
-                      <input id="4890_F" matInput placeholder="$" value="" formControlName="col_4890" (change)="calculate4950()">
+                      <input id="4890_F" matInput placeholder="$" value="" formControlName="col_4890" 
+                      (change)="calculate4950()" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5290,7 +5329,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 160px;" appearance="fill">
-                      <input id="4891_F" matInput placeholder="$" value="" formControlName="col_4891" (change)="calculate4950()">
+                      <input id="4891_F" matInput placeholder="$" value="" formControlName="col_4891" 
+                      (change)="calculate4950()" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5318,7 +5358,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 140px;" appearance="fill">
-                      <input id="4900_F" matInput placeholder="$" value="" formControlName="col_4900" (change)="calculate4950()">
+                      <input id="4900_F" matInput placeholder="$" value="" formControlName="col_4900" 
+                      (change)="calculate4950()" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5339,7 +5380,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 29px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 140px;" appearance="fill">
-                      <input id="4910_F" matInput placeholder="$" value="" formControlName="col_4910" (change)="calculate4950()">
+                      <input id="4910_F" matInput placeholder="$" value="" formControlName="col_4910" 
+                      (change)="calculate4950()" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5384,7 +5426,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 140px;" appearance="fill">
-                      <input id="4920_F" matInput placeholder="$" value="" formControlName="col_4920" (change)="calculate4950()">
+                      <input id="4920_F" matInput placeholder="$" value="" formControlName="col_4920" 
+                      (change)="calculate4950()" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5413,7 +5456,8 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 140px;" appearance="fill">
-                      <input id="4930_F" matInput placeholder="$" value="" formControlName="col_4930" (change)="calculate4950()">
+                      <input id="4930_F" matInput placeholder="$" value="" formControlName="col_4930" 
+                      (change)="calculate4950()" style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5443,7 +5487,7 @@ font-size: 20px !important;
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 140px;" appearance="fill">
-                      <input id="4950_F" matInput placeholder="$" value="" formControlName="col_4950" readonly>
+                      <input id="4950_F" matInput placeholder="$" value="" formControlName="col_4950" readonly style="text-align: right;">
                     </mat-form-field>
                   </div>
                 </div>
@@ -5480,7 +5524,7 @@ font-size: 20px !important;
             <div style="float: left;">
               <div style="float: left;margin-left: 10px;margin-top: -12px;">
                 <mat-form-field class="" style="width: 140px;" appearance="fill">
-                  <input matInput placeholder="$" value="" formControlName="col_5000">
+                  <input matInput placeholder="$" value="" formControlName="col_5000" style="text-align: right;">
                 </mat-form-field>
               </div>
             </div>
@@ -5526,7 +5570,7 @@ font-size: 20px !important;
             <div style="float: left;">
               <div style="float: left;margin-left: 10px;margin-top: -12px;">
                 <mat-form-field class="" style="width: 140px;" appearance="fill">
-                  <input matInput placeholder="$" value="" formControlName="col_5010">
+                  <input matInput placeholder="$" value="" formControlName="col_5010" style="text-align: right;">
                 </mat-form-field>
               </div>
             </div>
@@ -5564,7 +5608,7 @@ font-size: 20px !important;
             <div style="float: left;">
               <div style="float: left;margin-left: 10px;margin-top: -12px;">
                 <mat-form-field class="" style="width: 140px;" appearance="fill">
-                  <input matInput placeholder="$" value="" formControlName="col_5020">
+                  <input matInput placeholder="$" value="" formControlName="col_5020" style="text-align: right;">
                 </mat-form-field>
               </div>
             </div>
@@ -5592,7 +5636,7 @@ font-size: 20px !important;
             <div style="float: left;">
               <div style="float: left;margin-left: 10px;margin-top: -12px;">
                 <mat-form-field class="" style="width: 140px;" appearance="fill">
-                  <input matInput placeholder="$" value="" formControlName="col_5040">
+                  <input matInput placeholder="$" value="" formControlName="col_5040" style="text-align: right;">
                 </mat-form-field>
               </div>
             </div>
@@ -5620,7 +5664,8 @@ font-size: 20px !important;
               <div style="float: left;">
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
                   <mat-form-field class="" style="width: 140px;" appearance="fill">
-                    <input id="5050_F" matInput placeholder="$" value="" formControlName="col_5050" (change)="calculate5100()">
+                    <input id="5050_F" matInput placeholder="$" value="" formControlName="col_5050" 
+                    (change)="calculate5100()" style="text-align: right;">
                   </mat-form-field>
                 </div>
               </div>
@@ -5641,7 +5686,7 @@ font-size: 20px !important;
               <div style="float: left;">
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
                   <mat-form-field class="" style="width: 160px;" appearance="fill">
-                    <input matInput placeholder="$" value="" formControlName="col_5100">
+                    <input matInput placeholder="$" value="" formControlName="col_5100" style="text-align: right;" readonly>
                   </mat-form-field>
                 </div>
               </div>
@@ -5667,7 +5712,7 @@ font-size: 20px !important;
               <div style="float: left;">
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
                   <mat-form-field class="" style="width: 160px;" appearance="fill">
-                    <input matInput placeholder="$" value="" formControlName="col_5500">
+                    <input matInput placeholder="$" value="" formControlName="col_5500" style="text-align: right;">
                   </mat-form-field>
                 </div>
               </div>
@@ -5687,7 +5732,7 @@ font-size: 20px !important;
               <div style="float: left;">
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
                   <mat-form-field class="" style="width: 160px;" appearance="fill">
-                    <input matInput placeholder="$" value="" formControlName="col_5510">
+                    <input matInput placeholder="$" value="" formControlName="col_5510" style="text-align: right;">
                   </mat-form-field>
                 </div>
               </div>
@@ -5711,7 +5756,7 @@ font-size: 20px !important;
               <div style="float: left;">
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
                   <mat-form-field class="" style="width: 160px;" appearance="fill">
-                    <input matInput placeholder="$" value="" formControlName="col_5750">
+                    <input matInput placeholder="$" value="" formControlName="col_5750" style="text-align: right;">
                   </mat-form-field>
                 </div>
               </div>
@@ -5735,7 +5780,7 @@ font-size: 20px !important;
               <div style="float: left;">
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
                   <mat-form-field class="" style="width: 160px;" appearance="fill">
-                    <input matInput placeholder="$" value="" formControlName="col_5900">
+                    <input matInput placeholder="$" value="" formControlName="col_5900" style="text-align: right;">
                   </mat-form-field>
                 </div>
               </div>
@@ -5755,7 +5800,7 @@ font-size: 20px !important;
               <div style="float: left;">
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
                   <mat-form-field class="" style="width: 160px;" appearance="fill">
-                    <input matInput placeholder="$" value="" formControlName="col_5910">
+                    <input matInput placeholder="$" value="" formControlName="col_5910" style="text-align: right;">
                   </mat-form-field>
                 </div>
               </div>
@@ -5886,7 +5931,7 @@ font-size: 20px !important;
   <div style="float: left;">
     <div style="margin-top: 15px;float: left;margin-left: 0px;">
       <div style="float: left;">
-        <mat-radio-group aria-label="Select an option" color="primary" id="privacyStatement_">
+        <mat-radio-group aria-label="Select an option" color="primary" (change)="setPrivacyStatement($event)" #privacyStatement_>
           <div style="float: left;margin-left: 0px;">
             <mat-radio-button value="1">
             </mat-radio-button>
@@ -5916,7 +5961,7 @@ font-size: 20px !important;
           </div>
           <div style="float: left;width: 30px;">
             <section class="example-section">
-              <mat-checkbox class="example-margin" color="primary" (change)="setCheckListOption1($event)">
+              <mat-checkbox class="example-margin" color="primary" (change)="setCheckListOption1($event)" [checked]="t3010Complete">
               </mat-checkbox>
             </section>
           </div>
@@ -5929,7 +5974,7 @@ font-size: 20px !important;
           </div>
           <div style="float: left;width: 30px;">
             <section class="example-section">
-              <mat-checkbox class="example-margin" color="primary" (change)="setCheckListOption2($event)">
+              <mat-checkbox class="example-margin" color="primary" (change)="setCheckListOption2($event)" [checked]="financialStatements">
               </mat-checkbox>
             </section>
           </div>
@@ -5942,7 +5987,7 @@ font-size: 20px !important;
           </div>
           <div style="float: left;width: 30px;">
             <section class="example-section">
-              <mat-checkbox class="example-margin" color="primary" (change)="setCheckListOption3($event)">
+              <mat-checkbox class="example-margin" color="primary" (change)="setCheckListOption3($event)" [checked]="t1235Complete">
               </mat-checkbox>
             </section>
           </div>
@@ -5956,7 +6001,7 @@ font-size: 20px !important;
           </div>
           <div style="float: left;width: 30px;">
             <section class="example-section">
-              <mat-checkbox class="example-margin" color="primary" (change)="setCheckListOption4($event)">
+              <mat-checkbox class="example-margin" color="primary" (change)="setCheckListOption4($event)" [checked]="rc232Complete">
               </mat-checkbox>
             </section>
           </div>
@@ -5970,7 +6015,7 @@ font-size: 20px !important;
           </div>
           <div style="float: left;width: 30px;">
             <section class="example-section">
-              <mat-checkbox class="example-margin" color="primary" (change)="setCheckListOption5($event)">
+              <mat-checkbox class="example-margin" color="primary" (change)="setCheckListOption5($event)" [checked]="t1236Complete">
               </mat-checkbox>
             </section>
           </div>
@@ -5984,7 +6029,7 @@ font-size: 20px !important;
           </div>
           <div style="float: left;width: 30px;">
             <section class="example-section">
-              <mat-checkbox class="example-margin" color="primary" (change)="setCheckListOption6($event)">
+              <mat-checkbox class="example-margin" color="primary" (change)="setCheckListOption6($event)" [checked]="t2081Complete">
               </mat-checkbox>
             </section>
           </div>
@@ -6025,15 +6070,15 @@ font-size: 20px !important;
     <div style="float: left;width: 1000px;margin-top: 10px;background-color: gainsboro;">
       
      
-      <a href="javascript:void();">
+      <!--<a href="javascript:void();">
         <div [ngClass]="{'disableDiv': isDownloadDisabled}" class="largeFontSize" style="float: right;background-color:#00AFFF;
         color: white;padding: 5px;width: 200px;margin-right: 0px;text-align: center;border: 2px solid #9e9e9e;"
           (click)="downloadForm('T3010','fr')">DOWNLOAD - FRENCH</div>
-      </a>
+      </a>-->
       <a href="javascript:void();">
         <div [ngClass]="{'disableDiv': isDownloadDisabled}" class="largeFontSize" style="float: right;background-color:#00AFFF;color: white;
         padding: 5px;width: 200px;margin-right: 10px;text-align: center;border: 2px solid #9e9e9e;"
-          (click)="downloadForm('T3010','en')">DOWNLOAD - ENGLISH</div>
+          (click)="downloadForm('T3010','en')">DOWNLOAD FORM</div>
       </a>
 
       <div style="float: right;margin-right: 30px;" class="overlay" *ngIf="showSpinner">

@@ -2,12 +2,14 @@ export class T1235DTO{
     t1235NumberOfDirectors:string
     t1235CharityName:string
     t1235BnRegistration:string
-    t1235ReturnOfFiscalPeriod:Date
+    t1235ReturnOfFiscalPeriod:string
     t1235LastName_1:string
     t1235FirstName_1:string
     t1235Initials_1:string
-    t1235sd1:Date
-    t1235ed1:Date
+    //t1235sd1:Date
+    //t1235ed1:Date
+    t1235sd1:string
+    t1235ed1:string
     t1235Position_1:string
     t1235AtArms_1:string
     t1235Street_1:string
@@ -19,8 +21,10 @@ export class T1235DTO{
     t1235LastName_2:string
     t1235FirstName_2:string
     t1235Initials_2:string
-    t1235sd2:Date
-    t1235ed2:Date
+    //t1235sd2:Date
+    //t1235ed2:Date
+    t1235sd2:string
+    t1235ed2:string
     t1235Position_2:string
     t1235AtArms_2:string
     t1235Street_2:string
@@ -32,8 +36,10 @@ export class T1235DTO{
     t1235LastName_3:string
     t1235FirstName_3:string
     t1235Initials_3:string
-    t1235sd3:Date
-    t1235ed3:Date
+    //t1235sd3:Date
+    //t1235ed3:Date
+    t1235sd3:string
+    t1235ed3:string
     t1235Position_3:string
     t1235AtArms_3:string
     t1235Street_3:string
@@ -45,8 +51,10 @@ export class T1235DTO{
     t1235LastName_4:string
     t1235FirstName_4:string
     t1235Initials_4:string
-    t1235sd4:Date
-    t1235ed4:Date
+    //t1235sd4:Date
+    //t1235ed4:Date
+    t1235sd4:string
+    t1235ed4:string
     t1235Position_4:string
     t1235AtArms_4:string
     t1235Street_4:string
@@ -58,8 +66,10 @@ export class T1235DTO{
     t1235LastName_5:string
     t1235FirstName_5:string
     t1235Initials_5:string
-    t1235sd5:Date
-    t1235ed5:Date
+    // t1235sd5:Date
+    // t1235ed5:Date
+    t1235sd5:string
+    t1235ed5:string
     t1235Position_5:string
     t1235AtArms_5:string
     t1235Street_5:string
@@ -71,8 +81,10 @@ export class T1235DTO{
     t1235LastName_6:string
     t1235FirstName_6:string
     t1235Initials_6:string
-    t1235sd6:Date
-    t1235ed6:Date
+    // t1235sd6:Date
+    // t1235ed6:Date
+    t1235sd6:string
+    t1235ed6:string
     t1235Position_6:string
     t1235AtArms_6:string
     t1235Street_6:string
@@ -84,8 +96,10 @@ export class T1235DTO{
     t1235LastName_7:string
     t1235FirstName_7:string
     t1235Initials_7:string
-    t1235sd7:Date
-    t1235ed7:Date
+    // t1235sd7:Date
+    // t1235ed7:Date
+    t1235sd7:string
+    t1235ed7:string
     t1235Position_7:string
     t1235AtArms_7:string
     t1235Street_7:string
@@ -97,8 +111,10 @@ export class T1235DTO{
     t1235LastName_8:string
     t1235FirstName_8:string
     t1235Initials_8:string
-    t1235sd8:Date
-    t1235ed8:Date
+    // t1235sd8:Date
+    // t1235ed8:Date
+    t1235sd8:string
+    t1235ed8:string
     t1235Position_8:string
     t1235AtArms_8:string
     t1235Street_8:string
@@ -110,8 +126,10 @@ export class T1235DTO{
     t1235LastName_9:string
     t1235FirstName_9:string
     t1235Initials_9:string
-    t1235sd9:Date
-    t1235ed9:Date
+    // t1235sd9:Date
+    // t1235ed9:Date
+    t1235sd9:string
+    t1235ed9:string
     t1235Position_9:string
     t1235AtArms_9:string
     t1235Street_9:string

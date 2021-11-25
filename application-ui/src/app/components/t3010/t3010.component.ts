@@ -10,6 +10,7 @@ import { T3010SecC } from 'src/app/dtos/t3010SecC';
 import { T3010SecD } from 'src/app/dtos/t3010SecD';
 import { T3010SecE } from 'src/app/dtos/t3010SecE';
 import { T3010SecF } from 'src/app/dtos/t3010SecF';
+import { UserAcceptDto } from 'src/app/dtos/UserAcceptDto';
 import { CsServiceService } from 'src/app/services/cs-service.service';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { Fill4250Component } from '../fill4250/fill4250.component';
@@ -114,6 +115,13 @@ export class T3010Component implements OnInit {
 
   ngOnInit(): void {
     this.message = ''
+    this.t3010Complete = false
+    this.t1235Complete = false
+    this.t1236Complete = false
+    this.rc232Complete = false
+    this.t2081Complete = false
+    this.financialStatements = false
+    
     this.currentDate = new Date()
     this.userName = this.csService.userName
     this.charityName = this.csService.charityName
@@ -134,11 +142,11 @@ export class T3010Component implements OnInit {
       let tempValD = 0
       let tempValE = 0
       let tempValF = 0
-      let t3010secAdto = item.t3010SecA
-      let t3010seCdto = item.t3010SecC
-      let t3010secDdto = item.t3010SecD
-      let t3010secEDto = item.t3010SecE
-      let t3010secFdto = item.t3010SecF
+      let t3010secAdto = item.t3010.t3010SecA
+      let t3010seCdto = item.t3010.t3010SecC
+      let t3010secDdto = item.t3010.t3010SecD
+      let t3010secEDto = item.t3010.t3010SecE
+      let t3010secFdto = item.t3010.t3010SecF
 
       if (t3010secAdto || t3010secFdto || t3010seCdto || t3010secDdto || t3010secEDto) {
         if (t3010secAdto) {
@@ -177,10 +185,11 @@ export class T3010Component implements OnInit {
         console.log("INSIDE T3010 IF .... ")
         this.fillFormValues(t3010secAdto, t3010secFdto, t3010seCdto, t3010secDdto, t3010secEDto)
       }
+      this.patchUserAcceptValues(item)
     })
     let t1235Resp = this.csService.getFormT1235()
     t1235Resp.subscribe(item => {
-      let t1235dto = item
+      let t1235dto = item.t1235
       if (t1235dto) {
         if (t1235dto.percentCompleted == 100) {
           this.t123520evalue = t1235dto.percentCompleted
@@ -199,7 +208,7 @@ export class T3010Component implements OnInit {
     })
     let t1236 = this.csService.getFormT1236()
     t1236.subscribe(item => {
-      let t1236Dto = item
+      let t1236Dto = item.t1236
       if (t1236Dto) {
         if (t1236Dto.percentCompleted == 100) {
           this.t123619ecolor = 'primary'
@@ -223,6 +232,18 @@ export class T3010Component implements OnInit {
     this.loadRC232Progress()
     this.loadT2081Progress()
   }
+
+  patchUserAcceptValues(item:any){
+    console.log("&*&&&&&&&&&")
+    console.log(item)
+    this.t3010Complete = item.userAccept.filledFormT3010
+    this.t1235Complete = item.userAccept.filledFormT1235
+    this.t1236Complete = item.userAccept.filledFormT1236
+    this.rc232Complete = item.userAccept.filledFormRC232
+    this.t2081Complete = item.userAccept.filledFormT2081
+    this.financialStatements = item.userAccept.copyOfFinancialStatements
+  }
+
   loadRC232Progress() {
     this.rc23218evalue = this.csService.getRC232Progress().value
     this.rc23218eStatus = this.csService.getRC232Progress().status
@@ -246,36 +267,46 @@ export class T3010Component implements OnInit {
 
   savet3010FormSectionD() {
     let secDData = new T3010SecD()
-    secDData.col_4020 = this.t3010FormSectionD.getRawValue().col_4020
+    secDData.col_4020_secD = this.t3010FormSectionD.getRawValue().col_4020_secD
     secDData.col_4050 = this.t3010FormSectionD.getRawValue().col_4050
-    secDData.col_4200 = this.t3010FormSectionD.getRawValue().col_4200
-    secDData.col_4350 = this.t3010FormSectionD.getRawValue().col_4350
+    secDData.col_4200_secD = this.t3010FormSectionD.getRawValue().col_4200_secD
+    secDData.col_4350_secD = this.t3010FormSectionD.getRawValue().col_4350_secD
     secDData.col_4400 = this.t3010FormSectionD.getRawValue().col_4400
     secDData.col_4490 = this.t3010FormSectionD.getRawValue().col_4490
-    secDData.col_4500 = this.t3010FormSectionD.getRawValue().col_4500
-    secDData.col_4505 = this.t3010FormSectionD.getRawValue().col_4505
-    secDData.col_4510 = this.t3010FormSectionD.getRawValue().col_4510
-    secDData.col_4530 = this.t3010FormSectionD.getRawValue().col_4530
+    secDData.col_4500_secD = this.t3010FormSectionD.getRawValue().col_4500_secD
+    secDData.col_4505_secD = this.t3010FormSectionD.getRawValue().col_4505_secD
+    secDData.col_4510_secD = this.t3010FormSectionD.getRawValue().col_4510_secD
+    secDData.col_4530_secD = this.t3010FormSectionD.getRawValue().col_4530_secD
     secDData.col_4565 = this.t3010FormSectionD.getRawValue().col_4565
-    secDData.col_4571 = this.t3010FormSectionD.getRawValue().col_4571
-    secDData.col_4575 = this.t3010FormSectionD.getRawValue().col_4575
-    secDData.col_4630 = this.t3010FormSectionD.getRawValue().col_4630
-    secDData.col_4640 = this.t3010FormSectionD.getRawValue().col_4640
-    secDData.col_4650 = this.t3010FormSectionD.getRawValue().col_4650
-    secDData.col_4860 = this.t3010FormSectionD.getRawValue().col_4860
-    secDData.col_4810 = this.t3010FormSectionD.getRawValue().col_4810
-    secDData.col_4920 = this.t3010FormSectionD.getRawValue().col_4920
-    secDData.col_4950 = this.t3010FormSectionD.getRawValue().col_4950
-    secDData.col_5000 = this.t3010FormSectionD.getRawValue().col_5000
-    secDData.col_5010 = this.t3010FormSectionD.getRawValue().col_5010
-    secDData.col_5050 = this.t3010FormSectionD.getRawValue().col_5050
-    secDData.col_5100 = this.t3010FormSectionD.getRawValue().col_5100
-    secDData.col_4570 = this.t3010FormSectionD.getRawValue().col_4570
-    secDData.col_4700 = this.t3010FormSectionD.getRawValue().col_4700
+    secDData.col_4571_secD = this.t3010FormSectionD.getRawValue().col_4571_secD
+    secDData.col_4575_secD = this.t3010FormSectionD.getRawValue().col_4575_secD
+    secDData.col_4630_secD = this.t3010FormSectionD.getRawValue().col_4630_secD
+    secDData.col_4640_secD = this.t3010FormSectionD.getRawValue().col_4640_secD
+    secDData.col_4650_secD = this.t3010FormSectionD.getRawValue().col_4650_secD
+    secDData.col_4860_secD = this.t3010FormSectionD.getRawValue().col_4860_secD
+    secDData.col_4810_secD = this.t3010FormSectionD.getRawValue().col_4810_secD
+    secDData.col_4920_secD = this.t3010FormSectionD.getRawValue().col_4920_secD
+    secDData.col_4950_secD = this.t3010FormSectionD.getRawValue().col_4950_secD
+    secDData.col_5000_secD = this.t3010FormSectionD.getRawValue().col_5000_secD
+    secDData.col_5010_secD = this.t3010FormSectionD.getRawValue().col_5010_secD
+    secDData.col_5050_secD = this.t3010FormSectionD.getRawValue().col_5050_secD
+    secDData.col_5100_secD = this.t3010FormSectionD.getRawValue().col_5100_secD
+    secDData.col_4570_secD = this.t3010FormSectionD.getRawValue().col_4570_secD
+    secDData.col_4700_secD = this.t3010FormSectionD.getRawValue().col_4700_secD
 
     secDData.user_id = this.csService.user_id
     secDData.percentCompleted = 20
     this.csService.setT3010SecD(secDData)
+    let userAccept = new UserAcceptDto()
+    userAccept.copyOfFinancialStatements = this.financialStatements
+    userAccept.filledFormRC232 = this.rc232Complete
+    userAccept.filledFormT1235 = this.t1235Complete
+    userAccept.filledFormT1236 = this.t1236Complete
+    userAccept.filledFormT2081 = this.t2081Complete
+    userAccept.filledFormT3010 = this.t3010Complete
+    userAccept.privacyStatement = this.privacyStatementComplete
+
+    this.csService.setUserAccpet(userAccept)
     this.resp = this.csService.saveFormT3010()
     this.resp.subscribe(item => {
       console.log("Response after saving section D ")
@@ -302,6 +333,16 @@ export class T3010Component implements OnInit {
     secEData.user_id = this.csService.user_id
     secEData.percentCompleted = 20
     this.csService.setT3010SecE(secEData)
+    let userAccept = new UserAcceptDto()
+    userAccept.copyOfFinancialStatements = this.financialStatements
+    userAccept.filledFormRC232 = this.rc232Complete
+    userAccept.filledFormT1235 = this.t1235Complete
+    userAccept.filledFormT1236 = this.t1236Complete
+    userAccept.filledFormT2081 = this.t2081Complete
+    userAccept.filledFormT3010 = this.t3010Complete
+    userAccept.privacyStatement = this.privacyStatementComplete
+
+    this.csService.setUserAccpet(userAccept)
     this.resp = this.csService.saveFormT3010()
     this.resp.subscribe(item => {
       console.log("Response after saving section D ")
@@ -493,7 +534,18 @@ export class T3010Component implements OnInit {
 
     secFData.user_id = this.csService.user_id
     secFData.percentCompleted = 20
+    
     this.csService.setT3010SecF(secFData)
+    let userAccept = new UserAcceptDto()
+    userAccept.copyOfFinancialStatements = this.financialStatements
+    userAccept.filledFormRC232 = this.rc232Complete
+    userAccept.filledFormT1235 = this.t1235Complete
+    userAccept.filledFormT1236 = this.t1236Complete
+    userAccept.filledFormT2081 = this.t2081Complete
+    userAccept.filledFormT3010 = this.t3010Complete
+    userAccept.privacyStatement = this.privacyStatementComplete
+
+    this.csService.setUserAccpet(userAccept)
     this.resp = this.csService.saveFormT3010()
     this.resp.subscribe(item => {
       console.log("Response after saving section A & F ")
@@ -523,7 +575,11 @@ export class T3010Component implements OnInit {
     if (event.value == 1) {
       const dialogRef = this.dialog.open(T1236PopUpComponent, {
         width: '1100px',
-        data: {}
+        maxHeight:'700px',
+        data: {},
+        position: {
+          top: '10px'
+        }
       });
       this.c3_showConfirmation = true
     } else {
@@ -559,7 +615,11 @@ export class T3010Component implements OnInit {
       //this.col200.nativeElement.focus();
       const dialogRef = this.dialog.open(Schedule2Component, {
         width: '1100px',
-        data: {}
+        maxHeight:'650px',
+        data: {},
+        position: {
+          top: '10px'
+        }
       });
       console.log("printing this now ....")
     } else {
@@ -647,32 +707,32 @@ export class T3010Component implements OnInit {
   createFormt3010SectionD() {
     this.t3010FormSectionD = this.t3010FormSectionDBuilder.group(
       {
-        col_4020: new FormControl(),
+        col_4020_secD: new FormControl(),
         col_4050: new FormControl(),
-        col_4200: new FormControl(),
-        col_4350: new FormControl(),
+        col_4200_secD: new FormControl(),
+        col_4350_secD: new FormControl(),
         col_4400: new FormControl(),
         col_4490: new FormControl(),
-        col_4500: new FormControl(),
-        col_4505: new FormControl(),
-        col_4510: new FormControl(),
-        col_4530: new FormControl(),
+        col_4500_secD: new FormControl(),
+        col_4505_secD: new FormControl(),
+        col_4510_secD: new FormControl(),
+        col_4530_secD: new FormControl(),
         col_4565: new FormControl(),
-        col_4571: new FormControl(),
-        col_4575: new FormControl(),
-        col_4630: new FormControl(),
-        col_4640: new FormControl(),
-        col_4650: new FormControl(),
-        col_4860: new FormControl(),
-        col_4810: new FormControl(),
-        col_4920: new FormControl(),
-        col_4950: new FormControl(),
-        col_5000: new FormControl(),
-        col_5010: new FormControl(),
-        col_5050: new FormControl(),
-        col_5100: new FormControl(),
-        col_4570: new FormControl(),
-        col_4700: new FormControl()
+        col_4571_secD: new FormControl(),
+        col_4575_secD: new FormControl(),
+        col_4630_secD: new FormControl(),
+        col_4640_secD: new FormControl(),
+        col_4650_secD: new FormControl(),
+        col_4860_secD: new FormControl(),
+        col_4810_secD: new FormControl(),
+        col_4920_secD: new FormControl(),
+        col_4950_secD: new FormControl(),
+        col_5000_secD: new FormControl(),
+        col_5010_secD: new FormControl(),
+        col_5050_secD: new FormControl(),
+        col_5100_secD: new FormControl(),
+        col_4570_secD: new FormControl(),
+        col_4700_secD: new FormControl()
       }
     )
   }
@@ -937,7 +997,7 @@ export class T3010Component implements OnInit {
 
   fillSchedule6(event) {
     if (event.value == 1) {
-      this.col4020.focus()
+      //this.col4020.focus()
       this.fillSectionD = false
     } else {
       this.fillSectionD = true
@@ -962,12 +1022,12 @@ export class T3010Component implements OnInit {
       });
       dialogRef.afterClosed().subscribe(item => {
         console.log(item)
-        this.t3010FormSectionD.controls.col_4570.patchValue(item.data)
+        this.t3010FormSectionD.controls.col_4570_secD.patchValue(item.data)
         this.calculate4700SecD(0)
       })
       this.showd3_AR = true
     } else {
-      this.t3010FormSectionD.controls.col_4570.patchValue(0)
+      this.t3010FormSectionD.controls.col_4570_secD.patchValue(0)
       this.calculate4700SecD(0)
       this.showd3_AR = false
     }
@@ -1189,17 +1249,17 @@ export class T3010Component implements OnInit {
   }
 
   calculate4950SecD() {
-    this.t3010FormSectionD.controls.col_4950.patchValue(
-      Number(this.t3010FormSectionD.getRawValue().col_4860) +
-      Number(this.t3010FormSectionD.getRawValue().col_4810) +
-      Number(this.t3010FormSectionD.getRawValue().col_4920)
+    this.t3010FormSectionD.controls.col_4950_secD.patchValue(
+      Number(this.t3010FormSectionD.getRawValue().col_4860_secD) +
+      Number(this.t3010FormSectionD.getRawValue().col_4810_secD) +
+      Number(this.t3010FormSectionD.getRawValue().col_4920_secD)
     )
-    this.t3010FormSectionD.controls.col_5100.patchValue((<HTMLInputElement>document.getElementById("4950")).value)
+    this.t3010FormSectionD.controls.col_5100_secD.patchValue((<HTMLInputElement>document.getElementById("4950")).value)
   }
 
   calculate5100SecD() {
-    this.t3010FormSectionD.controls.col_5100.patchValue(Number(this.t3010FormSectionD.getRawValue().col_4950) +
-      Number(this.t3010FormSectionD.getRawValue().col_5050))
+    this.t3010FormSectionD.controls.col_5100_secD.patchValue(Number(this.t3010FormSectionD.getRawValue().col_4950_secD) +
+      Number(this.t3010FormSectionD.getRawValue().col_5050_secD))
   }
 
   calculate5100() {
@@ -1223,13 +1283,13 @@ export class T3010Component implements OnInit {
       dialogRef.afterClosed().subscribe(result => {
         console.log(result)
         if (result.event == 'cancel') {
-          let val = Number(this.t3010FormSectionD.getRawValue().col_4700) - Number((<HTMLInputElement>document.getElementById("SecD4530")).value)
+          let val = Number(this.t3010FormSectionD.getRawValue().col_4700_secD) - Number((<HTMLInputElement>document.getElementById("SecD4530")).value)
           if (val < 0) {
-            this.t3010FormSectionD.controls.col_4700.patchValue(0)
+            this.t3010FormSectionD.controls.col_4700_secD.patchValue(0)
           } else {
-            this.t3010FormSectionD.controls.col_4700.patchValue(val)
+            this.t3010FormSectionD.controls.col_4700_secD.patchValue(val)
           }
-          this.t3010FormSectionD.controls.col_4530.patchValue(0)
+          this.t3010FormSectionD.controls.col_4530_secD.patchValue(0)
         } else {
           let _4570_ = 0
           let _4500_ = 0
@@ -1246,7 +1306,7 @@ export class T3010Component implements OnInit {
           let _4640_ = (<HTMLInputElement>document.getElementById("SecD4640")).value
           let _4650_ = (<HTMLInputElement>document.getElementById("SecD4650")).value
 
-          this.t3010FormSectionD.controls.col_4700.patchValue(
+          this.t3010FormSectionD.controls.col_4700_secD.patchValue(
             Number(_4500_) +
             Number(_4510_) +
             Number(_4530_) +
@@ -1274,7 +1334,7 @@ export class T3010Component implements OnInit {
       let _4640_ = (<HTMLInputElement>document.getElementById("SecD4640")).value
       let _4650_ = (<HTMLInputElement>document.getElementById("SecD4650")).value
 
-      this.t3010FormSectionD.controls.col_4700.patchValue(
+      this.t3010FormSectionD.controls.col_4700_secD.patchValue(
         Number(_4500_) +
         Number(_4510_) +
         Number(_4530_) +
@@ -1596,7 +1656,16 @@ export class T3010Component implements OnInit {
     secAData.user_id = this.csService.user_id
     secAData.percentCompleted = 20
     this.csService.setT3010SecA(secAData)
+    let userAccept = new UserAcceptDto()
+    userAccept.copyOfFinancialStatements = this.financialStatements
+    userAccept.filledFormRC232 = this.rc232Complete
+    userAccept.filledFormT1235 = this.t1235Complete
+    userAccept.filledFormT1236 = this.t1236Complete
+    userAccept.filledFormT2081 = this.t2081Complete
+    userAccept.filledFormT3010 = this.t3010Complete
+    userAccept.privacyStatement = this.privacyStatementComplete
 
+    this.csService.setUserAccpet(userAccept)
     this.resp = this.csService.saveFormT3010()
     this.resp.subscribe(item => {
       console.log("Response after saving section A & F ")
@@ -1772,6 +1841,18 @@ export class T3010Component implements OnInit {
     secCData.user_id = this.csService.user_id
     secCData.percentCompleted = 20
     this.csService.setT3010SecC(secCData)
+
+    let userAccept = new UserAcceptDto()
+    userAccept.copyOfFinancialStatements = this.financialStatements
+    userAccept.filledFormRC232 = this.rc232Complete
+    userAccept.filledFormT1235 = this.t1235Complete
+    userAccept.filledFormT1236 = this.t1236Complete
+    userAccept.filledFormT2081 = this.t2081Complete
+    userAccept.filledFormT3010 = this.t3010Complete
+    userAccept.privacyStatement = this.privacyStatementComplete
+
+    this.csService.setUserAccpet(userAccept)
+
     this.resp = this.csService.saveFormT3010()
     this.resp.subscribe(item => {
       console.log("Response after saving section C & F ")
@@ -1795,7 +1876,16 @@ export class T3010Component implements OnInit {
   rc232Complete: boolean = false
   t1236Complete: boolean = false
   t2081Complete: boolean = false
+  privacyStatementComplete:boolean = false
 
+  setPrivacyStatement(event){
+    if(event.value){
+      console.log(event.value)
+      this.privacyStatementComplete = true
+    }else{
+      console.log("did not change")
+    }
+  }
   setCheckListOption1(event) {
     if (event.checked) {
       this.t3010Complete = true
@@ -2213,32 +2303,32 @@ export class T3010Component implements OnInit {
     }
 
     if (t3010secDdto) {
-      this.t3010FormSectionD.controls.col_4020.patchValue(t3010secDdto.col_4020)
+      this.t3010FormSectionD.controls.col_4020_secD.patchValue(t3010secDdto.col_4020_secD)
       this.t3010FormSectionD.controls.col_4050.patchValue(t3010secDdto.col_4050)
-      this.t3010FormSectionD.controls.col_4200.patchValue(t3010secDdto.col_4200)
-      this.t3010FormSectionD.controls.col_4350.patchValue(t3010secDdto.col_4350)
+      this.t3010FormSectionD.controls.col_4200_secD.patchValue(t3010secDdto.col_4200_secD)
+      this.t3010FormSectionD.controls.col_4350_secD.patchValue(t3010secDdto.col_4350_secD)
       this.t3010FormSectionD.controls.col_4400.patchValue(t3010secDdto.col_4400)
       this.t3010FormSectionD.controls.col_4490.patchValue(t3010secDdto.col_4490)
-      this.t3010FormSectionD.controls.col_4500.patchValue(t3010secDdto.col_4500)
-      this.t3010FormSectionD.controls.col_4505.patchValue(t3010secDdto.col_4505)
-      this.t3010FormSectionD.controls.col_4510.patchValue(t3010secDdto.col_4510)
-      this.t3010FormSectionD.controls.col_4530.patchValue(t3010secDdto.col_4530)
+      this.t3010FormSectionD.controls.col_4500_secD.patchValue(t3010secDdto.col_4500_secD)
+      this.t3010FormSectionD.controls.col_4505_secD.patchValue(t3010secDdto.col_4505_secD)
+      this.t3010FormSectionD.controls.col_4510_secD.patchValue(t3010secDdto.col_4510_secD)
+      this.t3010FormSectionD.controls.col_4530_secD.patchValue(t3010secDdto.col_4530_secD)
       this.t3010FormSectionD.controls.col_4565.patchValue(t3010secDdto.col_4565)
-      this.t3010FormSectionD.controls.col_4571.patchValue(t3010secDdto.col_4571)
-      this.t3010FormSectionD.controls.col_4575.patchValue(t3010secDdto.col_4575)
-      this.t3010FormSectionD.controls.col_4630.patchValue(t3010secDdto.col_4630)
-      this.t3010FormSectionD.controls.col_4640.patchValue(t3010secDdto.col_4640)
-      this.t3010FormSectionD.controls.col_4650.patchValue(t3010secDdto.col_4650)
-      this.t3010FormSectionD.controls.col_4860.patchValue(t3010secDdto.col_4860)
-      this.t3010FormSectionD.controls.col_4810.patchValue(t3010secDdto.col_4810)
-      this.t3010FormSectionD.controls.col_4920.patchValue(t3010secDdto.col_4920)
-      this.t3010FormSectionD.controls.col_4950.patchValue(t3010secDdto.col_4950)
-      this.t3010FormSectionD.controls.col_5000.patchValue(t3010secDdto.col_5000)
-      this.t3010FormSectionD.controls.col_5010.patchValue(t3010secDdto.col_5010)
-      this.t3010FormSectionD.controls.col_5050.patchValue(t3010secDdto.col_5050)
-      this.t3010FormSectionD.controls.col_5100.patchValue(t3010secDdto.col_5100)
-      this.t3010FormSectionD.controls.col_4570.patchValue(t3010secDdto.col_4570)
-      this.t3010FormSectionD.controls.col_4700.patchValue(t3010secDdto.col_4700)
+      this.t3010FormSectionD.controls.col_4571_secD.patchValue(t3010secDdto.col_4571_secD)
+      this.t3010FormSectionD.controls.col_4575_secD.patchValue(t3010secDdto.col_4575_secD)
+      this.t3010FormSectionD.controls.col_4630_secD.patchValue(t3010secDdto.col_4630_secD)
+      this.t3010FormSectionD.controls.col_4640_secD.patchValue(t3010secDdto.col_4640_secD)
+      this.t3010FormSectionD.controls.col_4650_secD.patchValue(t3010secDdto.col_4650_secD)
+      this.t3010FormSectionD.controls.col_4860_secD.patchValue(t3010secDdto.col_4860_secD)
+      this.t3010FormSectionD.controls.col_4810_secD.patchValue(t3010secDdto.col_4810_secD)
+      this.t3010FormSectionD.controls.col_4920_secD.patchValue(t3010secDdto.col_4920_secD)
+      this.t3010FormSectionD.controls.col_4950_secD.patchValue(t3010secDdto.col_4950_secD)
+      this.t3010FormSectionD.controls.col_5000_secD.patchValue(t3010secDdto.col_5000_secD)
+      this.t3010FormSectionD.controls.col_5010_secD.patchValue(t3010secDdto.col_5010_secD)
+      this.t3010FormSectionD.controls.col_5050_secD.patchValue(t3010secDdto.col_5050_secD)
+      this.t3010FormSectionD.controls.col_5100_secD.patchValue(t3010secDdto.col_5100_secD)
+      this.t3010FormSectionD.controls.col_4570_secD.patchValue(t3010secDdto.col_4570_secD)
+      this.t3010FormSectionD.controls.col_4700_secD.patchValue(t3010secDdto.col_4700_secD)
     }
     if (t3010secEDto) {
       this.t3010FormSectionE.controls.e_name.patchValue(t3010secEDto.e_name)
@@ -2252,6 +2342,16 @@ export class T3010Component implements OnInit {
   submitCharityForm() {
     console.log("Submitting form T3010")
     this.showSpinner = true
+    let userAccept = new UserAcceptDto()
+    userAccept.copyOfFinancialStatements = this.financialStatements
+    userAccept.filledFormRC232 = this.rc232Complete
+    userAccept.filledFormT1235 = this.t1235Complete
+    userAccept.filledFormT1236 = this.t1236Complete
+    userAccept.filledFormT2081 = this.t2081Complete
+    userAccept.filledFormT3010 = this.t3010Complete
+    userAccept.privacyStatement = this.privacyStatementComplete
+
+    this.csService.setUserAccpet(userAccept)
     this.resp = this.csService.submitCharityForm()
     this.resp.subscribe(item => {
       console.log(item)
@@ -2274,7 +2374,7 @@ export class T3010Component implements OnInit {
     console.log("formtypeand language : " + formType + "   --  " + language)
     this.resp = this.csService.downloadCharityForm(formType, language)
     this.resp.subscribe(item => {
-      console.log(item)
+     console.log(item)
     })
   }
 

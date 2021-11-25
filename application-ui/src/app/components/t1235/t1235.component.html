@@ -24,12 +24,12 @@
   <div style="float: left;width: 490px;">
     <div style="float: left;width: 300px;">
       <div style="float: left;margin-top: 20px;margin-left: 10px;">
-        <a href="javascript:void();">
+        <!--<a href="javascript:void();">
           <div (click)="userInfo()" style="float: left;" *ngIf="showLogout">
             <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/user.png" 
             style="width: 65px;border-radius: 50%;margin-left: 200px;margin-top: 113px;">
           </div>
-        </a>
+        </a>-->
       </div>
     </div>
     <div style="float: left;width: 190px;">
@@ -42,9 +42,16 @@
     
   </div>
 </div>
+<div style="float: left;width: 94.5%;height: 36px;">
+  <div style="float: left;margin-top: 10px;color: #004385;width: 100%;">
+    <a href="javascript:void();" style="float: right;">
+      <b (click)="logout()" style="text-decoration: none;color: #004385;">Logout</b>
+  </a>
+  </div>
+</div>
 
 
-<div style="width: 1000px;float: left;margin-top: 30px;" *ngIf="progressOfFrorm">
+<!--<div style="width: 1000px;float: left;margin-top: 30px;" *ngIf="progressOfFrorm">
     <mat-card style="width: 1000px;height: 186px;background-color: #e7e7e7;color: #004385;">
       <div style="float: left;width: 960px;">
         <div style="float: left;width: 380px;">
@@ -117,17 +124,17 @@
         </div>
       </div>
     </mat-card>
-  </div>
+  </div>-->
 
   <div style="margin-top: 15px;float: left;width: 1000px;" *ngIf="showTabs">
     <div style="float: left;">
-      <ul class="nav nav-tabs" style="margin-top: 50px;">
-        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionA" (click)="changeTabTot3010()">T3010</a></li>
-        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionC" (click)="changeTabTorc232()">RC232-18e</a></li>
-        <li class="active" style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionD" (click)="changeTabTot1235()">T1235-20e</a></li>
-        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionF" (click)="changeTabTot1236()">T1236-19e</a></li>
-        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionE" (click)="changeTabTot2081()">T2081-10e</a></li>
-        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#Guide" (click)="changeTabToGuide()">Guide T4033</a></li>
+      <ul class="nav nav-tabs" style="margin-top: 0px;">
+        <li style="width: 250px;text-align: center;"><a data-toggle="tab" href="#SectionA" (click)="changeTabTot3010()">T3010</a></li>
+        <!--<li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionC" (click)="changeTabTorc232()">RC232-18e</a></li>-->
+        <li class="active" style="width: 250px;text-align: center;"><a data-toggle="tab" href="#SectionD" (click)="changeTabTot1235()">T1235-20e</a></li>
+        <li style="width: 250px;text-align: center;"><a data-toggle="tab" href="#SectionF" (click)="changeTabTot1236()">T1236-19e</a></li>
+        <!--<li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionE" (click)="changeTabTot2081()">T2081-10e</a></li>-->
+        <li style="width: 250px;text-align: center;"><a data-toggle="tab" href="#Guide" (click)="changeTabToGuide()">Guide T4033</a></li>
       </ul>
     </div>
   </div>
@@ -239,7 +246,7 @@
               <div style="float: left;margin-top: 8px;">Initials:</div>
               <div style="float: left;">
                 <div style="float: left;">
-                  <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                  <div style="float: left;margin-left: 3px;margin-top: -12px;">
                     <mat-form-field class="" style="width: 25px;">
                       <input matInput placeholder="" value="" formControlName="t1235Initials_1">
                     </mat-form-field>
@@ -282,8 +289,8 @@
             </div>
           </div>
           <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
-            <div style="float: left;width: 170px;">
-              <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+            <div style="float: left;width: 165px;">
+              <div style="float: left;width: 60px;margin-top: 5px;">Position:</div>
               <div style="float: left;">
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -294,7 +301,7 @@
                 </div>
               </div>
             </div>
-            <div style="float: left;width: 300px;">
+            <div style="float: left;width: 315px;">
               <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
               </div>
               <div style="float: left;">
@@ -349,7 +356,7 @@
                 </div>
               </div>
             </div>
-            <div style="float: left;width: 135px;">
+            <div style="float: left;width: 146px;">
               <div style="float: left;">Postal code:</div>
               <div style="float: left;">
                 <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -361,7 +368,7 @@
             </div>
           </div>
           <div style="float: left;width: 480px;">
-            <div style="float: left;width: 242px;margin-top: 7px;">
+            <div style="float: left;width: 242px;margin-top: 2px;">
               <div style="float: left;margin-top: 5px;">Phone number:</div>
               <div style="float: left;">
                 <div style="float: left;">
@@ -373,8 +380,8 @@
                 </div>
               </div>
             </div>
-            <div style="float: left;width: 230px;">
-              <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+            <div style="float: left;width: 230px;margin-top: -10px;">
+              <div style="float: left;margin-top: 18px;width: 100px;">Date of birth:</div>
               <mat-form-field style="width: 126px;">
                 <mat-label></mat-label>
                 <input matInput [matDatepicker]="t1235dob1" formControlName="t1235dob1"/>
@@ -419,7 +426,7 @@
                 <div style="float: left;margin-top: 8px;">Initials:</div>
                 <div style="float: left;">
                   <div style="float: left;">
-                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <div style="float: left;margin-left: 3px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 25px;">
                         <input matInput placeholder="" value="" formControlName="t1235Initials_2">
                       </mat-form-field>
@@ -462,8 +469,8 @@
               </div>
             </div>
             <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
-              <div style="float: left;width: 170px;">
-                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+              <div style="float: left;width: 165px;">
+                <div style="float: left;width: 60px;margin-top: 5px;">Position:</div>
                 <div style="float: left;">
                   <div style="float: left;">
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -474,7 +481,7 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 300px;">
+              <div style="float: left;width: 315px;">
                 <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
                 </div>
                 <div style="float: left;">
@@ -529,7 +536,7 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 135px;">
+              <div style="float: left;width: 146px;">
                 <div style="float: left;">Postal code:</div>
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -541,7 +548,7 @@
               </div>
             </div>
             <div style="float: left;width: 480px;">
-              <div style="float: left;width: 242px;margin-top: 7px;">
+              <div style="float: left;width: 242px;margin-top: 2px;">
                 <div style="float: left;margin-top: 5px;">Phone number:</div>
                 <div style="float: left;">
                   <div style="float: left;">
@@ -553,8 +560,8 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 230px;">
-                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+              <div style="float: left;width: 230px;margin-top: -10px;">
+                <div style="float: left;margin-top: 18px;width: 100px;">Date of birth:</div>
                 <mat-form-field style="width: 126px;">
                   <mat-label></mat-label>
                   <input matInput [matDatepicker]="t1235dob2" />
@@ -599,7 +606,7 @@
                 <div style="float: left;margin-top: 8px;">Initials:</div>
                 <div style="float: left;">
                   <div style="float: left;">
-                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <div style="float: left;margin-left: 3px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 25px;">
                         <input matInput placeholder="" value="" formControlName="t1235Initials_3">
                       </mat-form-field>
@@ -642,8 +649,8 @@
               </div>
             </div>
             <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
-              <div style="float: left;width: 170px;">
-                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+              <div style="float: left;width: 165px;">
+                <div style="float: left;width: 60px;margin-top: 5px;">Position:</div>
                 <div style="float: left;">
                   <div style="float: left;">
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -654,7 +661,7 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 300px;">
+              <div style="float: left;width: 315px;">
                 <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
                 </div>
                 <div style="float: left;">
@@ -709,7 +716,7 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 135px;">
+              <div style="float: left;width: 146px;">
                 <div style="float: left;">Postal code:</div>
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -721,7 +728,7 @@
               </div>
             </div>
             <div style="float: left;width: 480px;">
-              <div style="float: left;width: 242px;margin-top: 7px;">
+              <div style="float: left;width: 242px;margin-top: 2px;">
                 <div style="float: left;margin-top: 5px;">Phone number:</div>
                 <div style="float: left;">
                   <div style="float: left;">
@@ -733,8 +740,8 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 230px;">
-                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+              <div style="float: left;width: 230px;margin-top: -10px;">
+                <div style="float: left;margin-top: 18px;width: 100px;">Date of birth:</div>
                 <mat-form-field style="width: 126px;">
                   <mat-label></mat-label>
                   <input matInput [matDatepicker]="t1235dob3" />
@@ -779,7 +786,7 @@
                 <div style="float: left;margin-top: 8px;">Initials:</div>
                 <div style="float: left;">
                   <div style="float: left;">
-                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <div style="float: left;margin-left: 3px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 25px;">
                         <input matInput placeholder="" value="" formControlName="t1235Initials_4">
                       </mat-form-field>
@@ -822,8 +829,8 @@
               </div>
             </div>
             <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
-              <div style="float: left;width: 170px;">
-                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+              <div style="float: left;width: 165px;">
+                <div style="float: left;width: 60px;margin-top: 5px;">Position:</div>
                 <div style="float: left;">
                   <div style="float: left;">
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -834,7 +841,7 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 300px;">
+              <div style="float: left;width: 315px;">
                 <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
                 </div>
                 <div style="float: left;">
@@ -889,7 +896,7 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 135px;">
+              <div style="float: left;width: 146px;">
                 <div style="float: left;">Postal code:</div>
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -901,7 +908,7 @@
               </div>
             </div>
             <div style="float: left;width: 480px;">
-              <div style="float: left;width: 242px;margin-top: 7px;">
+              <div style="float: left;width: 242px;margin-top: 2px;">
                 <div style="float: left;margin-top: 5px;">Phone number:</div>
                 <div style="float: left;">
                   <div style="float: left;">
@@ -913,8 +920,8 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 230px;">
-                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+              <div style="float: left;width: 230px;margin-top: -10px;">
+                <div style="float: left;margin-top: 18px;width: 100px;">Date of birth:</div>
                 <mat-form-field style="width: 126px;">
                   <mat-label></mat-label>
                   <input matInput [matDatepicker]="t1235dob4" />
@@ -959,7 +966,7 @@
                 <div style="float: left;margin-top: 8px;">Initials:</div>
                 <div style="float: left;">
                   <div style="float: left;">
-                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <div style="float: left;margin-left: 3px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 25px;">
                         <input matInput placeholder="" value="" formControlName="t1235Initials_5">
                       </mat-form-field>
@@ -1002,8 +1009,8 @@
               </div>
             </div>
             <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
-              <div style="float: left;width: 170px;">
-                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+              <div style="float: left;width: 165px;">
+                <div style="float: left;width: 60px;margin-top: 5px;">Position:</div>
                 <div style="float: left;">
                   <div style="float: left;">
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -1014,7 +1021,7 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 300px;">
+              <div style="float: left;width: 315px;">
                 <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
                 </div>
                 <div style="float: left;">
@@ -1069,7 +1076,7 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 135px;">
+              <div style="float: left;width: 146px;">
                 <div style="float: left;">Postal code:</div>
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -1081,7 +1088,7 @@
               </div>
             </div>
             <div style="float: left;width: 480px;">
-              <div style="float: left;width: 242px;margin-top: 7px;">
+              <div style="float: left;width: 242px;margin-top: 2px;">
                 <div style="float: left;margin-top: 5px;">Phone number:</div>
                 <div style="float: left;">
                   <div style="float: left;">
@@ -1093,8 +1100,8 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 230px;">
-                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+              <div style="float: left;width: 230px;margin-top: -10px;">
+                <div style="float: left;margin-top: 18px;width: 100px;">Date of birth:</div>
                 <mat-form-field style="width: 126px;">
                   <mat-label></mat-label>
                   <input matInput [matDatepicker]="t1235dob5" />
@@ -1139,7 +1146,7 @@
                 <div style="float: left;margin-top: 8px;">Initials:</div>
                 <div style="float: left;">
                   <div style="float: left;">
-                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <div style="float: left;margin-left: 3px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 25px;">
                         <input matInput placeholder="" value="" formControlName="t1235Initials_6">
                       </mat-form-field>
@@ -1182,8 +1189,8 @@
               </div>
             </div>
             <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
-              <div style="float: left;width: 170px;">
-                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+              <div style="float: left;width: 165px;">
+                <div style="float: left;width: 60px;margin-top: 5px;">Position:</div>
                 <div style="float: left;">
                   <div style="float: left;">
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -1194,7 +1201,7 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 300px;">
+              <div style="float: left;width: 315px;">
                 <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
                 </div>
                 <div style="float: left;">
@@ -1249,7 +1256,7 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 135px;">
+              <div style="float: left;width: 146px;">
                 <div style="float: left;">Postal code:</div>
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -1261,7 +1268,7 @@
               </div>
             </div>
             <div style="float: left;width: 480px;">
-              <div style="float: left;width: 242px;margin-top: 7px;">
+              <div style="float: left;width: 242px;margin-top: 2px;">
                 <div style="float: left;margin-top: 5px;">Phone number:</div>
                 <div style="float: left;">
                   <div style="float: left;">
@@ -1273,8 +1280,8 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 230px;">
-                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+              <div style="float: left;width: 230px;margin-top: -10px;">
+                <div style="float: left;margin-top: 18px;width: 100px;">Date of birth:</div>
                 <mat-form-field style="width: 126px;">
                   <mat-label></mat-label>
                   <input matInput [matDatepicker]="t1235dob6" />
@@ -1319,7 +1326,7 @@
                 <div style="float: left;margin-top: 8px;">Initials:</div>
                 <div style="float: left;">
                   <div style="float: left;">
-                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <div style="float: left;margin-left: 3px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 25px;">
                         <input matInput placeholder="" value="" formControlName="t1235Initials_7">
                       </mat-form-field>
@@ -1362,8 +1369,8 @@
               </div>
             </div>
             <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
-              <div style="float: left;width: 170px;">
-                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+              <div style="float: left;width: 165px;">
+                <div style="float: left;width: 60px;margin-top: 5px;">Position:</div>
                 <div style="float: left;">
                   <div style="float: left;">
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -1374,7 +1381,7 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 300px;">
+              <div style="float: left;width: 315px;">
                 <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
                 </div>
                 <div style="float: left;">
@@ -1429,7 +1436,7 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 135px;">
+              <div style="float: left;width: 146px;">
                 <div style="float: left;">Postal code:</div>
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -1441,7 +1448,7 @@
               </div>
             </div>
             <div style="float: left;width: 480px;">
-              <div style="float: left;width: 242px;margin-top: 7px;">
+              <div style="float: left;width: 242px;margin-top: 2px;">
                 <div style="float: left;margin-top: 5px;">Phone number:</div>
                 <div style="float: left;">
                   <div style="float: left;">
@@ -1453,8 +1460,8 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 230px;">
-                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+              <div style="float: left;width: 230px;margin-top: -10px;">
+                <div style="float: left;margin-top: 18px;width: 100px;">Date of birth:</div>
                 <mat-form-field style="width: 126px;">
                   <mat-label></mat-label>
                   <input matInput [matDatepicker]="t1235dob7" />
@@ -1498,7 +1505,7 @@
                 <div style="float: left;margin-top: 8px;">Initials:</div>
                 <div style="float: left;">
                   <div style="float: left;">
-                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <div style="float: left;margin-left: 3px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 25px;">
                         <input matInput placeholder="" value="" formControlName="t1235Initials_8">
                       </mat-form-field>
@@ -1541,8 +1548,8 @@
               </div>
             </div>
             <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
-              <div style="float: left;width: 170px;">
-                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+              <div style="float: left;width: 165px;">
+                <div style="float: left;width: 60px;margin-top: 5px;">Position:</div>
                 <div style="float: left;">
                   <div style="float: left;">
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -1553,7 +1560,7 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 300px;">
+              <div style="float: left;width: 315px;">
                 <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
                 </div>
                 <div style="float: left;">
@@ -1608,7 +1615,7 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 135px;">
+              <div style="float: left;width: 146px;">
                 <div style="float: left;">Postal code:</div>
                 <div style="float: left;">
                   <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -1620,7 +1627,7 @@
               </div>
             </div>
             <div style="float: left;width: 480px;">
-              <div style="float: left;width: 242px;margin-top: 7px;">
+              <div style="float: left;width: 242px;margin-top: 2px;">
                 <div style="float: left;margin-top: 5px;">Phone number:</div>
                 <div style="float: left;">
                   <div style="float: left;">
@@ -1632,8 +1639,8 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 230px;">
-                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+              <div style="float: left;width: 230px;margin-top: -10px;">
+                <div style="float: left;margin-top: 18px;width: 100px;">Date of birth:</div>
                 <mat-form-field style="width: 126px;">
                   <mat-label></mat-label>
                   <input matInput [matDatepicker]="t1235dob8" />
@@ -1678,7 +1685,7 @@
                 <div style="float: left;margin-top: 8px;">Initials:</div>
                 <div style="float: left;">
                   <div style="float: left;">
-                    <div style="float: left;margin-left: 10px;margin-top: -12px;">
+                    <div style="float: left;margin-left: 3px;margin-top: -12px;">
                       <mat-form-field class="" style="width: 25px;">
                         <input matInput placeholder="" value="" formControlName="t1235Initials_9">
                       </mat-form-field>
@@ -1721,8 +1728,8 @@
               </div>
             </div>
             <div style="float: left;width: 480px;font-size: 12px;margin-top: 5px;">
-              <div style="float: left;width: 170px;">
-                <div style="float: left;width: 57px;margin-top: 5px;">Position:</div>
+              <div style="float: left;width: 165px;">
+                <div style="float: left;width: 60px;margin-top: 5px;">Position:</div>
                 <div style="float: left;">
                   <div style="float: left;">
                     <div style="float: left;margin-left: 10px;margin-top: -12px;">
@@ -1733,7 +1740,7 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 300px;">
+              <div style="float: left;width: 315px;">
                 <div style="float: left;margin-top: 7px;">At arm's length with other Directors?
                 </div>
                 <div style="float: left;">
@@ -1800,7 +1807,7 @@
               </div>
             </div>
             <div style="float: left;width: 480px;">
-              <div style="float: left;width: 242px;margin-top: 7px;">
+              <div style="float: left;width: 242px;margin-top: 2px;">
                 <div style="float: left;margin-top: 5px;">Phone number:</div>
                 <div style="float: left;">
                   <div style="float: left;">
@@ -1812,8 +1819,8 @@
                   </div>
                 </div>
               </div>
-              <div style="float: left;width: 230px;">
-                <div style="float: left;margin-top: 13px;width: 100px;">Date of birth:</div>
+              <div style="float: left;width: 230px;margin-top: -10px;">
+                <div style="float: left;margin-top: 18px;width: 100px;">Date of birth:</div>
                 <mat-form-field style="width: 126px;">
                   <mat-label></mat-label>
                   <input matInput [matDatepicker]="t1235dob9" />
@@ -1925,15 +1932,15 @@
   </form>
   </div>
   <div style="float: left;width: 1000px;margin-top: 25px;background-color: gainsboro;margin-bottom: 15px;">
-    <a href="javascript:void();">
+    <!--<a href="javascript:void();">
       <div [ngClass]="{'disableDiv': isDownloadDisabled}" style="font-size: 13px;float: right;background-color:#00AFFF;
       color: white;padding: 5px;width: 200px;margin-right: 0px;text-align: center;border: 2px solid #9e9e9e;"
         (click)="downloadForm('T1235','fr')">DOWNLOAD - FRENCH</div>
-    </a>
+    </a>-->
     <a href="javascript:void();">
       <div [ngClass]="{'disableDiv': isDownloadDisabled}" style="float: right;background-color:#00AFFF;color: white;font-size: 13px;
       padding: 5px;width: 200px;margin-right: 10px;text-align: center;border: 2px solid #9e9e9e;"
-        (click)="downloadForm('T1235','en')">DOWNLOAD - ENGLISH</div>
+        (click)="downloadForm('T1235','en')">DOWNLOAD FORM</div>
     </a>
     <a href="javascript:void();">
       <div style="float: right;background-color:#00AFFF;color: white;padding: 5px;width: 110px;

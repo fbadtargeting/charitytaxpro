@@ -24,12 +24,12 @@
   <div style="float: left;width: 490px;">
     <div style="float: left;width: 300px;">
       <div style="float: left;margin-top: 20px;margin-left: 10px;">
-        <a href="javascript:void();">
+        <!--<a href="javascript:void();">
           <div (click)="userInfo()" style="float: left;" *ngIf="showLogout">
             <img src="http://3.98.43.92/CharityTaxPro/assets/imgs/user.png" 
             style="width: 65px;border-radius: 50%;margin-left: 200px;margin-top: 113px;">
           </div>
-        </a>
+        </a>-->
       </div>
     </div>
     <div style="float: left;width: 190px;">
@@ -42,8 +42,15 @@
     
   </div>
 </div>
+<div style="float: left;width: 94.5%;height: 36px;">
+  <div style="float: left;margin-top: 10px;color: #004385;width: 100%;">
+    <a href="javascript:void();" style="float: right;">
+      <b (click)="logout()" style="text-decoration: none;color: #004385;">Logout</b>
+  </a>
+  </div>
+</div>
 
-<div style="width: 1000px;float: left;margin-top: 30px;" *ngIf="progressOfFrorm">
+<!--<div style="width: 1000px;float: left;margin-top: 30px;" *ngIf="progressOfFrorm">
     <mat-card style="width: 1000px;height: 186px;background-color: #e7e7e7;color: #004385;">
       <div style="float: left;width: 960px;">
         <div style="float: left;width: 380px;">
@@ -116,17 +123,17 @@
         </div>
       </div>
     </mat-card>
-  </div>
+  </div>-->
 
   <div style="margin-top: 15px;float: left;width: 1000px;" *ngIf="showTabs">
     <div style="float: left;">
-      <ul class="nav nav-tabs" style="margin-top: 50px;">
-        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionA" (click)="changeTabTot3010()">T3010</a></li>
-        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionC" (click)="changeTabTorc232()">RC232-18e</a></li>
-        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionD" (click)="changeTabTot1235()">T1235-20e</a></li>
-        <li class="active" style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionF" (click)="changeTabTot1236()">T1236-19e</a></li>
-        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionE" (click)="changeTabTot2081()">T2081-10e</a></li>
-        <li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#Guide" (click)="changeTabToGuide()">Guide T4033</a></li>
+      <ul class="nav nav-tabs" style="margin-top: 0px;">
+        <li style="width: 250px;text-align: center;"><a data-toggle="tab" href="#SectionA" (click)="changeTabTot3010()">T3010</a></li>
+        <!--<li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionC" (click)="changeTabTorc232()">RC232-18e</a></li>-->
+        <li style="width: 250px;text-align: center;"><a data-toggle="tab" href="#SectionD" (click)="changeTabTot1235()">T1235-20e</a></li>
+        <li class="active" style="width: 250px;text-align: center;"><a data-toggle="tab" href="#SectionF" (click)="changeTabTot1236()">T1236-19e</a></li>
+        <!--<li style="width: 166px;text-align: center;"><a data-toggle="tab" href="#SectionE" (click)="changeTabTot2081()">T2081-10e</a></li>-->
+        <li style="width: 250px;text-align: center;"><a data-toggle="tab" href="#Guide" (click)="changeTabToGuide()">Guide T4033</a></li>
       </ul>
     </div>
   </div>
@@ -158,7 +165,7 @@
             <div style="float: left;">
               <mat-form-field style="width: 350px;text-align: center;">
                 <mat-label></mat-label>
-                <input matInput placeholder="" formControlName="t1236ChanrityName">
+                <input matInput placeholder="" formControlName="t1236CharityName">
               </mat-form-field>
             </div>
           </div>
@@ -283,7 +290,7 @@
             <div style="float: left;">
               <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
                 <mat-label></mat-label>
-                <input matInput placeholder="" formControlName="t1236CityProv_1">
+                <input matInput placeholder="" formControlName="t1236CityProv_1" style="text-align: center;">
               </mat-form-field>
             </div>
           </div>
@@ -295,7 +302,7 @@
             <div style="float: left;">
               <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
                 <mat-label></mat-label>
-                <input matInput placeholder="" formControlName="t1236Country_1">
+                <input matInput placeholder="" formControlName="t1236Country_1" style="text-align: center;">
               </mat-form-field>
             </div>
           </div>
@@ -306,10 +313,11 @@
             <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
               Amount of non-cash gifts
             </div>
+            <div style="float: left;margin-top: 12px;">$</div>
             <div style="float: left;width: 235px;">
               <div style="float: left;margin-left: 10px;margin-top: 0px;">
                 <mat-form-field class="">
-                  <input matInput placeholder="$" value="" formControlName="t1236NonCashGifts_1">
+                  <input matInput placeholder="" value="" formControlName="t1236NonCashGifts_1">
                 </mat-form-field>
               </div>
             </div>
@@ -321,10 +329,11 @@
             <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
               Total amount of gifts
             </div>
+            <div style="float: left;margin-top: 12px;">$</div>
             <div style="float: left;width: 235px;">
               <div style="float: left;margin-left: 10px;margin-top: 0px;">
                 <mat-form-field class="">
-                  <input matInput placeholder="$" value="" formControlName="t1236TotalAmtGifts_1">
+                  <input matInput placeholder="" value="" formControlName="t1236TotalAmtGifts_1">
                 </mat-form-field>
               </div>
             </div>
@@ -397,7 +406,7 @@
             <div style="float: left;">
               <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
                 <mat-label></mat-label>
-                <input matInput placeholder="" formControlName="t1236CityProv_2">
+                <input matInput placeholder="" formControlName="t1236CityProv_2" style="text-align: center;">
               </mat-form-field>
             </div>
           </div>
@@ -409,7 +418,7 @@
             <div style="float: left;">
               <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
                 <mat-label></mat-label>
-                <input matInput placeholder="" formControlName="t1236Country_2">
+                <input matInput placeholder="" formControlName="t1236Country_2" style="text-align: center;">
               </mat-form-field>
             </div>
           </div>
@@ -420,10 +429,11 @@
             <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
               Amount of non-cash gifts
             </div>
+            <div style="float: left;margin-top: 12px;">$</div>
             <div style="float: left;width: 235px;">
               <div style="float: left;margin-left: 10px;margin-top: 0px;">
                 <mat-form-field class="">
-                  <input matInput placeholder="$" value="" formControlName="t1236NonCashGifts_2">
+                  <input matInput placeholder="" value="" formControlName="t1236NonCashGifts_2" >
                 </mat-form-field>
               </div>
             </div>
@@ -435,10 +445,11 @@
             <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
               Total amount of gifts
             </div>
+            <div style="float: left;margin-top: 12px;">$</div>
             <div style="float: left;width: 235px;">
               <div style="float: left;margin-left: 10px;margin-top: 0px;">
                 <mat-form-field class="">
-                  <input matInput placeholder="$" value="" formControlName="t1236TotalAmtGifts_2">
+                  <input matInput placeholder="" value="" formControlName="t1236TotalAmtGifts_2">
                 </mat-form-field>
               </div>
             </div>
@@ -511,7 +522,7 @@
             <div style="float: left;">
               <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
                 <mat-label></mat-label>
-                <input matInput placeholder="" formControlName="t1236CityProv_3">
+                <input matInput placeholder="" formControlName="t1236CityProv_3" style="text-align: center;">
               </mat-form-field>
             </div>
           </div>
@@ -523,7 +534,7 @@
             <div style="float: left;">
               <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
                 <mat-label></mat-label>
-                <input matInput placeholder="" formControlName="t1236Country_3">
+                <input matInput placeholder="" formControlName="t1236Country_3" style="text-align: center;">
               </mat-form-field>
             </div>
           </div>
@@ -534,10 +545,11 @@
             <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
               Amount of non-cash gifts
             </div>
+            <div style="float: left;margin-top: 12px;">$</div>
             <div style="float: left;width: 235px;">
               <div style="float: left;margin-left: 10px;margin-top: 0px;">
                 <mat-form-field class="">
-                  <input matInput placeholder="$" value="" formControlName="t1236NonCashGifts_3">
+                  <input matInput placeholder="" value="" formControlName="t1236NonCashGifts_3">
                 </mat-form-field>
               </div>
             </div>
@@ -549,10 +561,11 @@
             <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
               Total amount of gifts
             </div>
+            <div style="float: left;margin-top: 12px;">$</div>
             <div style="float: left;width: 235px;">
               <div style="float: left;margin-left: 10px;margin-top: 0px;">
                 <mat-form-field class="">
-                  <input matInput placeholder="$" value="" formControlName="t1236TotalAmtGifts_3">
+                  <input matInput placeholder="" value="" formControlName="t1236TotalAmtGifts_3">
                 </mat-form-field>
               </div>
             </div>
@@ -625,7 +638,7 @@
             <div style="float: left;">
               <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
                 <mat-label></mat-label>
-                <input matInput placeholder="" formControlName="t1236CityProv_4">
+                <input matInput placeholder="" formControlName="t1236CityProv_4" style="text-align: center;">
               </mat-form-field>
             </div>
           </div>
@@ -637,7 +650,7 @@
             <div style="float: left;">
               <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
                 <mat-label></mat-label>
-                <input matInput placeholder="" formControlName="t1236Country_4">
+                <input matInput placeholder="" formControlName="t1236Country_4" style="text-align: center;">
               </mat-form-field>
             </div>
           </div>
@@ -648,10 +661,11 @@
             <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
               Amount of non-cash gifts
             </div>
+            <div style="float: left;margin-top: 12px;">$</div>
             <div style="float: left;width: 235px;">
               <div style="float: left;margin-left: 10px;margin-top: 0px;">
                 <mat-form-field class="">
-                  <input matInput placeholder="$" value="" formControlName="t1236NonCashGifts_4">
+                  <input matInput placeholder="" value="" formControlName="t1236NonCashGifts_4">
                 </mat-form-field>
               </div>
             </div>
@@ -663,10 +677,11 @@
             <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
               Total amount of gifts
             </div>
+            <div style="float: left;margin-top: 12px;">$</div>
             <div style="float: left;width: 235px;">
               <div style="float: left;margin-left: 10px;margin-top: 0px;">
                 <mat-form-field class="">
-                  <input matInput placeholder="$" value="" formControlName="t1236TotalAmtGifts_4">
+                  <input matInput placeholder="" value="" formControlName="t1236TotalAmtGifts_4">
                 </mat-form-field>
               </div>
             </div>
@@ -739,7 +754,7 @@
             <div style="float: left;">
               <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
                 <mat-label></mat-label>
-                <input matInput placeholder="" formControlName="t1236CityProv_5">
+                <input matInput placeholder="" formControlName="t1236CityProv_5" style="text-align: center;">
               </mat-form-field>
             </div>
           </div>
@@ -751,7 +766,7 @@
             <div style="float: left;">
               <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
                 <mat-label></mat-label>
-                <input matInput placeholder="" formControlName="t1236Country_5">
+                <input matInput placeholder="" formControlName="t1236Country_5" style="text-align: center;">
               </mat-form-field>
             </div>
           </div>
@@ -762,10 +777,11 @@
             <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
               Amount of non-cash gifts
             </div>
+            <div style="float: left;margin-top: 12px;">$</div>
             <div style="float: left;width: 235px;">
               <div style="float: left;margin-left: 10px;margin-top: 0px;">
                 <mat-form-field class="">
-                  <input matInput placeholder="$" value="" formControlName="t1236NonCashGifts_5">
+                  <input matInput placeholder="" value="" formControlName="t1236NonCashGifts_5">
                 </mat-form-field>
               </div>
             </div>
@@ -777,10 +793,11 @@
             <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
               Total amount of gifts
             </div>
+            <div style="float: left;margin-top: 12px;">$</div>
             <div style="float: left;width: 235px;">
               <div style="float: left;margin-left: 10px;margin-top: 0px;">
                 <mat-form-field class="">
-                  <input matInput placeholder="$" value="" formControlName="t1236TotalAmtGifts_5">
+                  <input matInput placeholder="" value="" formControlName="t1236TotalAmtGifts_5">
                 </mat-form-field>
               </div>
             </div>
@@ -853,7 +870,7 @@
             <div style="float: left;">
               <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
                 <mat-label></mat-label>
-                <input matInput placeholder="" formControlName="t1236CityProv_6">
+                <input matInput placeholder="" formControlName="t1236CityProv_6" style="text-align: center;">
               </mat-form-field>
             </div>
           </div>
@@ -865,7 +882,7 @@
             <div style="float: left;">
               <mat-form-field class="example-full-width" style="width: 149px;height: 50px;">
                 <mat-label></mat-label>
-                <input matInput placeholder="" formControlName="t1236Country_6">
+                <input matInput placeholder="" formControlName="t1236Country_6" style="text-align: center;">
               </mat-form-field>
             </div>
           </div>
@@ -876,10 +893,11 @@
             <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
               Amount of non-cash gifts
             </div>
+            <div style="float: left;margin-top: 12px;">$</div>
             <div style="float: left;width: 235px;">
               <div style="float: left;margin-left: 10px;margin-top: 0px;">
                 <mat-form-field class="">
-                  <input matInput placeholder="$" value="" formControlName="t1236NonCashGifts_6">
+                  <input matInput placeholder="" value="" formControlName="t1236NonCashGifts_6">
                 </mat-form-field>
               </div>
             </div>
@@ -891,10 +909,11 @@
             <div style="float: left;margin-left: 10px;width: 176px;margin-top: 17px;">
               Total amount of gifts
             </div>
+            <div style="float: left;margin-top: 12px;">$</div>
             <div style="float: left;width: 235px;">
               <div style="float: left;margin-left: 10px;margin-top: 0px;">
                 <mat-form-field class="">
-                  <input matInput placeholder="$" value="" formControlName="t1236TotalAmtGifts_6">
+                  <input matInput placeholder="" value="" formControlName="t1236TotalAmtGifts_6">
                 </mat-form-field>
               </div>
             </div>
@@ -957,15 +976,15 @@
   </div>
 
   <div style="float: left;width: 1000px;margin-top: 25px;background-color: gainsboro;margin-bottom: 15px;">
-    <a href="javascript:void();">
+    <!--<a href="javascript:void();">
       <div [ngClass]="{'disableDiv': isDownloadDisabled}" style="font-size: 13px;float: right;background-color:#00AFFF;
       color: white;padding: 5px;width: 200px;margin-right: 0px;text-align: center;border: 2px solid #9e9e9e;"
         (click)="downloadForm('T1236','fr')">DOWNLOAD - FRENCH</div>
-    </a>
+    </a>-->
     <a href="javascript:void();">
       <div [ngClass]="{'disableDiv': isDownloadDisabled}" style="float: right;background-color:#00AFFF;color: white;font-size: 13px;
       padding: 5px;width: 200px;margin-right: 10px;text-align: center;border: 2px solid #9e9e9e;"
-        (click)="downloadForm('T1236','en')">DOWNLOAD - ENGLISH</div>
+        (click)="downloadForm('T1236','en')">DOWNLOAD FORM</div>
     </a>
     <a href="javascript:void();">
       <div style="float: right;background-color:#00AFFF;color: white;padding: 5px;width: 110px;

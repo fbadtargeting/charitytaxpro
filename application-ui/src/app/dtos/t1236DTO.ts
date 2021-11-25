@@ -1,6 +1,6 @@
 export class T1236DTO{
-t1236ChanrityName:string
-fiscalPeriodEnding_1236:Date
+t1236CharityName:string
+fiscalPeriodEnding_1236:string
 t1236NumberOfDonees:string
 t1236bn_registration:string
 t1236OrgName_1:string

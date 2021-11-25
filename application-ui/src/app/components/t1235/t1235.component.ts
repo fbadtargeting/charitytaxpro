@@ -68,7 +68,7 @@ export class T1235Component implements OnInit {
     this.createFormT1235()
     let t1235Resp = this.csService.getFormT1235()
     t1235Resp.subscribe(item=>{
-      let t1235dto = item
+      let t1235dto = item.t1235
       if(t1235dto){
         if(t1235dto.percentCompleted == 100){
           this.t123520evalue = t1235dto.percentCompleted
@@ -94,11 +94,11 @@ export class T1235Component implements OnInit {
       let tempValD=0
       let tempValE=0
       let tempValF=0
-      let t3010secAdto = item.t3010SecA
-      let t3010seCdto = item.t3010SecC
-      let t3010secDdto = item.t3010SecD
-      let t3010secEDto = item.t3010SecE
-      let t3010secFdto = item.t3010SecF
+      let t3010secAdto = item.t3010.t3010SecA
+      let t3010seCdto = item.t3010.t3010SecC
+      let t3010secDdto = item.t3010.t3010SecD
+      let t3010secEDto = item.t3010.t3010SecE
+      let t3010secFdto = item.t3010.t3010SecF
       
         if(t3010secAdto){
           tempValA = t3010secAdto.percentCompleted
@@ -137,7 +137,7 @@ export class T1235Component implements OnInit {
     })
     let t1236 = this.csService.getFormT1236()
     t1236.subscribe(item=>{
-      let t1236Dto = item
+      let t1236Dto = item.t1236
       if (t1236Dto) {
         if(t1236Dto.percentCompleted == 100){
           this.t123619ecolor='primary'
@@ -195,8 +195,8 @@ export class T1235Component implements OnInit {
       {
         t1235NumberOfDirectors: new FormControl(),
         t1235CharityName: new FormControl(),
-        t1235Prefix: new FormControl(),
-        t1235Suffix: new FormControl(),
+        t1235Prefix: new FormControl(''),
+        t1235Suffix: new FormControl(''),
         t1235ReturnOfFiscalPeriod: new FormControl(),
 
         t1235LastName_1: new FormControl(),
@@ -334,12 +334,12 @@ export class T1235Component implements OnInit {
     t1235Dto.t1235NumberOfDirectors = this.formT1235.getRawValue().t1235NumberOfDirectors
     t1235Dto.t1235CharityName = this.formT1235.getRawValue().t1235CharityName
     t1235Dto.t1235BnRegistration = this.formT1235.getRawValue().t1235Prefix + "RR" + this.formT1235.getRawValue().t1235Suffix
-    t1235Dto.t1235ReturnOfFiscalPeriod = this.formT1235.getRawValue().t1235ReturnOfFiscalPeriod
+    t1235Dto.t1235ReturnOfFiscalPeriod = this.datePipe.transform(this.formT1235.getRawValue().t1235ReturnOfFiscalPeriod,"yyyy-MM-dd")
     t1235Dto.t1235LastName_1 = this.formT1235.getRawValue().t1235LastName_1
     t1235Dto.t1235FirstName_1 = this.formT1235.getRawValue().t1235FirstName_1
     t1235Dto.t1235Initials_1 = this.formT1235.getRawValue().t1235Initials_1
-    t1235Dto.t1235sd1 = this.formT1235.getRawValue().t1235sd1
-    t1235Dto.t1235ed1 = this.formT1235.getRawValue().t1235ed1
+    t1235Dto.t1235sd1 = this.datePipe.transform(this.formT1235.getRawValue().t1235sd1,"yyyy-MM-dd")
+    t1235Dto.t1235ed1 = this.datePipe.transform(this.formT1235.getRawValue().t1235ed1,"yyyy-MM-dd")
     t1235Dto.t1235Position_1 = this.formT1235.getRawValue().t1235Position_1
     t1235Dto.t1235AtArms_1 = this.formT1235.getRawValue().t1235AtArms_1
     t1235Dto.t1235Street_1 = this.formT1235.getRawValue().t1235Street_1
@@ -347,12 +347,12 @@ export class T1235Component implements OnInit {
     t1235Dto.t1235Prov_1 = this.formT1235.getRawValue().t1235Prov_1
     t1235Dto.t1235Code_1 = this.formT1235.getRawValue().t1235Code_1
     t1235Dto.t1235Phone_1 = this.formT1235.getRawValue().t1235Phone_1
-    t1235Dto.t1235dob1 = this.formT1235.getRawValue().t1235dob1
+    t1235Dto.t1235dob1 = this.datePipe.transform(this.formT1235.getRawValue().t1235dob1,"yyyy-MM-dd")
     t1235Dto.t1235LastName_2 = this.formT1235.getRawValue().t1235LastName_2
     t1235Dto.t1235FirstName_2 = this.formT1235.getRawValue().t1235FirstName_2
     t1235Dto.t1235Initials_2 = this.formT1235.getRawValue().t1235Initials_2
-    t1235Dto.t1235sd2 = this.formT1235.getRawValue().t1235sd2
-    t1235Dto.t1235ed2 = this.formT1235.getRawValue().t1235ed2
+    t1235Dto.t1235sd2 = this.datePipe.transform(this.formT1235.getRawValue().t1235sd2,"yyyy-MM-dd")
+    t1235Dto.t1235ed2 = this.datePipe.transform(this.formT1235.getRawValue().t1235ed2,"yyyy-MM-dd")
     t1235Dto.t1235Position_2 = this.formT1235.getRawValue().t1235Position_2
     t1235Dto.t1235AtArms_2 = this.formT1235.getRawValue().t1235AtArms_2
     t1235Dto.t1235Street_2 = this.formT1235.getRawValue().t1235Street_2
@@ -360,12 +360,12 @@ export class T1235Component implements OnInit {
     t1235Dto.t1235Prov_2 = this.formT1235.getRawValue().t1235Prov_2
     t1235Dto.t1235Code_2 = this.formT1235.getRawValue().t1235Code_2
     t1235Dto.t1235Phone_2 = this.formT1235.getRawValue().t1235Phone_2
-    t1235Dto.t1235dob2 = this.formT1235.getRawValue().t1235dob2
+    t1235Dto.t1235dob2 = this.datePipe.transform(this.formT1235.getRawValue().t1235dob2,"yyyy-MM-dd")
     t1235Dto.t1235LastName_3 = this.formT1235.getRawValue().t1235LastName_3
     t1235Dto.t1235FirstName_3 = this.formT1235.getRawValue().t1235FirstName_3
     t1235Dto.t1235Initials_3 = this.formT1235.getRawValue().t1235Initials_3
-    t1235Dto.t1235sd3 = this.formT1235.getRawValue().t1235sd3
-    t1235Dto.t1235ed3 = this.formT1235.getRawValue().t1235ed3
+    t1235Dto.t1235sd3 = this.datePipe.transform(this.formT1235.getRawValue().t1235sd3,"yyyy-MM-dd")
+    t1235Dto.t1235ed3 = this.datePipe.transform(this.formT1235.getRawValue().t1235ed3,"yyyy-MM-dd")
     t1235Dto.t1235Position_3 = this.formT1235.getRawValue().t1235Position_3
     t1235Dto.t1235AtArms_3 = this.formT1235.getRawValue().t1235AtArms_3
     t1235Dto.t1235Street_3 = this.formT1235.getRawValue().t1235Street_3
@@ -373,12 +373,12 @@ export class T1235Component implements OnInit {
     t1235Dto.t1235Prov_3 = this.formT1235.getRawValue().t1235Prov_3
     t1235Dto.t1235Code_3 = this.formT1235.getRawValue().t1235Code_3
     t1235Dto.t1235Phone_3 = this.formT1235.getRawValue().t1235Phone_3
-    t1235Dto.t1235dob3 = this.formT1235.getRawValue().t1235dob3
+    t1235Dto.t1235dob3 = this.datePipe.transform(this.formT1235.getRawValue().t1235dob3,"yyyy-MM-dd")
     t1235Dto.t1235LastName_4 = this.formT1235.getRawValue().t1235LastName_4
     t1235Dto.t1235FirstName_4 = this.formT1235.getRawValue().t1235FirstName_4
     t1235Dto.t1235Initials_4 = this.formT1235.getRawValue().t1235Initials_4
-    t1235Dto.t1235sd4 = this.formT1235.getRawValue().t1235sd4
-    t1235Dto.t1235ed4 = this.formT1235.getRawValue().t1235ed4
+    t1235Dto.t1235sd4 = this.datePipe.transform(this.formT1235.getRawValue().t1235sd4,"yyyy-MM-dd")
+    t1235Dto.t1235ed4 = this.datePipe.transform(this.formT1235.getRawValue().t1235ed4,"yyyy-MM-dd")
     t1235Dto.t1235Position_4 = this.formT1235.getRawValue().t1235Position_4
     t1235Dto.t1235AtArms_4 = this.formT1235.getRawValue().t1235AtArms_4
     t1235Dto.t1235Street_4 = this.formT1235.getRawValue().t1235Street_4
@@ -386,12 +386,12 @@ export class T1235Component implements OnInit {
     t1235Dto.t1235Prov_4 = this.formT1235.getRawValue().t1235Prov_4
     t1235Dto.t1235Code_4 = this.formT1235.getRawValue().t1235Code_4
     t1235Dto.t1235Phone_4 = this.formT1235.getRawValue().t1235Phone_4
-    t1235Dto.t1235dob4 = this.formT1235.getRawValue().t1235dob4
+    t1235Dto.t1235dob4 = this.datePipe.transform(this.formT1235.getRawValue().t1235dob4,"yyyy-MM-dd")
     t1235Dto.t1235LastName_5 = this.formT1235.getRawValue().t1235LastName_5
     t1235Dto.t1235FirstName_5 = this.formT1235.getRawValue().t1235FirstName_5
     t1235Dto.t1235Initials_5 = this.formT1235.getRawValue().t1235Initials_5
-    t1235Dto.t1235sd5 = this.formT1235.getRawValue().t1235sd5
-    t1235Dto.t1235ed5 = this.formT1235.getRawValue().t1235ed5
+    t1235Dto.t1235sd5 = this.datePipe.transform(this.formT1235.getRawValue().t1235sd5,"yyyy-MM-dd")
+    t1235Dto.t1235ed5 = this.datePipe.transform(this.formT1235.getRawValue().t1235ed5,"yyyy-MM-dd")
     t1235Dto.t1235Position_5 = this.formT1235.getRawValue().t1235Position_5
     t1235Dto.t1235AtArms_5 = this.formT1235.getRawValue().t1235AtArms_5
     t1235Dto.t1235Street_5 = this.formT1235.getRawValue().t1235Street_5
@@ -399,12 +399,12 @@ export class T1235Component implements OnInit {
     t1235Dto.t1235Prov_5 = this.formT1235.getRawValue().t1235Prov_5
     t1235Dto.t1235Code_5 = this.formT1235.getRawValue().t1235Code_5
     t1235Dto.t1235Phone_5 = this.formT1235.getRawValue().t1235Phone_5
-    t1235Dto.t1235dob5 = this.formT1235.getRawValue().t1235dob5
+    t1235Dto.t1235dob5 = this.datePipe.transform(this.formT1235.getRawValue().t1235dob5,"yyyy-MM-dd")
     t1235Dto.t1235LastName_6 = this.formT1235.getRawValue().t1235LastName_6
     t1235Dto.t1235FirstName_6 = this.formT1235.getRawValue().t1235FirstName_6
     t1235Dto.t1235Initials_6 = this.formT1235.getRawValue().t1235Initials_6
-    t1235Dto.t1235sd6 = this.formT1235.getRawValue().t1235sd6
-    t1235Dto.t1235ed6 = this.formT1235.getRawValue().t1235ed6
+    t1235Dto.t1235sd6 = this.datePipe.transform(this.formT1235.getRawValue().t1235sd6,"yyyy-MM-dd")
+    t1235Dto.t1235ed6 = this.datePipe.transform(this.formT1235.getRawValue().t1235ed6,"yyyy-MM-dd")
     t1235Dto.t1235Position_6 = this.formT1235.getRawValue().t1235Position_6
     t1235Dto.t1235AtArms_6 = this.formT1235.getRawValue().t1235AtArms_6
     t1235Dto.t1235Street_6 = this.formT1235.getRawValue().t1235Street_6
@@ -412,12 +412,12 @@ export class T1235Component implements OnInit {
     t1235Dto.t1235Prov_6 = this.formT1235.getRawValue().t1235Prov_6
     t1235Dto.t1235Code_6 = this.formT1235.getRawValue().t1235Code_6
     t1235Dto.t1235Phone_6 = this.formT1235.getRawValue().t1235Phone_6
-    t1235Dto.t1235dob6 = this.formT1235.getRawValue().t1235dob6
+    t1235Dto.t1235dob6 = this.datePipe.transform(this.formT1235.getRawValue().t1235dob6,"yyyy-MM-dd")
     t1235Dto.t1235LastName_7 = this.formT1235.getRawValue().t1235LastName_7
     t1235Dto.t1235FirstName_7 = this.formT1235.getRawValue().t1235FirstName_7
     t1235Dto.t1235Initials_7 = this.formT1235.getRawValue().t1235Initials_7
-    t1235Dto.t1235sd7 = this.formT1235.getRawValue().t1235sd7
-    t1235Dto.t1235ed7 = this.formT1235.getRawValue().t1235ed7
+    t1235Dto.t1235sd7 = this.datePipe.transform(this.formT1235.getRawValue().t1235sd7,"yyyy-MM-dd")
+    t1235Dto.t1235ed7 = this.datePipe.transform(this.formT1235.getRawValue().t1235ed7,"yyyy-MM-dd")
     t1235Dto.t1235Position_7 = this.formT1235.getRawValue().t1235Position_7
     t1235Dto.t1235AtArms_7 = this.formT1235.getRawValue().t1235AtArms_7
     t1235Dto.t1235Street_7 = this.formT1235.getRawValue().t1235Street_7
@@ -425,12 +425,12 @@ export class T1235Component implements OnInit {
     t1235Dto.t1235Prov_7 = this.formT1235.getRawValue().t1235Prov_7
     t1235Dto.t1235Code_7 = this.formT1235.getRawValue().t1235Code_7
     t1235Dto.t1235Phone_7 = this.formT1235.getRawValue().t1235Phone_7
-    t1235Dto.t1235dob7 = this.formT1235.getRawValue().t1235dob7
+    t1235Dto.t1235dob7 = this.datePipe.transform(this.formT1235.getRawValue().t1235dob7,"yyyy-MM-dd")
     t1235Dto.t1235LastName_8 = this.formT1235.getRawValue().t1235LastName_8
     t1235Dto.t1235FirstName_8 = this.formT1235.getRawValue().t1235FirstName_8
     t1235Dto.t1235Initials_8 = this.formT1235.getRawValue().t1235Initials_8
-    t1235Dto.t1235sd8 = this.formT1235.getRawValue().t1235sd8
-    t1235Dto.t1235ed8 = this.formT1235.getRawValue().t1235ed8
+    t1235Dto.t1235sd8 = this.datePipe.transform(this.formT1235.getRawValue().t1235sd8,"yyyy-MM-dd")
+    t1235Dto.t1235ed8 = this.datePipe.transform(this.formT1235.getRawValue().t1235ed8,"yyyy-MM-dd")
     t1235Dto.t1235Position_8 = this.formT1235.getRawValue().t1235Position_8
     t1235Dto.t1235AtArms_8 = this.formT1235.getRawValue().t1235AtArms_8
     t1235Dto.t1235Street_8 = this.formT1235.getRawValue().t1235Street_8
@@ -438,12 +438,12 @@ export class T1235Component implements OnInit {
     t1235Dto.t1235Prov_8 = this.formT1235.getRawValue().t1235Prov_8
     t1235Dto.t1235Code_8 = this.formT1235.getRawValue().t1235Code_8
     t1235Dto.t1235Phone_8 = this.formT1235.getRawValue().t1235Phone_8
-    t1235Dto.t1235dob8 = this.formT1235.getRawValue().t1235dob8
+    t1235Dto.t1235dob8 = this.datePipe.transform(this.formT1235.getRawValue().t1235dob8,"yyyy-MM-dd")
     t1235Dto.t1235LastName_9 = this.formT1235.getRawValue().t1235LastName_9
     t1235Dto.t1235FirstName_9 = this.formT1235.getRawValue().t1235FirstName_9
     t1235Dto.t1235Initials_9 = this.formT1235.getRawValue().t1235Initials_9
-    t1235Dto.t1235sd9 = this.formT1235.getRawValue().t1235sd9
-    t1235Dto.t1235ed9 = this.formT1235.getRawValue().t1235ed9
+    t1235Dto.t1235sd9 = this.datePipe.transform(this.formT1235.getRawValue().t1235sd9,"yyyy-MM-dd")
+    t1235Dto.t1235ed9 = this.datePipe.transform(this.formT1235.getRawValue().t1235ed9,"yyyy-MM-dd")
     t1235Dto.t1235Position_9 = this.formT1235.getRawValue().t1235Position_9
     t1235Dto.t1235AtArms_9 = this.formT1235.getRawValue().t1235AtArms_9
     t1235Dto.t1235Street_9 = this.formT1235.getRawValue().t1235Street_9
@@ -451,7 +451,7 @@ export class T1235Component implements OnInit {
     t1235Dto.t1235Prov_9 = this.formT1235.getRawValue().t1235Prov_9
     t1235Dto.t1235Code_9 = this.formT1235.getRawValue().t1235Code_9
     t1235Dto.t1235Phone_9 = this.formT1235.getRawValue().t1235Phone_9
-    t1235Dto.t1235dob9 = this.formT1235.getRawValue().t1235dob9
+    t1235Dto.t1235dob9 = this.datePipe.transform(this.formT1235.getRawValue().t1235dob9,"yyyy-MM-dd")
     t1235Dto.user_id = this.csService.user_id
     //this.csService.setT1235(t1235Dto)
     this.resp1235 = this.csService.saveFormT1235(t1235Dto)

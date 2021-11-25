@@ -1,10 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import * as printJS from 'print-js';
 import { CharityNewUserDto } from '../dtos/CharityNewUserDto';
 import { CharityUserAuthReq } from '../dtos/CharityUserAuthReq ';
 import { CharityUserAuthResp } from '../dtos/CharityUserAuthResp';
 import { CharityUserRegistrationResp } from '../dtos/CharityUserRegistrationResp';
 import { GenericRespDTO } from '../dtos/GenericRespDTO';
+import { MasterDtoT1235 } from '../dtos/MasterDtoT1235';
+import { MasterDtoT1236 } from '../dtos/MasterDtoT1236';
+import { MasterDtoT3010 } from '../dtos/MasterDtoT3010';
 import { RC232DTO } from '../dtos/rc232DTO';
 import { T1235DTO } from '../dtos/t1235DTO';
 import { T1236DTO } from '../dtos/t1236DTO';
@@ -14,6 +18,7 @@ import { T3010SecC } from '../dtos/t3010SecC';
 import { T3010SecD } from '../dtos/t3010SecD';
 import { T3010SecE } from '../dtos/t3010SecE';
 import { T3010SecF } from '../dtos/t3010SecF';
+import { UserAcceptDto } from '../dtos/UserAcceptDto';
 
 const HttpUploadOptions = {
   headers: new HttpHeaders({ "Content-Type": "application/json" })
@@ -25,7 +30,7 @@ const HttpUploadOptions = {
 export class CsServiceService {
 
   baseUrl = "http://3.98.43.92:7070/api/"
-
+  //baseUrl = "http://192.168.29.181:7070/api/"
 
   showLogout: boolean = false
   progressOfFrorm: boolean = false
@@ -163,46 +168,67 @@ export class CsServiceService {
     console.log(this.t3010secF)
 
     let t3010dto = new t3010DTO()
+    let masterDtoT3010 = new MasterDtoT3010()
     t3010dto.t3010SecA = this.t3010secA
     t3010dto.t3010SecC = this.t3010secC
     t3010dto.t3010SecD = this.t3010secD
     t3010dto.t3010SecE = this.t3010secE
     t3010dto.t3010SecF = this.t3010secF
     t3010dto.user_id = this.user_id
+
+    masterDtoT3010.t3010 = t3010dto
+    masterDtoT3010.userId = this.user_id
+    masterDtoT3010.userAccept = this.getUserAccept()
+
     let url = this.baseUrl + "charity-form/saveFormT3010"
-    return this.http.post(url, JSON.stringify(t3010dto), HttpUploadOptions)
+    //return this.http.post(url, JSON.stringify(t3010dto), HttpUploadOptions)
+    return this.http.post(url, JSON.stringify(masterDtoT3010), HttpUploadOptions)
   }
 
   getFormT3010() {
     let url = this.baseUrl + "charity-form/getFormT3010/" + this.user_id
-    return this.http.get<t3010DTO>(url)
+    //return this.http.get<t3010DTO>(url)
+    return this.http.get<MasterDtoT3010>(url)
   }
 
   saveFormT1235(t1235Dto: T1235DTO) {
+    let masterDtoT1235 = new MasterDtoT1235()
+    masterDtoT1235.t1235 = t1235Dto
+    masterDtoT1235.userAccept = this.getUserAccept()
     let url = this.baseUrl + "charity-form/saveFormT1235"
-    return this.http.post<GenericRespDTO>(url, JSON.stringify(t1235Dto), HttpUploadOptions)
+    //return this.http.post<GenericRespDTO>(url, JSON.stringify(t1235Dto), HttpUploadOptions)
+    return this.http.post<GenericRespDTO>(url, JSON.stringify(masterDtoT1235), HttpUploadOptions)
   }
 
   getFormT1235() {
     let url = this.baseUrl + "charity-form/getFormT1235/" + this.user_id
-    return this.http.get<T1235DTO>(url)
+    //return this.http.get<T1235DTO>(url)
+    return this.http.get<MasterDtoT1235>(url)
   }
 
   saveFormT1236(t1236Dto: T1236DTO) {
+    let masterDtoT1236 = new MasterDtoT1236()
+    masterDtoT1236.t1236 = t1236Dto
+    masterDtoT1236.userAccept = this.getUserAccept()
     let url = this.baseUrl + "charity-form/saveFormT1236"
-    return this.http.post<GenericRespDTO>(url, JSON.stringify(t1236Dto), HttpUploadOptions)
+    //return this.http.post<GenericRespDTO>(url, JSON.stringify(t1236Dto), HttpUploadOptions)
+    return this.http.post<GenericRespDTO>(url, JSON.stringify(masterDtoT1236), HttpUploadOptions)
   }
 
   getFormT1236() {
     let url = this.baseUrl + "charity-form/getFormT1236/" + this.user_id
-    return this.http.get<T1236DTO>(url)
+    //return this.http.get<T1236DTO>(url)
+    return this.http.get<MasterDtoT1236>(url)
   }
 
   
   submitCharityForm() {
     console.log("submitting charity form with the following values :::: ")
-    let url = this.baseUrl + "charity-form/submitTaxForm/" + this.user_id
-    return this.http.get(url)
+    let url = this.baseUrl + "charity-form/submitTaxForm/"
+    let userAccept = new UserAcceptDto()
+    userAccept = this.getUserAccept()
+    userAccept.userId = this.user_id
+    return this.http.post(url,JSON.stringify(userAccept),HttpUploadOptions)
   }
 
   downloadPdf() {
@@ -214,7 +240,8 @@ export class CsServiceService {
 
   downloadCharityForm(formType, lang) {
     let url = this.baseUrl + "charity-form/downloadCharityForm/" + this.user_id + "/" + formType + "/" + lang
-    window.open(url)
+    printJS(url)
+    //window.open(url)
     return this.http.get(url)
   }
 
@@ -292,5 +319,14 @@ export class CsServiceService {
     console.log("submitting charity form with the following values :::: ")
     let url = this.baseUrl + "charity-form/sendUserCreds/" + bn
     return this.http.get(url)
+  }
+
+  useraccept:UserAcceptDto
+
+  setUserAccpet(userAccept:UserAcceptDto){
+    this.useraccept = userAccept
+  }
+  getUserAccept(){
+    return this.useraccept
   }
 }
